@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @SpringBootApplication
 public class Application {
@@ -17,11 +16,11 @@ public class Application {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(BreweriesRepository breweriesRepository)
+    CommandLineRunner commandLineRunner(BreweryRepository breweryRepository)
     {
         return args -> {
-            Breweries b = new Breweries(
-                    "Kevin Brewery OMEGALUL",
+            Brewery b = new Brewery(
+                    "Kevin Test ",
                     "Good Type",
                     "1234 Lakers Suck",
                     "Los Angeles",
@@ -40,8 +39,7 @@ public class Application {
                     "kevins",
                     "brewin");
             //Save example.
-            breweriesRepository.save(b);
+            breweryRepository.save(b);
         };
     }
-
 }

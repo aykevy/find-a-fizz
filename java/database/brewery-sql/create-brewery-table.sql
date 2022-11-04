@@ -1,5 +1,4 @@
-CREATE SCHEMA IF NOT EXISTS breweries;
-CREATE TABLE IF NOT EXISTS breweries (
+CREATE TABLE IF NOT EXISTS brewery (
     id BIGSERIAL PRIMARY KEY,
     name character varying,
     brewery_type character varying,

@@ -3,12 +3,9 @@ package com.techelevator;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
-import static javax.persistence.GenerationType.SEQUENCE;
-
-@Entity(name = "Breweries")
-public class Breweries {
+@Entity(name = "Brewery")
+public class Brewery {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -69,9 +66,9 @@ public class Breweries {
     @Column(name = "tags", columnDefinition = "TEXT")
     String text;
 
-    public Breweries(){}
+    public Brewery(){}
 
-    public Breweries(String name, String breweryType, String street, String city, String state, String postalCode, String websiteUrl, String phone, LocalDate createdAt, LocalDate updatedAt, String country, BigDecimal longitude, BigDecimal latitude, String address2, String address3, String countyProvince, String obdbId, String text) {
+    public Brewery(String name, String breweryType, String street, String city, String state, String postalCode, String websiteUrl, String phone, LocalDate createdAt, LocalDate updatedAt, String country, BigDecimal longitude, BigDecimal latitude, String address2, String address3, String countyProvince, String obdbId, String text) {
         this.name = name;
         this.breweryType = breweryType;
         this.street = street;
