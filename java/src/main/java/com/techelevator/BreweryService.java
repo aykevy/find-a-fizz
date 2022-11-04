@@ -19,6 +19,19 @@ public class BreweryService {
         return breweryRepository.findAll();
     }
 
+    public List<Brewery> getAllBreweriesByCity(String city) {
+        return breweryRepository.findByCity(city);
+    }
+
+    public List<Brewery> getAllBreweriesByState(String state) {
+        return breweryRepository.findByState(state);
+    }
+
+    public List<Brewery> getAllBreweriesByPostalCode(String postalCode) {
+        return breweryRepository.findByPostalCode(postalCode);
+    }
+
+
     public Optional<Brewery> getBreweryById(Long id)
     {
         return breweryRepository.findById(id);
