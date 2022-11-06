@@ -67,6 +67,15 @@ public class BreweryController {
         breweryService.addBrewery(brewery);
     }
 
+    /*
+        DELETE example on Postman: http://localhost:8080/brewery/1
+     */
+    @DeleteMapping("/brewery/{id}")
+    public void deleteBreweryById(@PathVariable Long id)
+    {
+        breweryService.deleteBreweryById(id);
+    }
+
 
     /*
         Design wise, we only expect the front end to ask and request changes to the following fields:

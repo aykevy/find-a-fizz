@@ -25,10 +25,17 @@ public class BeerController {
         return beerService.getAllBeers();
     }
 
+
     @PostMapping("/beer")
     public void addBeer(@RequestBody Beer beer)
     {
         System.out.println("Added beer!");
         beerService.addBeer(beer);
+    }
+
+    @DeleteMapping("/beer/{id}")
+    public void deleteBreweryById(@PathVariable Long id)
+    {
+        beerService.deleteBeerById(id);
     }
 }

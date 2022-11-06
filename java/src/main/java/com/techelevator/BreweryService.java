@@ -42,10 +42,16 @@ public class BreweryService {
         breweryRepository.save(brewery);
     }
 
+    public void deleteBreweryById(Long id)
+    {
+        breweryRepository.deleteById(id);
+    }
+
     public void updateBreweryById(Brewery brewery, Long id)
     {
         breweryRepository.updateBreweryById(brewery.getName(), brewery.getBreweryType(), brewery.getStreet(),
                 brewery.getCity(), brewery.getState(), brewery.getPostalCode(), brewery.getWebsiteUrl(),
                 brewery.getPhone(), id);
     }
+
 }

@@ -15,7 +15,6 @@ public interface BreweryRepository extends JpaRepository<Brewery, Long>
     List<Brewery> findByState(String State);
     List<Brewery> findByPostalCode(String postalCode);
 
-
     /* Note when doing an update here, use the Brewery class variable names, not the table names in Postgres. */
     @Query("UPDATE Brewery SET name=:name, breweryType=:breweryType, street=:street, city=:city, state=:state, postalCode=:postalCode, websiteUrl=:websiteUrl, phone=:phone WHERE id=:id")
     @Modifying
