@@ -1,3 +1,8 @@
+
+BEGIN TRANSACTION;
+DROP TABLE IF EXISTS brewery;
+DROP TABLE IF EXISTS beer;
+
 CREATE TABLE IF NOT EXISTS brewery (
     id BIGSERIAL PRIMARY KEY,
     name character varying,
@@ -19,3 +24,13 @@ CREATE TABLE IF NOT EXISTS brewery (
     obdb_id character varying,
     tags text
 );
+
+CREATE TABLE IF NOT EXISTS beer (
+    id BIGSERIAL PRIMARY KEY,
+    name character varying,
+    description character varying,
+    image_url character varying
+);
+
+
+END TRANSACTION;

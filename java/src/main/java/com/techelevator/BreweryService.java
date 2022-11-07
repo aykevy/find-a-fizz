@@ -15,6 +15,11 @@ public class BreweryService {
         this.breweryRepository = breweryRepository;
     }
 
+    public Optional<Brewery> getBreweryById(Long id)
+    {
+        return breweryRepository.findById(id);
+    }
+
     public List<Brewery> getAllBreweries() {
         return breweryRepository.findAll();
     }
@@ -27,14 +32,26 @@ public class BreweryService {
         return breweryRepository.findByState(state);
     }
 
-    public List<Brewery> getAllBreweriesByPostalCode(String postalCode) {
+    public List<Brewery> getAllBreweriesByPostalCode(String postalCode)
+    {
         return breweryRepository.findByPostalCode(postalCode);
     }
 
-
-    public Optional<Brewery> getBreweryById(Long id)
+    public void addBrewery(Brewery brewery)
     {
-        return breweryRepository.findById(id);
+        breweryRepository.save(brewery);
+    }
+
+    public void deleteBreweryById(Long id)
+    {
+        breweryRepository.deleteById(id);
+    }
+
+    public void updateBreweryById(Brewery brewery, Long id)
+    {
+        breweryRepository.updateBreweryById(brewery.getName(), brewery.getBreweryType(), brewery.getStreet(),
+                brewery.getCity(), brewery.getState(), brewery.getPostalCode(), brewery.getWebsiteUrl(),
+                brewery.getPhone(), id);
     }
 
 }
