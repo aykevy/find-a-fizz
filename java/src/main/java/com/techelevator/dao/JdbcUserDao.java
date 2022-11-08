@@ -12,8 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.techelevator.model.User;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
+@CrossOrigin
 public class JdbcUserDao implements UserDao {
 
     private JdbcTemplate jdbcTemplate;
