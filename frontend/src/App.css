@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.menu--box{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-items: center;
+  justify-content: space-around;
+  align-content: space-between;
+ }

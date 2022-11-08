@@ -18,9 +18,17 @@ code {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   width: var(--card-width);
 }
+.beer--card--set{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 5px;
+  justify-items: center;
+  width: 400px;
+  height: 400px;
+ }
 
-#beer--pic {
-  height: 500px;
-  width: 500px;
-  
+ .beer--card--ind{
+  flex: 1 1 0;
+  padding: 5px;
 }

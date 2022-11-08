@@ -6,20 +6,10 @@ import React from 'react';
 
 
 function Home(props) {
-    //State of Brews
-    let brewList = []
-    //Call brew list
-    axios.get('breweries/')
-        .then( function (response) {
-        brewList = response.data;
-})  
-    let singleBrew = brewList[0];
-    return(
-        
-        <div>
-           {singleBrew.map((data)=> <p>test</p>)}
-        </div>
-    )
+    
+return(
+    <></>
+)
 }
 
 export default Home;

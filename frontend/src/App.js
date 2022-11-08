@@ -13,9 +13,9 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
   
-        <Main/>
+        {/* <Main/> */}
         {/*Comment Main and uncomment beer to see random beer example work, run backend on intelij then run this on VS */}
-        {/*<Beer/>*/}
+        {<Beer/>}
       </BrowserRouter>
     </Provider>
   );
