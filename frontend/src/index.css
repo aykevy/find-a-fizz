@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*Just testing for beer */
+#beer--description {
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: var(--card-width);
+}
+
+#beer--pic {
+  height: 500px;
+  width: 500px;
+  
+}

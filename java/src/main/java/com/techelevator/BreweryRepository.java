@@ -12,7 +12,7 @@ import java.util.List;
 public interface BreweryRepository extends JpaRepository<Brewery, Long>
 {
     List<Brewery> findByCity(String city);
-    List<Brewery> findByState(String State);
+    List<Brewery> findByState(String state);
     List<Brewery> findByPostalCode(String postalCode);
 
     /* Note when doing an update here, use the Brewery class variable names, not the table names in Postgres. */
