@@ -24,7 +24,12 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <>
-        <button onClick={() => handleCLick()}>Click to see beers</button>
+        <header>
+        <button>Home</button>
+        <button onClick={() => handleCLick()}>Click to see Beers</button>
+        <button>Click to see Breweries</button>
+        <button>Search</button>
+        </header>
         {/* <Main/> */}
         {/*Comment Main and uncomment beer to see random beer example work, run backend on intelij then run this on VS */}
         <div className='beer--list' >
@@ -34,6 +39,10 @@ function App() {
           )
         })}
         </div>
+        <footer>
+          <h5>CopyRight 2022</h5>
+          <button>login</button>
+        </footer>
         </>
       </BrowserRouter>
     </Provider>

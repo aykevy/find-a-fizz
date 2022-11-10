@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F7F5F1;
+  min-height: 100vh;
 }
 
 code {
@@ -73,4 +75,45 @@ code {
   text-align: center;
  }
 
+
+ /* set up for implimentation later to keep Hexcodes and colors in place. Feel free to rename as needed for components*/
+ header {
+  padding: 20px;
+  background-color: #5B4037;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+ }
+ header > button {
+  background-color: #ECA200;
+  border-style: none;
+  padding: 10px;
+  margin: 20px;
+ }
+ footer{
+  margin-top: 10px;
+  padding:  25px ;
+  position: fixed;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  background-color: #5B4037;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+ }
+ footer > h5 {
+  text-align: start;
+  color: #F7F5F1;
+ }
+ footer > button {
+  background-color: #ECA200;
+  border-style: none;
+  color:#F7F5F1;
+  padding-left: 15px;
+  padding-right: 15px;
+  
+
+ }
  
