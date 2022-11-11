@@ -49,11 +49,12 @@ public class BreweryService {
         breweryRepository.deleteById(id);
     }
 
-    public void updateBreweryById(Brewery brewery, Long id)
+    public void updateBrewery(Brewery brewery, Long id)
     {
-        breweryRepository.updateBreweryById(brewery.getName(), brewery.getBreweryType(), brewery.getStreet(),
+        breweryRepository.updateBrewery(brewery.getName(), brewery.getBreweryType(), brewery.getStreet(),
                 brewery.getCity(), brewery.getState(), brewery.getPostalCode(), brewery.getWebsiteUrl(),
-                brewery.getPhone(), id);
+                brewery.getPhone(), brewery.getCreatedAt(), brewery.getUpdatedAt(), brewery.getCountry(),
+                brewery.getLongitude(), brewery.getLatitude(), brewery.getAddress2(), brewery.getAddress3(),
+                brewery.getCountyProvince(), brewery.getObdbId(), brewery.getTags(), id);
     }
-
 }

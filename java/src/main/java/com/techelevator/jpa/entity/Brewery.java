@@ -64,11 +64,11 @@ public class Brewery {
     String obdbId;
 
     @Column(name = "tags", columnDefinition = "TEXT")
-    String text;
+    String tags;
 
     public Brewery(){}
 
-    public Brewery(String name, String breweryType, String street, String city, String state, String postalCode, String websiteUrl, String phone, LocalDate createdAt, LocalDate updatedAt, String country, BigDecimal longitude, BigDecimal latitude, String address2, String address3, String countyProvince, String obdbId, String text) {
+    public Brewery(String name, String breweryType, String street, String city, String state, String postalCode, String websiteUrl, String phone, LocalDate createdAt, LocalDate updatedAt, String country, BigDecimal longitude, BigDecimal latitude, String address2, String address3, String countyProvince, String obdbId, String tags) {
         this.name = name;
         this.breweryType = breweryType;
         this.street = street;
@@ -86,7 +86,7 @@ public class Brewery {
         this.address3 = address3;
         this.countyProvince = countyProvince;
         this.obdbId = obdbId;
-        this.text = text;
+        this.tags = tags;
     }
 
     public Long getId() {
@@ -233,11 +233,11 @@ public class Brewery {
         this.obdbId = obdbId;
     }
 
-    public String getText() {
-        return text;
+    public String getTags() {
+        return tags;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }

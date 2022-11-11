@@ -35,4 +35,8 @@ public class BeerService {
     {
         beerRepository.deleteById(id);
     }
+
+    public void updateBeer(Beer beer, Long id) {
+        beerRepository.updateBeer(beer.getName(), beer.getDescription(), beer.getImageUrl(), id);
+    }
 }

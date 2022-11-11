@@ -21,13 +21,11 @@ public class BreweryController {
         return breweryService.getBreweryById(id);
     }
 
-
     /* GET example: http://localhost:8080/breweries */
     @GetMapping("/breweries")
     public List<Brewery> getAllBreweries() {
         return breweryService.getAllBreweries();
     }
-
 
     /* GET example: http://localhost:8080/breweries/city?city=Dallas */
     @GetMapping("/breweries/city")
@@ -36,14 +34,12 @@ public class BreweryController {
         return breweryService.getAllBreweriesByCity(city);
     }
 
-
     /* GET example: http://localhost:8080/breweries/state?state=Texas */
     @GetMapping("/breweries/state")
     public List<Brewery> getAllBreweriesByState(@RequestParam String state)
     {
         return breweryService.getAllBreweriesByState(state);
     }
-
 
     /* GET example: http://localhost:8080/breweries/postalCode?postalCode=13005 */
     @GetMapping("/breweries/postalCode")
@@ -52,53 +48,39 @@ public class BreweryController {
         return breweryService.getAllBreweriesByPostalCode(postalCode);
     }
 
-
     /*
-        POST Example via Postman adding a new brewery: http://localhost:8080/brewery
-        Raw body example:
+        POST example via Postman adding a new brewery: http://localhost:8080/brewery
+        Raw body example (Make sure to put in all fields except ID in the JSON body you are sending)
             { "name": "Your Momma", "breweryType": "micro", "street": "420 Elmo Street",
               "city": "San Diego", "state": "California", "postalCode": "12345",
               "websiteUrl": null, "phone": "1234567890", "createdAt": "2022-11-04", "updatedAt": "2022-11-04",
               "country": "United States", "longitude": null, "latitude": null, "address2": null, "address3": null,
-              "countyProvince": null, "obdbId": null, "text": null }
+              "countyProvince": null, "obdbId": null, "tags": null }
      */
     @PostMapping("/brewery")
     public void addBrewery(@RequestBody Brewery brewery)
     {
-        System.out.println("Added Brewery!");
         breweryService.addBrewery(brewery);
     }
 
-    /*
-        DELETE example on Postman: http://localhost:8080/brewery/1
-     */
+    /* DELETE example on Postman: http://localhost:8080/brewery/1 */
     @DeleteMapping("/brewery/{id}")
     public void deleteBreweryById(@PathVariable Long id)
     {
         breweryService.deleteBreweryById(id);
     }
 
-
     /*
-        Design wise, we only expect the front end to ask and request changes to the following fields:
-           -name, breweryType, street, city, state, postalCode, websiteUrl, phone
-           -These are the only fields that will change (for now) and we still require a full RequestBody,
-            so make sure to send a RequestBody with all the required fields above and containing either the new or old version along
-            with other fields like latitude longitude (these can be blank or null because it won't be updated to database).
-           -If you leave one of required fields above blank and null, the db will change those fields to null even if we didn't
-            intend to change it.
-
-         Put Example via Postman where we change the first brewery (id 1) in our db: http://localhost:8080/brewery/1
-         { "name": "Yo 69", "breweryType": "micro", "street": "400 Brown Cir", "city": "State",
-            "state": "Indiana", "postalCode": "1234506", "websiteUrl": null, "phone": "6308165790", "createdAt": "2022-11-05",
-            "updatedAt": "2022-11-04", "country": "United States", "longitude": -86.627954, "latitude": 41.289715, "address2": null,
-            "address3": null, "countyProvince": null, "obdbId": null, "text": null }
+         PUT example via Postman where we change the first brewery (id 1): http://localhost:8080/brewery/1
+         Raw body example with all fields changed (Make sure to put in all fields except ID in the JSON body you are sending)
+         { "name": "Kevin Brewery", "breweryType": "micro good", "street": "420 Brown Cir", "city": "Dallas",
+            "state": "Kansas", "postalCode": "12345", "websiteUrl": "google.com", "phone": "6308165790", "createdAt": "2022-11-06",
+            "updatedAt": "2022-11-06", "country": "United States", "longitude": -85.627954, "latitude": 51.289715, "address2": "420 Magic Rd.",
+            "address3": "123 Cross Rd", "countyProvince": "Los Angeles", "obdbId": "69", "tags": "wassup" }
      */
     @PutMapping("/brewery/{id}")
     public void updateBrewery(@RequestBody Brewery brewery, @PathVariable Long id)
     {
-        breweryService.updateBreweryById(brewery, id);
+        breweryService.updateBrewery(brewery, id);
     }
-
-
 }
