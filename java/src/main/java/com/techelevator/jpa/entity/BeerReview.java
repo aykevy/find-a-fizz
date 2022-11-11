@@ -1,0 +1,74 @@
+package com.techelevator.jpa.entity;
+
+import javax.persistence.*;
+
+@Entity(name = "BeerReview")
+public class BeerReview {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false)
+    Long id;
+
+    @Column(name = "user_id")
+    Long userId;
+
+    @Column(name = "beer_id")
+    Long beerId;
+
+    @Column(name = "review", columnDefinition = "TEXT")
+    String review;
+
+    @Column(name = "rating")
+    Integer rating;
+
+    public BeerReview() {}
+
+    public BeerReview(Long id, Long userId, Long beerId, String review, Integer rating) {
+        this.id = id;
+        this.userId = userId;
+        this.beerId = beerId;
+        this.review = review;
+        this.rating = rating;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public Long getBeerId() {
+        return beerId;
+    }
+
+    public void setBeerId(Long beerId) {
+        this.beerId = beerId;
+    }
+
+    public String getReview() {
+        return review;
+    }
+
+    public void setReview(String review) {
+        this.review = review;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+}

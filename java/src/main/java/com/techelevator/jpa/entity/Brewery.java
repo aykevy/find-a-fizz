@@ -68,7 +68,8 @@ public class Brewery {
 
     public Brewery(){}
 
-    public Brewery(String name, String breweryType, String street, String city, String state, String postalCode, String websiteUrl, String phone, LocalDate createdAt, LocalDate updatedAt, String country, BigDecimal longitude, BigDecimal latitude, String address2, String address3, String countyProvince, String obdbId, String tags) {
+    public Brewery(Long id, String name, String breweryType, String street, String city, String state, String postalCode, String websiteUrl, String phone, LocalDate createdAt, LocalDate updatedAt, String country, BigDecimal longitude, BigDecimal latitude, String address2, String address3, String countyProvince, String obdbId, String tags) {
+        this.id = id;
         this.name = name;
         this.breweryType = breweryType;
         this.street = street;
