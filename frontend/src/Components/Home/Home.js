@@ -1,15 +1,18 @@
 import axios from 'axios';
 import { actionTypes } from 'react-redux-form'
 import {Link} from 'react-router-dom'
-import { AXIOS } from '../../Redux/actionTypes';
 import React from 'react';
-
+import Beer from '../Beer/Beer';
+import Header from '../Header/Header';
 
 function Home(props) {
-    
+   
 return(
-    <></>
+    <>      
+     <p>Some Article about beer here?</p>
+    </>
 )
 }
+
 
 export default Home;
