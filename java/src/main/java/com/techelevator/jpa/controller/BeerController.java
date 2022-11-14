@@ -33,7 +33,9 @@ public class BeerController {
             {
                 "name": "Modelo",
                 "description": "Made with Love",
-                "imageUrl": "https://w7.pngwing.com/pngs/232/1011/png-transparent-grupo-modelo-beer-corona-pilsner-lager-beer-food-text-label.png"
+                "imageUrl": "https://w7.pngwing.com/pngs/232/1011/png-transparent-grupo-modelo-beer-corona-pilsner-lager-beer-food-text-label.png",
+                "abvPercent": 5,
+                "type": "Lager"
             }
      */
     @PostMapping("/beer")
@@ -56,7 +58,9 @@ public class BeerController {
             {
                 "name": "Modelo Black",
                 "description": "Made with Love 2",
-                "imageUrl": "https://toppng.com/uploads/preview/modelo-negra-modelo-negra-modelo-beer-negra-11563230299umq7xr4tbj.png"
+                "imageUrl": "https://toppng.com/uploads/preview/modelo-negra-modelo-negra-modelo-beer-negra-11563230299umq7xr4tbj.png",
+                "abvPercent": 4.5,
+                "type": "Lager"
             }
      */
     @PutMapping("/beer/{id}")

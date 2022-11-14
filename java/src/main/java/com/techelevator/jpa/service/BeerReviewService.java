@@ -1,8 +1,10 @@
 package com.techelevator.jpa.service;
 
+import com.techelevator.jpa.entity.BeerReview;
 import com.techelevator.jpa.repository.BeerReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class BeerReviewService {
@@ -14,5 +16,15 @@ public class BeerReviewService {
         this.beerReviewRepository = beerReviewRepository;
     }
 
+    public List<BeerReview> getAllBeerReviews() {
+        return beerReviewRepository.findAll();
+    }
 
+    public List<BeerReview> getAllBeerReviewsByUserId(Long userId) {
+        return beerReviewRepository.findByUserId(userId);
+    }
+
+    public List<BeerReview> getAllBeerReviewsByBeerId(Long beerId) {
+        return beerReviewRepository.findByBeerId(beerId);
+    }
 }
