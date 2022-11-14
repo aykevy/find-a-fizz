@@ -1,9 +1,9 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users CASCADE;
 DROP SEQUENCE IF EXISTS seq_user_id;
-DROP TABLE IF EXISTS brewery;
-DROP TABLE IF EXISTS beer;
+DROP TABLE IF EXISTS brewery CASCADE;
+DROP TABLE IF EXISTS beer CASCADE;
 DROP TABLE IF EXISTS brewery_review;
 DROP TABLE IF EXISTS beer_review;
 
@@ -51,7 +51,9 @@ CREATE TABLE IF NOT EXISTS beer (
     id BIGSERIAL PRIMARY KEY,
     name character varying,
     description character varying,
-    image_url character varying
+    image_url character varying,
+    abv_percent numeric,
+    type character varying
 );
 
 CREATE TABLE IF NOT EXISTS brewery_review (

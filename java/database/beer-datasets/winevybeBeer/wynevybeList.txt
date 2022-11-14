@@ -5,6 +5,7 @@ Heineken Lager|Lager Beer can is a beer with a can closure by Heineken.|https://
 Bryggeri Kesaloma|Bryggeri Kesäloma is with a crown cap closure by Bryggeri Helsinki.|https://winevybe.com/wp-content/uploads/Bryggeri-Helsinki-Bryggeri-Kesaloma.png
 Nomada La Manchurita|Nomada La Manchurita is a beer with a crown cap closure by Nomada Brewing.|https://winevybe.com/wp-content/uploads/Nomada-Brewing-Nomada-La-Manchurita.png
 Hoegaarden Witbier|Hoegaarden Witbier is a beer with a crown cap closure by InBev|https://winevybe.com/wp-content/uploads/InBev-Hoegaarden-Witbier.png
+Lumi Chef's Breakfast Oatmeal Stout|Lumi Chef's Breakfast Oatmeal Stout can is a beer with a can closure by Lumi Brewing.|https://winevybe.com/wp-content/uploads/Lumi-Brewing-Lumi-Chefs-Breakfast-Oatmeal-Stout-can.png
 Kasteel Donker|Kasteel Donker is with a crown cap closure by Brouwerij Van Honsebrouck.|https://winevybe.com/wp-content/uploads/Brouwerij-Van-Honsebrouck-Kasteel-Donker.png
 Mustan Virran Pistolekors Porter|Mustan Virran Pistolekors Porter is a beer with a crown cap closure by Mustan Virran Panimo.|https://winevybe.com/wp-content/uploads/Mustan-Virran-Panimo-Mustan-Virran-Pistolekors-Porter.png
 Amager Talents & Legends Brewski|Amager Talents & Legends Brewski is with a crown cap closure by Amager Bryghus|https://winevybe.com/wp-content/uploads/Amager-Bryghus-Amager-Talents-Legends-Brewski.png
@@ -17,7 +18,7 @@ Mallaskoski Jeriko Wild Ale|Mallaskoski Jeriko Wild Ale is a beer with a crown c
 Sticke Altbier|Sticke Altbier is a beer with a lightning closure closure by Uerige.|https://winevybe.com/wp-content/uploads/Uerige-Obergarige-Hausbrauerei-Uerige-Sticke-Altbier.png
 Belgisch Speciaalbier|Amager Demon Juice Hazy IPA is with a crown cap closure by Amager Bryghus.|https://winevybe.com/wp-content/uploads/Amager-Bryghus-Amager-Demon-Juice-Hazy-IPA.png
 Hiisi Iku-Turso Imperial Stout|Hiisi Iku-Turso Imperial Stout is a beer with a crown cap closure by Panimoyhtio Hiisi.|https://winevybe.com/wp-content/uploads/Panimoyhtio-Hiisi-Hiisi-Iku-Turso-Imperial-Stout.png
-Dunkel|Dunkel can is a beer with a can closure by Erdinger.|https://winevybe.com/wp-content/uploads/Erdinger-Erdinger-Dunkel-can.pngBock's Ruis|Bock's Ruis is with a crown cap closure by Bock's Corner Brewery.|https://winevybe.com/wp-content/uploads/Bocks-Corner-Brewery-Bocks-Ruis.png
+Dunkel|Dunkel can is a beer with a can closure by Erdinger.|https://winevybe.com/wp-content/uploads/Erdinger-Erdinger-Dunkel-can.png|Bock's Ruis is with a crown cap closure by Bock's Corner Brewery.|https://winevybe.com/wp-content/uploads/Bocks-Corner-Brewery-Bocks-Ruis.png
 Anderson Jean Ginie|Anderson Jean Ginie is with a crown cap closure by Anderson Beer OU.|https://winevybe.com/wp-content/uploads/Anderson-Beer-OU-Anderson-Jean-Ginie.png
 Arctic Pale Ale|Arctic Pale Ale is a beer with a crown cap closure by Tornion.|https://winevybe.com/wp-content/uploads/Tornion-Panimo-Tornion-Arctic-Pale-Ale.png
 Pikantus|Pikantus is a beer with a crown cap closure by Erdinger.|https://winevybe.com/wp-content/uploads/Erdinger-Erdinger-Pikantus.png
@@ -29,7 +30,6 @@ Pyynikin Black IPA|Pyynikin Black IPA is a beer with a crown cap closure by Pyyn
 Lil' Crispy Ale|Lil' Crispy Ale can is a beer with a metal screw cap closure by Clown Shoes.|https://winevybe.com/wp-content/uploads/Clown-Shoes-Clown-Shoes-Lil-Crispy-Ale-can.png
 Peroni Nastro Azzurro|Peroni Nastro Azzurro is with a crown cap closure by Birra Peroni.|https://winevybe.com/wp-content/uploads/Birra-Peroni-Peroni-Nastro-Azzurro.png
 Tsingtao Premium Lager|Premium Lager is a beer with a crown cap closure by Tsingtao.|https://winevybe.com/wp-content/uploads/Tsingtao-Brewery-Tsingtao-Premium-Lager.png
-Lumi Chef's Breakfast Oatmeal Stout|Lumi Chef's Breakfast Oatmeal Stout can is a beer with a can closure by Lumi Brewing.|https://winevybe.com/wp-content/uploads/Lumi-Brewing-Lumi-Chefs-Breakfast-Oatmeal-Stout-can.png
 Ballast Point Fathom|Ballast Point Fathom IPA is a beer with a crown cap closure by Ballast Point Brewing.|https://winevybe.com/wp-content/uploads/Ballast-Point-Brewing-Ballast-Point-Fathom-IPA.png
 Baladin Rock 'n' Roll|Baladin Rock 'n' Roll is with a crown cap closure by Baladin.|https://winevybe.com/wp-content/uploads/Baladin-Baladin-Rock-n-Roll.png
 Karhu Vehnaolut|Karhu Vehnaolut can is a beer with a can closure by Sinebrychoff.|https://winevybe.com/wp-content/uploads/Sinebrychoff-Karhu-Vehnaolut-can.png
@@ -45,9 +45,16 @@ Mita Humalan Jalkeen|Hiisi Mita Humalan Jalkeen Sour Ale is a beer with a crown 
 Traquair 50 Anniversary Ale|Traquair 50 Anniversary Ale is a beer with a crown cap closure by Traquair Brewery.|https://winevybe.com/wp-content/uploads/Traquair-Brewery-Traquair-50-Anniversary-Ale.png
 Kipling South Pacific|Kipling South Pacific Pale Ale is a beer with a crown cap closure by Thornbridge.|https://winevybe.com/wp-content/uploads/Thornbridge-Thornbridge-Kipling-South-Pacific-Pale-Ale.png
 Koff Escape Route Pale Ale|Koff Escape Route Pale Ale can is a beer with a can closure by Sinebrychoff.|https://winevybe.com/wp-content/uploads/Sinebrychoff-Koff-Escape-Route-Pale-Ale-can.png
-Delirium Red|Huyghe Delirium Red is with a crown cap closure by Brouwerij L. Huyghe.|https://winevybe.com/wp-content/uploads/Brouwerij-L.-Huyghe-Huyghe-Delirium-Red.png
 Hard Decision Bourbon Barrel Aged|Hard Decision Bourbon Barrel Aged is a beer with a crown cap closure by La Pirata.|https://winevybe.com/wp-content/uploads/Cerveses-La-Pirata-La-Pirata-Hard-Decision-Bourbon-Barrel-Aged.png
 Prykmestar Savu|Prykmestar Savu is a beer with a crown cap closure by Vakka Suomen.|https://winevybe.com/wp-content/uploads/Vakka-Suomen-Panimo-Prykmestar-Savu.png
 Hummingbird|Hummingbird can is a beer with a can closure by Fourpure.|https://winevybe.com/wp-content/uploads/Fourpure-Fourpure-Hummingbird-can.png
 De Leckere Pilsener|Pilsener is a beer with a crown cap closure by De Leckere.|https://winevybe.com/wp-content/uploads/De-Leckere-De-Leckere-Pilsener.png
 Aldersbacher Aldersbacher Kloster Dunkel|Aldersbacher Kloster Dunkel is with a crown cap closure by Aldersbacher.|https://winevybe.com/wp-content/uploads/Aldersbacher-Aldersbacher-Kloster-Dunkel.png
+Bryggeri Saison|Bryggeri Saison is with a crown cap closure by Bryggeri Helsinki.|https://winevybe.com/wp-content/uploads/Bryggeri-Helsinki-Bryggeri-Saison.png
+Citrus Cove Gose|Ballast Point Citrus Cove Gose can is with a can closure by Ballast Point.|https://winevybe.com/wp-content/uploads/Ballast-Point-Ballast-Point-Citrus-Cove-Gose-can.png
+Cherie Biere Blanche a la Framboise|Cherie Biere Blanche a la Framboise is with a crown cap closure by Abbeye d’Aulne.|https://winevybe.com/wp-content/uploads/Abbeye-dAulne-Cherie-Biere-Blanche-a-la-Framboise.png
+Guava Gose|Guava Gose can is a beer with a can closure by Collective Arts.|https://winevybe.com/wp-content/uploads/Collective-Arts-Brewing-Collective-Arts-Guava-Gose-can.png
+Overworks Funk x Punk|Overworks Funk x Punk is with a crown cap closure by BrewDog.|https://winevybe.com/wp-content/uploads/BrewDog-BrewDog-Overworks-Funk-x-Punk.png
+Neuzeller Ginger Bier|Neuzeller Ginger Bier is a beer with a crown cap closure by Klosterbrauerei Neuzelle.|https://winevybe.com/wp-content/uploads/Klosterbrauerei-Neuzelle-Neuzeller-Ginger-Bier.png
+Liefmans Kriek Brut|Liefmans Kriek Brut is a beer with a crown cap closure by Liefmans Brouwerij.|https://winevybe.com/wp-content/uploads/Liefmans-Brouwerij-Liefmans-Kriek-Brut.png
+Bavaria Gluten Free|Bavaria Gluten Free Premium Pilsner can is with a can closure by Bavaria.|https://winevybe.com/wp-content/uploads/Bavaria-Bavaria-Gluten-Free-Premium-Pilsner-can.png

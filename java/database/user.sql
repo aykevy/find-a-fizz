@@ -2,6 +2,10 @@
 -- This script creates the database users and grants them the necessary permissions
 -- ********************************************************************************
 
+--New, added these two lines cause of table drops
+DROP USER IF EXISTS final_capstone_owner;
+DROP USER IF EXISTS final_capstone_appuser;
+
 CREATE USER final_capstone_owner
 WITH PASSWORD 'finalcapstone';
 

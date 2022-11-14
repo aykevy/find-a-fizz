@@ -37,6 +37,6 @@ public class BeerService {
     }
 
     public void updateBeer(Beer beer, Long id) {
-        beerRepository.updateBeer(beer.getName(), beer.getDescription(), beer.getImageUrl(), id);
+        beerRepository.updateBeer(beer.getName(), beer.getDescription(), beer.getImageUrl(), beer.getAbvPercent(), beer.getType(), id);
     }
 }
