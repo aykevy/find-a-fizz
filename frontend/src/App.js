@@ -11,16 +11,16 @@ const store = ConfigureStore();
 
 function App() {
   return (
-    /*
+    
     <Provider store={store}>
       <BrowserRouter>
         <Main/>
         
       </BrowserRouter>
     </Provider>
-    */
+    
 
-    <Reviews type = {"beer"} id={1}/>
+    // <Reviews type = {"beer"} id={1}/>
   );
   
 }
