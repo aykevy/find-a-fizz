@@ -2,7 +2,7 @@ import axios from 'axios';
 import { actionTypes } from 'react-redux-form'
 import {Link} from 'react-router-dom'
 import React from 'react';
-import Beer from '../Beer/Beer';
+import Beer from '../Beers/Beers';
 import Header from '../Header/Header';
 
 function Home(props) {

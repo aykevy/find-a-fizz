@@ -1,24 +1,15 @@
 import React from "react"
+import { Component } from "react";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
-import { useEffect } from "react";
-import { axios } from "../../Redux/actionTypes";
 
 
-function Beer(props){
-
-    const [beerList,setBeerList] = React.useState([])
-
-    useEffect(() => {
-        axios.get('/beers').then(function (response){
-            setBeerList(response.data)
-        })},[])
-    
-        console.log(props.token)
-        if(beerList.length>0){
-
+function Beers(props){
+    let beers = props.beers;
+        if(beers){
         return(
         <div className="beer--list">
-            {beerList.map(beer => {
+            {beers.map( (beer) => {
+                console.log(beer)
                 return(
                 <div className = 'beer--card--set'>
                     <Card className="beer--card" key = {beer.id}>
@@ -41,4 +32,5 @@ function Beer(props){
         )
     }
 }
- export default Beer;
+
+ export default Beers;
