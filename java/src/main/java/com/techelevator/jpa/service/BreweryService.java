@@ -1,7 +1,7 @@
 package com.techelevator.jpa.service;
 
 import com.techelevator.jpa.entity.Brewery;
-import com.techelevator.jpa.repository.BreweryRepository;
+import com.techelevator.jpa.entity.repository.BreweryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

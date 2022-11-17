@@ -5,15 +5,22 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {ConfigureStore} from './Redux/configureStore'
 
+import Reviews from './Components/Reviews/Reviews';
+
 const store = ConfigureStore();
 
 function App() {
   return (
+    /*
     <Provider store={store}>
       <BrowserRouter>
-        <Main/> 
+        <Main/>
+        
       </BrowserRouter>
     </Provider>
+    */
+
+    <Reviews type = {"beer"} id={1}/>
   );
   
 }

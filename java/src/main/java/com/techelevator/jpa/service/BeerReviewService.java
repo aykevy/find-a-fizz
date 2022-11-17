@@ -1,7 +1,7 @@
 package com.techelevator.jpa.service;
 
 import com.techelevator.jpa.entity.BeerReview;
-import com.techelevator.jpa.repository.BeerReviewRepository;
+import com.techelevator.jpa.entity.repository.BeerReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

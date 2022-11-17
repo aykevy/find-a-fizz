@@ -4,17 +4,17 @@ import { useEffect } from "react";
 import { axios } from "../../Redux/actionTypes";
 
 
-function Beer(props){
+function Beer(props) {
 
-    const [beerList,setBeerList] = React.useState([])
+    const [beerList, setBeerList] = React.useState([])
 
     useEffect(() => {
         axios.get('/beers').then(function (response){
             setBeerList(response.data)
         })},[])
     
-        console.log(props.token)
-        if(beerList.length>0){
+    console.log(props.token)
+    if(beerList.length>0){
 
         return(
         <div className="beer--list">
@@ -41,4 +41,4 @@ function Beer(props){
         )
     }
 }
- export default Beer;
+export default Beer;
