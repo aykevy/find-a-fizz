@@ -30,7 +30,6 @@ export default function Beer({selectedBeer}){
                 <CardTitle className = 'selected--review'>
                     <Reviews type={"beer"} id={selectedBeer.id}/>
                 </CardTitle>
-                <CardText className = 'selected--rating'>Rating Text Here I think if there is one</CardText>
         </CardBody>
         </Card>
         </div>

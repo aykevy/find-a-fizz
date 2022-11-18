@@ -86,7 +86,7 @@ export const getBrewery = (id) =>{
     return dispatch =>{
         dispatch(breweryLoading());
      ActionTypes.axios.get('/brewery/' + id)
-        .then(res => {dispatch(selectBeer(res.data))})
+        .then(res => {dispatch(selectBrewery(res.data))})
         //TO DO - ERROR HANDLING
         .catch(error => console.log(error.message))       
 }};

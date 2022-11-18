@@ -10,6 +10,7 @@ import {withRouter} from 'react-router-dom'
 import Beers from '../Beers/Beers'
 import Beer from '../Beers/Beer'
 import Breweries from '../Breweries/Breweries'
+import Brewery from '../Breweries/Brewery'
 
 const mapStateToProps = state => {
     return {
@@ -66,6 +67,7 @@ class Main extends Component {
                     <Route path='/beers' component={this.props.token.token !== undefined ? () => <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : null}/>
                     <Route path='/breweries' component={this.props.token.token !== undefined ? () => <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : null}/>
                     <Route path='/beer/:id' component={() => <Beer selectedBeer = {this.props.beers.selectedBeer} /> } />
+                    <Route path='/brewery/:id' component={() => <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} /> } />
                     <Redirect to='/login'/>
                 </Switch>
                 <footer>
