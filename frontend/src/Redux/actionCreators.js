@@ -59,3 +59,45 @@ export const fetchBeers = (dispatch) => {
         //TO DO - ERROR HANDLING
         .catch(error => console.log(error.message))       
 }};
+
+//*************           Brewery Actions         **********************************
+
+//function will call the add-breweries listener, payload is a brewery array
+export const addBreweries = (breweries) => ({
+    type: ActionTypes.ADD_BREWERIES,
+    payload: [...breweries]
+})
+
+export const selectBrewery = (selectedBrewery) => ({
+    type: ActionTypes.SELECT_BREWERY,
+    payload: selectedBrewery
+})
+export const deleteBrewery = () => ({
+    type: ActionTypes.DELETE_BREWERIES
+})
+
+// No data exchange - just a simple action to get an OK
+export const breweryLoading = () => ({
+    type: ActionTypes.LOADING_BREWERIES,
+})
+
+// calls the brewey.js listener to send back the 'OK' action to intital call, then calls api, and sends that GET listener when it recieves it.
+export const getBrewery = (id) =>{
+    return dispatch =>{
+        dispatch(breweryLoading());
+     ActionTypes.axios.get('/brewery/' + id)
+        .then(res => {dispatch(selectBeer(res.data))})
+        //TO DO - ERROR HANDLING
+        .catch(error => console.log(error.message))       
+}};
+
+// calls the brewery.js listener to send back the 'OK' action to intital call, then calls api, and sends that data to a addBeers listener when it recieves it.
+export const fetchBreweries = (dispatch) => {
+    return dispatch =>{
+        dispatch(beersLoading());
+    
+     ActionTypes.axios.get('/breweries')
+        .then(res => {dispatch(addBreweries(res.data))})
+        //TO DO - ERROR HANDLING
+        .catch(error => console.log(error.message))       
+}};
