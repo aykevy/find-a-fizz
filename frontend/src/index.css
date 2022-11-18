@@ -167,10 +167,52 @@ code {
   
 
  }
- 
+ /* Login Page */
+ .login--page--main{
+  margin: 0px;
+  padding: 0px;
+  background-color: #e8e8e8;
+ }
+ .login--page--boxes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 
- /* My little space to test:) -KEvin" */
+ }
+
+ /* finalized Table css -cam */
 
 .review--table {
-  border: 1px solid
+  border: 3px solid white;
+  width: fit-content;
+}
+.review--table--head {
+  border: 2px solid white;
+  background-color: #ECA200;
+  color: #F7F5F1;
+  text-align: center;
+}
+.review--table--body{
+  text-align: center;
+}
+.review--table--body tr {
+  border: 2px solid white;
+}
+.review--table--body td {
+  border: 2px solid white;
+}
+.review--table--body td:nth-child(1) {
+  width: 15%;
+  color: green;
+}
+.review--table--body td:nth-child(2) {
+  width: 70%;
+  font-style: italic;
+}
+.review--table--body tr:nth-child(even){
+  background-color: #e8e8e8;
 }

@@ -45,7 +45,8 @@ class Login extends Component {
 
     render(){
         return(
-            <div>
+            <div className='login--page--main'>
+                <body className='login--page--boxes'>
                 <h1>Please Sign In</h1>
                 <label class="sr-only">Username</label>
                 <input
@@ -71,6 +72,7 @@ class Login extends Component {
                 />
                 <Link to="/register">Need an account?</Link>
                 <button type="submit" onClick={this.handleLogin}>Sign in</button>
+                </body>
             </div>
         )
     }
