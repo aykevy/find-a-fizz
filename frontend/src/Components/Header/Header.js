@@ -21,12 +21,20 @@ class Header extends Component {
       this.toggleNav= this.toggleNav.bind(this);
     }
 
+    /**
+     * Toggle - handles mobile devices to expand or contract the navBar
+     */
     toggleNav(){
         this.setState({
           isNavOpen: !this.state.isNavOpen,
         })
     }
-
+  
+    /**
+     * 
+     * @returns - A login or LogOut Button
+     * Checks to see if the user is logged in or out and returns the appropiate button
+     */
      handleButton = () => {
         if(this.props.user.id != null){
             return(

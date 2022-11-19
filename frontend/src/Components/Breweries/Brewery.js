@@ -6,7 +6,11 @@ import Reviews from "../Reviews/Reviews";
 
 export default function Brewery({selectedBrewery}){
   
-
+    /**
+     * 
+     * @param {INT/STRING} phoneNumberString 
+     * @returns Formated String based on REGeX to split and make a correct phone string display
+     */
     function formatPhoneNumber(phoneNumberString) {
         var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
         var match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/);
@@ -16,6 +20,8 @@ export default function Brewery({selectedBrewery}){
         }
         return '';
       }
+
+
     return(
         <>
         <div className="selected--brewery">

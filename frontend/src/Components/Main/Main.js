@@ -12,6 +12,7 @@ import Beer from '../Beers/Beer'
 import Breweries from '../Breweries/Breweries'
 import Brewery from '../Breweries/Brewery'
 
+//Setting the Redux store to this comp state so that if Store Changes State does and will rerender
 const mapStateToProps = state => {
     return {
         token: state.token,
@@ -21,6 +22,7 @@ const mapStateToProps = state => {
     }
 }
 
+//Actions available from the store to be passed to comp. and their props.
 const mapDispatchToProps = (dispatch) => ({
     addToken: () => { dispatch(addToken()) },
     deleteUser: () => { dispatch(deleteUser())},
@@ -35,18 +37,21 @@ class Main extends Component {
     constructor(props){
         super(props);
     }
-    
+
     handleLogout = () => {
         this.props.addToken("")
         this.props.deleteUser()
       
     }
+
+    //fetch API information on load of Comp.
     componentDidMount(){
         this.props.fetchBeers();
         this.props.fetchBreweries();
         
     }
     render(){
+        const isLoggedIn = this.props.token.token !== undefined;
         return(
             <div>
                 {this.props.token.token !== undefined ?
@@ -60,14 +65,16 @@ class Main extends Component {
                         <Link to='/login'>Home | </Link>
                 }
                 <Header handleLogout={this.handleLogout}/>
+
+                {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
-                    <Route path='/home' component={this.props.token.token !== undefined ? () => <Home/> : null}/>
-                    <Route path='/beers' component={this.props.token.token !== undefined ? () => <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : null}/>
-                    <Route path='/breweries' component={this.props.token.token !== undefined ? () => <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : null}/>
-                    <Route path='/beer/:id' component={() => <Beer selectedBeer = {this.props.beers.selectedBeer} /> } />
-                    <Route path='/brewery/:id' component={() => <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} /> } />
+                    <Route path='/home' component={isLoggedIn ? () => <Home/> : <Login/>}/>
+                    <Route path='/beers' component={isLoggedIn  ? () => <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : <Login/>}/>
+                    <Route path='/breweries' component={isLoggedIn ? () => <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : <Login/>}/>
+                    <Route path='/beer/:id' component={ isLoggedIn ? () => <Beer selectedBeer = {this.props.beers.selectedBeer} /> : <Login/>} />
+                    <Route path='/brewery/:id' component={isLoggedIn ? () => <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} /> : <Login/>} />
                     <Redirect to='/login'/>
                 </Switch>
                 <footer>
