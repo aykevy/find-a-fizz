@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 import Reviews from "../Reviews/Reviews";
+import Maps from "../Maps/Maps";
 
 
 export default function Brewery({selectedBrewery}){
@@ -46,10 +47,12 @@ export default function Brewery({selectedBrewery}){
         <Card>
         <CardBody>
                 <CardTitle className = 'selected--review'>
+                    {/* TO DO - Move to Store - it's messing up sometimes with 400*/}
                     <Reviews type={"brewery"} id={selectedBrewery.id}/>
                 </CardTitle>
         </CardBody>
         </Card>
+        <Maps lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude}/>
         </div>
         </>    
     )

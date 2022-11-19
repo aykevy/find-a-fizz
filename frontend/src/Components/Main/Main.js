@@ -51,7 +51,6 @@ class Main extends Component {
         
     }
     render(){
-        const isLoggedIn = this.props.token.token !== undefined;
         return(
             <div>
                 {this.props.token.token !== undefined ?
@@ -70,11 +69,11 @@ class Main extends Component {
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
-                    <Route path='/home' component={isLoggedIn ? () => <Home/> : <Login/>}/>
-                    <Route path='/beers' component={isLoggedIn  ? () => <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : <Login/>}/>
-                    <Route path='/breweries' component={isLoggedIn ? () => <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : <Login/>}/>
-                    <Route path='/beer/:id' component={ isLoggedIn ? () => <Beer selectedBeer = {this.props.beers.selectedBeer} /> : <Login/>} />
-                    <Route path='/brewery/:id' component={isLoggedIn ? () => <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} /> : <Login/>} />
+                    <Route path='/home' component={this.props.token.token !== undefined ? () => <Home/> : null}/>
+                    <Route path='/beers' component={this.props.token.token !== undefined  ? () => <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : null}/>
+                    <Route path='/breweries' component={this.props.token.token !== undefined ? () => <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : null}/>
+                    <Route path='/beer/:id' component={ this.props.token.token !== undefined ? () => <Beer selectedBeer = {this.props.beers.selectedBeer} /> : null} />
+                    <Route path='/brewery/:id' component={this.props.token.token !== undefined ? () => <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} /> : null} />
                     <Redirect to='/login'/>
                 </Switch>
                 <footer>

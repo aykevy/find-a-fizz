@@ -58,7 +58,7 @@ function Breweries(props){
         for (let index = (pageNumber -5); index < (pageNumber+5) ; index++) {
             (index == pageNumber) ? active = "brew--link--active" : active = 'brew--link'
             if( index > 0 && index <= totalPages)
-                linkNumbers.push(<li onClick={((e) => setPageNumber(index))} className ={active}>{index}</li>)        
+                linkNumbers.push(<li onClick={((e) => setPageNumber(index))} key={index} className ={active}>{index}</li>)        
         }
         return(linkNumbers)
     }

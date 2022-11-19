@@ -8,7 +8,7 @@ function Reviews(props) {
     const [reviewList, setReviewList] = React.useState([])
 
     useEffect( () => {
-        if(props){
+        if(props.type === 'beer' || props.type === 'brewery'){
         let fetchUrl = '';
 
         if (props.type.toLowerCase() === 'beer') {
@@ -28,7 +28,7 @@ function Reviews(props) {
         fetchData();
         }
     }, [props.id, props.type]); /*Whenever you use variables outside of useEffect, important to add them to dependencys*/
-    if(props != undefined && props.id == (1 || 2)){
+    if(props != undefined && props.id === (1) || props.id === (2)){
     return (  
         <div>
             <table className="review--table">

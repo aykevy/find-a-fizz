@@ -14,14 +14,14 @@ function Beers(props){
     function onBeerSelect(id){
         props.getBeer(id)
     }
-    {/*Renders a list of beers in card form*/}
+    /*Renders a list of beers in card form*/
     let url = ''
     let beers = props.beers;
         if(beers){
         return(
         <div className="beer--list">
             {beers.map( (beer) => { 
-                {url = '/beer/' + beer.id}
+               url = '/beer/' + beer.id
                 return(
                 //{Setting Link to Route to single beer page I.E. url.com/beer/1 */} 
                     <Link to={url} style={{color:"black"}}> 
