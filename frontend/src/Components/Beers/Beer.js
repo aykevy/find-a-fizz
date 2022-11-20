@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 import Reviews from "../Reviews/Reviews";
+import './Beer.css'
 
 
 export default function Beer({selectedBeer}){

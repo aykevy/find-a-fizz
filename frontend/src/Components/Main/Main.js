@@ -73,7 +73,8 @@ class Main extends Component {
                     : 
                         <Link to='/login'>Home | </Link>
                 }
-                <Header handleLogout={this.handleLogout}/>
+                {(this.props.location.pathname !== '/login') &&  <Header handleLogout={this.handleLogout}/>}
+                {console.log(this.props.location)}
 
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
@@ -86,10 +87,11 @@ class Main extends Component {
                     <Route path='/brewery/:id' component={this.props.token.token !== undefined ? () => <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} /> : null} />
                     <Redirect to='/login'/>
                 </Switch>
+                {(this.props.location.pathname !== '/login') &&
                 <footer>
                    <h5>CopyRight 2022</h5>
                    <button>login</button>
-               </footer>
+               </footer>}
             </div>
         )
     }

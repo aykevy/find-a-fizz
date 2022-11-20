@@ -2,6 +2,7 @@ import React from 'react'
 import {useEffect} from 'react'
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
+import './Review.css'
 
 function Reviews(props) {
     const [reviewList, setReviewList] = React.useState([])
