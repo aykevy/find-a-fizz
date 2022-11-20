@@ -1,0 +1,90 @@
+.selected--beer{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .selected--nameDesc{
+    background-color: #FFD371;
+  }
+  .selected--image{
+    background-color: #F7F5F1;
+    max-width: 25vw;
+    margin: 20px;
+    margin-left: 60px;
+  }
+  
+  .selected--image:hover{
+    background-color: #F7F5F1;
+    max-width: 25vw;
+    margin: 20px;
+    margin-left: 60px;
+    background-position: 100% 100%;
+    transform: scale(1.08,1.03);
+    box-shadow: 10px 10px 5px black;
+    border-style: solid;
+    border-color: black;
+    border-radius: 7px;
+    border-width: 1px;
+  }
+  
+  /*Just testing for beer */
+  .beer--card--set{
+    gap:10px;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: center;
+    border-style: solid;
+    border-radius: 7px;
+    border-width: 2px;
+    min-width: 10vw;
+    max-width: 16vw;
+   }
+   .beer--list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px;
+    gap: 50px;
+   }
+  
+   .beer--list > .beer--card--set:nth-child(odd) > .beer--card{
+    background-color: #FFBD6D;
+  }
+  
+  .beer--list > .beer--card--set:nth-child(even) > .beer--card{
+    background-color: #FFD371;
+  }
+  
+  .beer--card{
+    aspect-ratio: 1/1.6;
+    cursor: pointer;
+    position: relative;
+    min-width: 15vw;
+    gap:5px
+     
+   }
+  
+   .beer--card:hover {
+    background-position: 100% 100%;
+    transform: scale(1.08,1.03);
+    box-shadow: 10px 10px 5px black;
+    border-style: solid;
+    border-color: black;
+    border-radius: 7px;
+    border-width: 1px;
+   }
+   .beer--card--set :first-child{
+    padding: 10px;
+   }
+   .beer--card--name{
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: underline;
+    text-align: center;
+   }
+   .beer--card--desc{
+    font-size: .9rem;
+    text-align: center;
+   }
+  

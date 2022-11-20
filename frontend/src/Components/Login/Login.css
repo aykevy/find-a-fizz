@@ -1,0 +1,17 @@
+ /* Login Page */
+ .login--page--main{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e8e8e8;
+   }
+   .login--page--boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  
+   }
+  

@@ -1,0 +1,64 @@
+ /* Brewery Page CSS */
+ .brew--navlinks{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    justify-items: center;
+    align-items: center;
+   }
+  .brew--buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .brew--results{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .brew--navlinks{
+    list-style-type: none;
+    color: darkblue
+  }
+  
+  .brew--link:hover{
+    font-size: 1.5rem;
+    text-emphasis-style: initial;
+  
+  }
+  .brew--link--active{
+    font-size: 2rem;
+    text-decoration: underline;
+    color: blueviolet
+  }
+  .brew--navButton{
+  
+    background-color: #ECA200;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 100vw;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+    flex-grow: 0;
+  }
+  .brew--navButton:hover{
+      background-position: 100% 100%;
+      transform: scale(1.08,1.03);
+      box-shadow: 3px 3px 1px black;
+      border-style: solid;
+      border-color: black;
+      border-radius: 7px;
+      border-width: 2px;
+    }
+    
