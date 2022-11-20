@@ -30,15 +30,21 @@ function Breweries(props){
     function navSearchResulst(action){
         switch(action){
             case 'next':
-                if (pageNumber < totalPages)
+                if (pageNumber < totalPages){
                 return setPageNumber(pageNumber + 1);
+                }
+                break
             case 'back':
-                if(pageNumber - 1 > 0)
+                if(pageNumber - 1 > 0){
                 return  setPageNumber(pageNumber - 1);
+                }
+                break
             case 'first': 
-                return  setPageNumber(1)
+                return  setPageNumber(1);
+                
             case 'last':
                 return  setPageNumber(totalPages)
+                
             default:
                 return  setPageNumber(pageNumber)
         }
@@ -56,7 +62,7 @@ function Breweries(props){
         let active= ''
        
         for (let index = (pageNumber -5); index < (pageNumber+5) ; index++) {
-            (index == pageNumber) ? active = "brew--link--active" : active = 'brew--link'
+            (index === pageNumber) ? active = "brew--link--active" : active = 'brew--link'
             if( index > 0 && index <= totalPages)
                 linkNumbers.push(<li onClick={((e) => setPageNumber(index))} key={index} className ={active}>{index}</li>)        
         }
@@ -71,9 +77,9 @@ function Breweries(props){
         return(        
         <>
             <ul className="brew--navlinks">
-                {pageNumber != 0 ? <li>...</li>: null}
+                {pageNumber !== 0 ? <li>...</li>: null}
                 {pageNumberLinks().map((link) =>{return link})}
-                {pageNumber != totalPages ? <li>...</li>: null}
+                {pageNumber !== totalPages ? <li>...</li>: null}
             </ul>
         </>)
     }
@@ -99,7 +105,7 @@ function Breweries(props){
         {/*Renders a list of brewereis in card form, some conditional renderings based on if breweriees have information avaiable*/}
         <div className="brew--list">
             {breweries.map( (brewery) => { 
-                {url = '/brewery/' + brewery.id}
+                url = '/brewery/' + brewery.id
                 return(
                     //{Setting Link to Route to single brewery page I.E. url.com/brewery/1 */} 
                     <Link to={url} style={{color:"black"}}> 
@@ -109,10 +115,10 @@ function Breweries(props){
                                 <CardImg top src = {brewery.imageUrl} alt = {brewery.name} />
                                 <CardBody>
                                     <CardTitle className = 'brew--card--name'>{brewery.name}</CardTitle>
-                                    {brewery.breweryType != undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}
+                                    {brewery.breweryType !== undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}
                                     <CardText className = 'brew--card--desc'>{brewery.city +", " + brewery.state}</CardText>
-                                    {brewery.countyProvince != null &&  <CardText className = 'brew--card--desc'>{brewery.countyProvince}</CardText>}
-                                    {brewery.country != null && <CardText className = 'brew--card--desc'> {brewery.country}</CardText>}
+                                    {brewery.countyProvince !== null &&  <CardText className = 'brew--card--desc'>{brewery.countyProvince}</CardText>}
+                                    {brewery.country !== null && <CardText className = 'brew--card--desc'> {brewery.country}</CardText>}
                                 </CardBody>
                             </Card>
                         </div>   

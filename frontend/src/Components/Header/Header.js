@@ -37,7 +37,6 @@ class Header extends Component {
      */
      handleButton = () => {
         if(this.props.user.id != null){
-          (console.log(this.props.user.id))
             return(
                 <Link to='/login'>
                         <Button className = 'navbar--logout' color ='#ECA200' title ='Log out' onClick ={this.props.handleLogout}>

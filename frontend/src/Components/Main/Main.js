@@ -32,10 +32,21 @@ const mapDispatchToProps = (dispatch) => ({
     getBrewery: (id) => {dispatch(getBrewery(id))}
 });
 
+//Setting up vars to determine daily beer/brewery for Home page
+const today = new Date();
+let todaysBrewery = {};
+let todaysBeer = {};
+    
+
 
 class Main extends Component {
     constructor(props){
         super(props);
+    }
+
+    getTodaysItems = () => {
+        todaysBrewery =  this.props.breweries.breweries[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.breweries.breweries[0].length)];
+        todaysBeer =  this.props.beers.beers[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.beers.beers[0].length)];
     }
 
     handleLogout = () => {
@@ -45,10 +56,9 @@ class Main extends Component {
     }
 
     //fetch API information on load of Comp.
-    componentDidMount(){
+    componentDidMount = () =>{ 
         this.props.fetchBeers();
         this.props.fetchBreweries();
-        
     }
     render(){
         return(
@@ -69,7 +79,7 @@ class Main extends Component {
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>
                     <Route path='/register'component={() => <Register/>}/>
-                    <Route path='/home' component={this.props.token.token !== undefined ? () => <Home/> : null}/>
+                    <Route path='/home' component={this.props.token.token !== undefined ? () => <Home todaysBrewery={todaysBrewery} todaysBeer={todaysBeer} getTodaysItems={this.getTodaysItems} getBeer={this.props.getBeer} getBrewery={this.props.getBrewery}/> : null}/>
                     <Route path='/beers' component={this.props.token.token !== undefined  ? () => <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : null}/>
                     <Route path='/breweries' component={this.props.token.token !== undefined ? () => <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : null}/>
                     <Route path='/beer/:id' component={ this.props.token.token !== undefined ? () => <Beer selectedBeer = {this.props.beers.selectedBeer} /> : null} />

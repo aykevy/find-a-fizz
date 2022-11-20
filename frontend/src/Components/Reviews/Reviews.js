@@ -4,7 +4,6 @@ import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios'
 
 function Reviews(props) {
-    console.log(props.id)
     const [reviewList, setReviewList] = React.useState([])
 
     useEffect( () => {
@@ -28,7 +27,7 @@ function Reviews(props) {
         fetchData();
         }
     }, [props.id, props.type]); /*Whenever you use variables outside of useEffect, important to add them to dependencys*/
-    if(props != undefined && props.id === (1) || props.id === (2)){
+    if(props !== undefined && (props.id === (1) || props.id === (2))){
     return (  
         <div>
             <table className="review--table">
@@ -55,7 +54,7 @@ function Reviews(props) {
             </table>
         </div>
     )}
-    else if (props != undefined){
+    else if (props !== undefined){
         return(<>
         <p>No comments on file, leave one!</p>
         </>)
