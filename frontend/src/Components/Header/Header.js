@@ -3,6 +3,7 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler,Collapse,NavItem, Button} from 
 import {NavLink, Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import SearchBar from '../SearchBar/SearchBar'
 
 const mapStateToProps = state => {
     return {
@@ -66,6 +67,9 @@ class Header extends Component {
                      <NavbarBrand className='navbar--logo' href="/home">
                         <img src= './assests/logo.png' height='100' width='100' alt='Brewery Finder'/>
                      </NavbarBrand>
+            
+                <SearchBar />
+                
                 <Collapse isOpen={this.state.isNavOpen} navbar className = "navbar--collaspe">
                      <Nav navbar>
                           <NavItem>

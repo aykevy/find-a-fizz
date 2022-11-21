@@ -9,61 +9,65 @@ function Reviews(props) {
     const [reviewList, setReviewList] = React.useState([])
 
     useEffect( () => {
-        if(props.type === 'beer' || props.type === 'brewery'){
-        let fetchUrl = '';
+        if (props.type === 'beer' || props.type === 'brewery') {
+            let fetchUrl = '';
+            if (props.type.toLowerCase() === 'beer') {
+                fetchUrl = (baseUrl + "/beerReviews/beerId?beerId=" + props.id);
+            }
 
-        if (props.type.toLowerCase() === 'beer') {
-            fetchUrl = (baseUrl + "/beerReviews/beerId?beerId=" + props.id);
-        }
+            else if (props.type.toLowerCase() === 'brewery') {
+                fetchUrl = (baseUrl + "/breweryReviews/breweryId?breweryId=" + props.id);
+            }
 
-        else if (props.type.toLowerCase() === 'brewery') {
-            fetchUrl = (baseUrl + "/breweryReviews/breweryId?breweryId=" + props.id);
-        }
-
-        async function fetchData() {
-            const request = await axios.get(fetchUrl);
-            setReviewList(request.data);
-            return request;
-        }
-
-        fetchData();
+            async function fetchData() {
+                const request = await axios.get(fetchUrl);
+                setReviewList(request.data);
+                return request;
+            }
+            fetchData();
         }
     }, [props.id, props.type]); /*Whenever you use variables outside of useEffect, important to add them to dependencys*/
-    if(props !== undefined && (props.id === (1) || props.id === (2))){
-    return (  
-        <div>
-            <table className="review--table">
-                <thead className="review--table--head">
-                    <tr>
-                        <th>Rating</th>
-                        <th>Review</th>
-                        <th>Posted By User Id#</th>
-                    </tr>
-                </thead>
 
-                <tbody className="review--table--body">
-                    {
-                        reviewList.map(item => {
-                        return (
-                            <tr key={item.id}>
-                                <td>{ item.rating } out of 5</td>
-                                <td>{ item.review }</td>
-                                <td>{ item.userId }</td>
-                            </tr>
-                        )})
-                    }
-                </tbody>
-            </table>
-        </div>
-    )}
-    else if (props !== undefined){
-        return(<>
-        <p>No comments on file, leave one!</p>
-        </>)
-    }
-    else{
-        return(<></>)
-    }
+    if (props !== undefined && (reviewList.length > 0)) {
+        return (  
+            <div>
+                <table className="review--table">
+                    <thead className="review--table--head">
+                        <tr>
+                            <th>Rating</th>
+                            <th>Review</th>
+                            <th>Posted By User#</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody className="review--table--body">
+                        {
+                            reviewList.map(item => {
+                            return (
+                                <tr key={item.id}>
+                                    <td>{ item.rating } out of 5</td>
+                                    <td>{ item.review === null ? 'No comment left.' : item.review }</td>
+                                    <td>{ item.userId }</td>
+                                    <td>{ item.createdAt }</td>
+                                </tr>
+                            )})
+                        }
+                    </tbody>
+                </table>
+            </div>
+        )}
+
+        else if (props !== undefined) {
+            return(
+                <>
+                    <p>No comments on file, leave one!</p>
+                </>)
+        }
+        
+        else {
+            return(<></>)
+        }
 }
 
 export default Reviews;

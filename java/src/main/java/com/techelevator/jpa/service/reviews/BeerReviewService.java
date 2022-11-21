@@ -1,7 +1,7 @@
-package com.techelevator.jpa.service;
+package com.techelevator.jpa.service.reviews;
 
-import com.techelevator.jpa.entity.BeerReview;
-import com.techelevator.jpa.entity.repository.BeerReviewRepository;
+import com.techelevator.jpa.entity.reviews.BeerReview;
+import com.techelevator.jpa.repository.reviews.BeerReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -26,5 +26,15 @@ public class BeerReviewService {
 
     public List<BeerReview> getAllBeerReviewsByBeerId(Long beerId) {
         return beerReviewRepository.findByBeerId(beerId);
+    }
+
+    public void addBeerReview(BeerReview beerReview)
+    {
+        beerReviewRepository.save(beerReview);
+    }
+
+    public void deleteBeerReviewById(Long id)
+    {
+        beerReviewRepository.deleteById(id);
     }
 }

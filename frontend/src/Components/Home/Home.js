@@ -1,10 +1,11 @@
 import React from 'react';
+import HomeSlider from '../Carousels/HomeSlider'
 
 function Home(props) {
    
 return(
     <>      
-     <p>Some Article about beer here?</p>
+     <HomeSlider />
     </>
 )
 }
