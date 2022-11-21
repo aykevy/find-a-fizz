@@ -5,7 +5,6 @@ import axios from 'axios'
 import './Review.css'
 
 function Reviews(props) {
-    console.log(props.id)
     const [reviewList, setReviewList] = React.useState([])
 
     useEffect( () => {

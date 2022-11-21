@@ -8,7 +8,7 @@ function Maps(props){
   const [lat,setLat] = useState(props.lat);
   const mapToken = "pk.eyJ1IjoibG9sdmFsaWQiLCJhIjoiY2xhbzd2dGtiMDk1cDN1cGJzMGNtd3BzZiJ9.uxKaXVdPSP38OD7J4TA8XQ"
 
-  if( lat && lng != undefined)
+  if( lat && lng !== undefined)
    return (
     <div>
       <Map 

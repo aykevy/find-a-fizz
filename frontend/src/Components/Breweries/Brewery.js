@@ -40,9 +40,9 @@ export default function Brewery({selectedBrewery}){
         </Card>
         <Card>
         <CardBody>
-            {selectedBrewery.websiteUrl != undefined || selectedBrewery.phone != undefined && <CardText className = 'brew--card--desc'> Contact {selectedBrewery.name} at:</CardText>}
-            {selectedBrewery.websiteUrl != undefined && <CardText className = 'brew--card--desc'>Website:  <span>{selectedBrewery.websiteUrl}</span></CardText>}
-            {selectedBrewery.phone != undefined  && <CardText className = 'brew--card--desc'> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
+            {(selectedBrewery.websiteUrl !== undefined || selectedBrewery.phone !== undefined) && <CardText className = 'brew--card--desc'> Contact {selectedBrewery.name} at:</CardText>}
+            {selectedBrewery.websiteUrl !== undefined && <CardText className = 'brew--card--desc'>Website:  <span>{selectedBrewery.websiteUrl}</span></CardText>}
+            {selectedBrewery.phone !== undefined  && <CardText className = 'brew--card--desc'> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
         </CardBody>
         </Card>
         <Card>

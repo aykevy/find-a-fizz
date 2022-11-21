@@ -32,7 +32,6 @@ function Beers(props){
                                 <CardImg top src = {beer.imageUrl} alt = {beer.name} />
                                 <CardBody>
                                     <CardTitle className = 'beer--card--name'>{beer.name}</CardTitle>
-                                    <CardText className = 'beer--card--desc'>{beer.description}</CardText>
                                 </CardBody>
                             </Card>
                         </div>   
