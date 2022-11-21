@@ -3,7 +3,6 @@ import React from 'react';
 import Beer from '../Beers/Beer';
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
-import { getBeer, selectBeer } from '../../Redux/actionCreators';
 
 function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery}) {
 

@@ -52,6 +52,23 @@ function Breweries(props){
 
     }
 
+    function setBreweryImage(type){
+        switch(type){
+            case 'closed': return '../../../public/assests/breweries/Closed.png'
+            case 'taproom': return '../../../public/assests/breweries/Taproom.png'
+            case 'regional': return '../../../public/assests/breweries/Regional.png'
+            case 'micro': return '../../../public/assests/breweries/Micro.png'
+            case 'contract': return '../../../public/assests/breweries/Contract.png'
+            case 'brewpub': return '../../../public/assests/breweries/Brewpub.png'
+            case 'proprietor': return '../../../public/assests/breweries/Proprietor.png'
+            case 'bar': return '../../../public/assests/breweries/Bar.png'    
+            case 'nano':  return 'to-do'  
+            case 'planning': return '../../../public/assests/breweries/InPlanning.png'
+            case 'large': return '../../../public/assests/breweries/Large.png'   
+        }
+
+    }
+
     /**
      * 
      * @returns creates link + li elements for page numbers and sends back to pagebar
