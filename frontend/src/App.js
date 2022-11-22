@@ -21,12 +21,6 @@ function App() {
         
       </BrowserRouter>
     </Provider>
-    
-   
-
-    /*
-    <Reviews type = {"beer"} id={1}/>
-    */
   );
   
 }

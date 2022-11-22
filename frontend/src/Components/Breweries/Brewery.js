@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 import Reviews from "../Reviews/Reviews";
 import Maps from "../Maps/Maps";
+import NewReview from "../Reviews/NewReview";
 import './Brewery.css'
 
 
-export default function Brewery({selectedBrewery}){
+export default function Brewery({selectedBrewery,postReview,userId}){
    
 
     function setBreweryImage(type){
@@ -68,6 +69,7 @@ export default function Brewery({selectedBrewery}){
                 <CardTitle className = 'selected--review'>
                     {/* TO DO - Move to Store - it's messing up sometimes with 400*/}
                     <Reviews type={"brewery"} id={selectedBrewery.id}/>
+                    <NewReview postReview={postReview} id={selectedBrewery.id} userId={userId} type='brewery'/>
                 </CardTitle>
         </CardBody>
         </Card>

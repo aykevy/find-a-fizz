@@ -26,9 +26,8 @@ function Beers(props){
                 return(
                 //{Setting Link to Route to single beer page I.E. url.com/beer/1 */} 
                     <Link to={url} style={{color:"black"}}> 
-                        <div className = 'beer--card--set'>             
-                            <Card className="beer--card" key = {beer.id} onClick ={ (e) => onBeerSelect(beer.id)}>
-
+                        <div className = 'beer--card--set' key = {beer.id}>             
+                            <Card className="beer--card" onClick ={ (e) => onBeerSelect(beer.id)}>
                                 <CardImg top src = {beer.imageUrl} alt = {beer.name} />
                                 <CardBody>
                                     <CardTitle className = 'beer--card--name'>{beer.name}</CardTitle>

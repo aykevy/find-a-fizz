@@ -30,3 +30,10 @@
   .review--table--body tr:nth-child(even){
     background-color: #e8e8e8;
   }
+  .review--rating{
+    display: flex;
+    align-items: flex-start;
+  }
+  .form-checkinput{
+    margin-left: 35px;
+  }

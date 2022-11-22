@@ -1,11 +1,12 @@
 import React from "react"
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
+import NewReview from "../Reviews/NewReview";
 import Reviews from "../Reviews/Reviews";
 import './Beer.css'
 
 
-export default function Beer({selectedBeer}){
+export default function Beer({selectedBeer,postReview,userId}){
     return(
         <>
         <div className="selected--beer">
@@ -30,6 +31,7 @@ export default function Beer({selectedBeer}){
         <CardBody>
                 <CardTitle className = 'selected--review'>
                     <Reviews type={"beer"} id={selectedBeer.id}/>
+                    <NewReview postReview={postReview} id={selectedBeer.id} userId={userId} type='beer'/>
                 </CardTitle>
         </CardBody>
         </Card>

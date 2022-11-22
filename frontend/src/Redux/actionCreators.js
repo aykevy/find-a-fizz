@@ -101,3 +101,43 @@ export const fetchBreweries = (dispatch) => {
         //TO DO - ERROR HANDLING
         .catch(error => console.log(error.message))       
 }};
+
+
+///Review stuff?
+
+export const postReview = (userId,id,review,rating,type) =>{
+    return dispatch =>{
+        let newReview = {}
+        if (type ==='beer') {
+            newReview = {
+            userId:userId,
+            beerId:id,
+            review:review,
+            rating:rating
+         }
+        }
+        else {
+            newReview = {
+                userId:userId,
+                breweryId:id,
+                review:review,
+                rating:rating
+         }
+
+        newReview.createdAt = new Date().toISOString()
+
+        if(type === 'beer'){   
+        ActionTypes.axios.post('/beerReview',newReview)
+            .then(res => {alert('Review posted, Thank you!')})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+        }    
+        if(type === 'brewery'){   
+            ActionTypes.axios.post('/breweryReview',newReview)
+            .then(res => {alert('Review posted, Thank you!')})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+            }    
+        }
+    }
+};
