@@ -14,6 +14,10 @@
     justify-content: center;
     align-content: center;
   }
+  .brew--image{
+  max-width: 200px;
+  max-height: 200px; 
+  }
   
   .brew--results{
     display: flex;
@@ -61,4 +65,47 @@
       border-radius: 7px;
       border-width: 2px;
     }
-    
+  .brew--list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  
+    gap: 20px;
+    margin: 15px;
+  }
+  .brew--card{
+    min-height: 400px;
+    min-width: 400px;
+    align-items: center;
+  }
+  .brew--card--set{
+    border-style: solid;
+    border-radius: 7px;
+    border-width: 2px;
+    margin-left: 15px;
+    min-height: 400px;
+    min-width: 400px;
+    text-align: center;
+  }
+  .brew--card--set:hover{
+    background-position: 100% 100%;
+    transform: scale(1.08,1.03);
+    box-shadow: 10px 10px 5px black;
+    border-style: solid;
+    border-color: black;
+    border-radius: 7px;
+    border-width: 1px;
+  }
+  .brew--card--name{
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-decoration: underline;
+  }
+
+  a:nth-child(even) .brew--card{
+    background-color: #FFBD6D;
+  }
+  a:nth-child(odd) .brew--card{
+    background-color: #FFD371;
+  }

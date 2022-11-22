@@ -1,20 +1,21 @@
-package com.techelevator.jpa.entity;
+package com.techelevator.jpa.entity.reviews;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
-@Entity(name = "BeerReview")
-public class BeerReview {
+@Entity(name = "BreweryReview")
+public class BreweryReview {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", updatable = false)
     Long id;
 
     @Column(name = "user_id")
     Long userId;
 
-    @Column(name = "beer_id")
-    Long beerId;
+    @Column(name = "brewery_id")
+    Long breweryId;
 
     @Column(name = "review", columnDefinition = "TEXT")
     String review;
@@ -22,14 +23,18 @@ public class BeerReview {
     @Column(name = "rating")
     Integer rating;
 
-    public BeerReview() {}
+    @Column(name = "created_at", nullable = false)
+    LocalDate createdAt;
 
-    public BeerReview(Long id, Long userId, Long beerId, String review, Integer rating) {
+    public BreweryReview() {}
+
+    public BreweryReview(Long id, Long userId, Long breweryId, String review, Integer rating, LocalDate createdAt) {
         this.id = id;
         this.userId = userId;
-        this.beerId = beerId;
+        this.breweryId = breweryId;
         this.review = review;
         this.rating = rating;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
@@ -48,12 +53,12 @@ public class BeerReview {
         this.userId = userId;
     }
 
-    public Long getBeerId() {
-        return beerId;
+    public Long getBreweryId() {
+        return breweryId;
     }
 
-    public void setBeerId(Long beerId) {
-        this.beerId = beerId;
+    public void setBreweryId(Long breweryId) {
+        this.breweryId = breweryId;
     }
 
     public String getReview() {
@@ -70,5 +75,13 @@ public class BeerReview {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
     }
 }

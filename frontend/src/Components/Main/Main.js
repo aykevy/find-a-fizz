@@ -73,9 +73,8 @@ class Main extends Component {
                     : 
                         <Link to='/login'>Home | </Link>
                 }
-                {(this.props.location.pathname !== '/login') &&  <Header handleLogout={this.handleLogout}/>}
-                {console.log(this.props.location)}
-
+                {(this.props.location.pathname !== '/login') &&  <Header handleLogout={this.handleLogout} getBrewery={this.props.getBrewery} getBeer={this.props.getBeer} beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]}/>}
+    
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
                     <Route path='/login' component={() => <Login/>}/>

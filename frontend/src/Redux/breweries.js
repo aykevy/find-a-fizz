@@ -19,7 +19,6 @@ switch (action.type) {
         return { ...state};
 
     case ActionTypes.SELECT_BREWERY:
-        console.log(action.payload)
         return {...state, loading:false, selectedBrewery: action.payload}
 
     default:

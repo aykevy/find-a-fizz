@@ -48,14 +48,18 @@
     gap: 50px;
    }
   
-   .beer--list > .beer--card--set:nth-child(odd) > .beer--card{
+  /* .beer--card--set:nth-child(odd) > .beer--card{
+    background-color: #FFBD6D;
+  } */
+  /* .beer--list:nth-child(odd) > a > .beer--card--set > .beer--card{
+    background-color: black;
+  } */
+  a:nth-child(even) .beer--card{
     background-color: #FFBD6D;
   }
-  
-  .beer--list > .beer--card--set:nth-child(even) > .beer--card{
+  a:nth-child(odd) .beer--card{
     background-color: #FFD371;
   }
-  
   .beer--card{
     aspect-ratio: 1/1.6;
     cursor: pointer;
@@ -74,9 +78,7 @@
     border-radius: 7px;
     border-width: 1px;
    }
-   .beer--card--set :first-child{
-    padding: 10px;
-   }
+
    .beer--card--name{
     font-size: 1rem;
     font-weight: bold;

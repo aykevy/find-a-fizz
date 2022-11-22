@@ -41,7 +41,6 @@ public class BeerController {
     @PostMapping("/beer")
     public void addBeer(@RequestBody Beer beer)
     {
-        System.out.println("Added beer!");
         beerService.addBeer(beer);
     }
 

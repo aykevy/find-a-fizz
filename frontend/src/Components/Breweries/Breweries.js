@@ -54,17 +54,18 @@ function Breweries(props){
 
     function setBreweryImage(type){
         switch(type){
-            case 'closed': return '../../../public/assests/breweries/Closed.png'
-            case 'taproom': return '../../../public/assests/breweries/Taproom.png'
-            case 'regional': return '../../../public/assests/breweries/Regional.png'
-            case 'micro': return '../../../public/assests/breweries/Micro.png'
-            case 'contract': return '../../../public/assests/breweries/Contract.png'
-            case 'brewpub': return '../../../public/assests/breweries/Brewpub.png'
-            case 'proprietor': return '../../../public/assests/breweries/Proprietor.png'
-            case 'bar': return '../../../public/assests/breweries/Bar.png'    
+            case 'closed': return './assests/breweries/Closed.png'
+            case 'taproom': return './assests/breweries/Taproom.png'
+            case 'regional': return './assests/breweries/Regional.png'
+            case 'micro': return './assests/breweries/Micro.png'
+            case 'contract': return './assests/breweries/Contract.png'
+            case 'brewpub': return './assests/breweries/Brewpub.png'
+            case 'proprietor': return './assests/breweries/Proprietor.png'
+            case 'bar': return './assests/breweries/Bar.png'    
             case 'nano':  return 'to-do'  
-            case 'planning': return '../../../public/assests/breweries/InPlanning.png'
-            case 'large': return '../../../public/assests/breweries/Large.png'   
+            case 'planning': return './assests/breweries/InPlanning.png'
+            case 'large': return './assests/breweries/Large.png'
+            default: return ''
         }
 
     }
@@ -129,8 +130,7 @@ function Breweries(props){
                     <Link to={url} style={{color:"black"}}> 
                         <div className = 'brew--card--set'>              
                             <Card className="brew--card" key = {brewery.id} onClick ={ (e) => onSelect(brewery.id)}>
-                                {/* TO-DO Set brewery image URL based on type of brewery*/}
-                                <CardImg top src = {brewery.imageUrl} alt = {brewery.name} />
+                                <CardImg top className='brew--image'src={setBreweryImage(brewery.breweryType)} alt = {brewery.name} />
                                 <CardBody>
                                     <CardTitle className = 'brew--card--name'>{brewery.name}</CardTitle>
                                     {brewery.breweryType !== undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}

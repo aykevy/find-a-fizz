@@ -16,7 +16,6 @@ switch (action.type) {
     case ActionTypes.DELETE_BEERS:
         return { ...state};
     case ActionTypes.SELECT_BEER:
-        console.log(action.payload)
         return {...state, loading:false, selectedBeer: action.payload}
 
     default:

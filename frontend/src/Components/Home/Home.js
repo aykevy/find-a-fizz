@@ -1,19 +1,17 @@
-
 import React from 'react';
 import Beer from '../Beers/Beer';
+import HomeSlider from '../Carousels/HomeSlider';
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 
 function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery}) {
-
-
-if(todaysBrewery || todaysBeer === undefined){
-    getTodaysItems();
-}
+    if(todaysBrewery || todaysBeer === undefined){
+        getTodaysItems();
+    }
     
- 
+   
 return(
-    <>
+     <>
     <div className='home--featuredBeer'>    
     <Link to={'/beer/'+todaysBeer.id} style={{color:"black"} } component={<Beer selectedBeer={todaysBeer}/>}> 
                         <div className = 'beer--card--set'>             
@@ -42,7 +40,9 @@ return(
         </CardBody>
         </Card>
 
-    </div>        
+    </div>    
+     
+     <HomeSlider />
     </>
 )
 }

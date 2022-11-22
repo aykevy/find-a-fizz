@@ -54,6 +54,9 @@ code {
   flex-grow: 0;
 
  }
+ .selectAndSearchBarLinedUp, .selectAndSearchBarLinedUp:focus{
+  align-self: center;
+ }
  footer{
   margin-top: 10px;
   padding:  25px ;
