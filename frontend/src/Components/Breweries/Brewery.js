@@ -7,7 +7,26 @@ import './Brewery.css'
 
 
 export default function Brewery({selectedBrewery}){
-  
+   
+
+    function setBreweryImage(type){
+        switch(type){
+            case 'closed': return '/assests/breweries/Closed.png'
+            case 'taproom': return '/assests/breweries/Taproom.png'
+            case 'regional': return '/assests/breweries/Regional.png'
+            case 'micro': return '/assests/breweries/Micro.png'
+            case 'contract': return '/assests/breweries/Contract.png'
+            case 'brewpub': return '/assests/breweries/Brewpub.png'
+            case 'proprietor': return '/assests/breweries/Proprietor.png'
+            case 'bar': return '/assests/breweries/Bar.png'    
+            case 'nano':  return 'to-do'  
+            case 'planning': return '/assests/breweries/InPlanning.png'
+            case 'large': return '/assests/breweries/Large.png'
+            default: return ''
+        }
+
+    }
+
     /**
      * 
      * @param {INT/STRING} phoneNumberString 
@@ -21,15 +40,14 @@ export default function Brewery({selectedBrewery}){
           return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
         }
         return '';
-      }
-
-
+    }
+      
     return(
         <>
         <div className="selected--brewery">
         <Link to='/breweries/' style={{color: 'black'}}>
         <Card className="selected--image">
-            <CardImg top src = {selectedBrewery.imageUrl} alt =" This is where we have the small pictures things"/>
+             <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
         <Card>
