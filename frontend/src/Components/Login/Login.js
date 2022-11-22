@@ -47,8 +47,13 @@ class Login extends Component {
     render(){
         return(
             <div className='login--page--main'>
+        
                 <body className='login--page--boxes'>
-                <h1>Please Sign In</h1>
+
+                <img className='login--logo' src= './assests/loginImage.png' alt='Welcome In'/>
+                
+                <div className='login--inputs'>
+                <h1>Login Here</h1>
                 <label class="sr-only">Username</label>
                 <input
                     type="text"
@@ -72,7 +77,8 @@ class Login extends Component {
                     required
                 />
                 <Link to="/register">Need an account?</Link>
-                <button type="submit" onClick={this.handleLogin}>Sign in</button>
+                <button className='submit--button' type="submit" onClick={this.handleLogin}>Sign in</button>
+                </div>
                 </body>
             </div>
         )
