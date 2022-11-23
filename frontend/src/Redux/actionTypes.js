@@ -19,5 +19,8 @@ export const GET_BREWERY ='GET_BREWERY'
 export const FETCH_BREWERIES = 'FETCH_BREWERIES'
 export const LOADING_BREWERIES = 'LOADING_BREWERIES'
 export const SELECT_BREWERY = 'SELECT_BREWERY'
+//Location store
+export const ADD_LOCATION = 'ADD_LOCATION'
+export const GET_LOCATION = 'GET_LOCATION'
 //Setting up axios
 export const axios = require('axios').default;

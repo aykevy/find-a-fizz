@@ -140,4 +140,15 @@ export const postReview = (userId,id,review,rating,type) =>{
             }    
         }
     }
-};
+}
+//Location stuff
+
+export const addLocation = (latitude,longitude) => ({
+    type: ActionTypes.ADD_LOCATION,
+    payload: {latitude:latitude,longitude:longitude}    
+})
+
+export const getLocation = () => ({
+    type: ActionTypes.GET_LOCATION
+})
+;

@@ -7,7 +7,7 @@ import NewReview from "../Reviews/NewReview";
 import './Brewery.css'
 
 
-export default function Brewery({selectedBrewery,postReview,userId}){
+export default function Brewery({selectedBrewery,postReview,userId,userLocation}){
    
 
     function setBreweryImage(type){
@@ -74,7 +74,7 @@ export default function Brewery({selectedBrewery,postReview,userId}){
                 </CardTitle>
         </CardBody>
         </Card>
-        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude}/>
+        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude} userLocation={userLocation}/>
         </div>
         </>    
     )

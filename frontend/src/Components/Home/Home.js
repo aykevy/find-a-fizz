@@ -1,10 +1,11 @@
 import React from 'react';
 import Beer from '../Beers/Beer';
 import HomeSlider from '../Carousels/HomeSlider';
+import Maps from '../Maps/Maps';
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 
-function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery}) {
+function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery,userLocation,breweries}) {
     if(todaysBrewery || todaysBeer === undefined){
         getTodaysItems();
     }
@@ -60,8 +61,11 @@ return(
         </Card>
 
     </div>    
-     
+
      <HomeSlider />
+     <div className= 'home--map'>
+     <Maps userLocation={userLocation} fromHome={true} breweries={breweries} getBrewery={getBrewery}/>
+     </div>
     </>
 )
 }
