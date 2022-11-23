@@ -42,7 +42,7 @@ export default function Brewery({selectedBrewery,postReview,userId}){
         }
         return '';
     }
-      
+      console.log(selectedBrewery.websiteUrl)
     return(
         <>
         <div className="selected--brewery">
@@ -51,29 +51,30 @@ export default function Brewery({selectedBrewery,postReview,userId}){
              <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
-        <Card>
-        <CardBody className="selected--nameDesc">
+        <Card className="selected--nameDesc">
+        <CardBody>
                 <CardTitle className = 'selected--name'>{selectedBrewery.name}</CardTitle>
                 <CardText className = 'selected--desc'>{selectedBrewery.street +", "+ selectedBrewery.city +", " + selectedBrewery.state}</CardText>
         </CardBody>
         </Card>
-        <Card>
+        <Card className = 'selected--card--desc'>
         <CardBody>
-            {(selectedBrewery.websiteUrl !== undefined || selectedBrewery.phone !== undefined) && <CardText className = 'brew--card--desc'> Contact {selectedBrewery.name} at:</CardText>}
-            {selectedBrewery.websiteUrl !== undefined && <CardText className = 'brew--card--desc'>Website:  <span>{selectedBrewery.websiteUrl}</span></CardText>}
-            {selectedBrewery.phone !== undefined  && <CardText className = 'brew--card--desc'> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
+            {(selectedBrewery.websiteUrl !== (undefined || '' || null) || selectedBrewery.phone !== undefined) && <CardText > Contact {selectedBrewery.name} at:</CardText>}
+            {selectedBrewery.websiteUrl !== (undefined || '' || null) && <CardText>Website:  <span>{selectedBrewery.websiteUrl}</span></CardText>}
+            {selectedBrewery.phone !== undefined  && <CardText> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
         </CardBody>
         </Card>
-        <Card>
+        <div class="break"></div> 
+        <Card className = 'selected--review'>
         <CardBody>
-                <CardTitle className = 'selected--review'>
+                <CardTitle>
                     {/* TO DO - Move to Store - it's messing up sometimes with 400*/}
                     <Reviews type={"brewery"} id={selectedBrewery.id}/>
                     <NewReview postReview={postReview} id={selectedBrewery.id} userId={userId} type='brewery'/>
                 </CardTitle>
         </CardBody>
         </Card>
-        <Maps lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude}/>
+        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude}/>
         </div>
         </>    
     )

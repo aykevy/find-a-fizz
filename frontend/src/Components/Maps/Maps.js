@@ -14,11 +14,11 @@ function Maps(props){
       <Map 
       mapboxAccessToken= {mapToken}
       style={{
-        width: '200px',
-        height: '200px',
+        width: '280px',
+        height: '280px',
         borderRadius: '15px',
         border: '2px solid black'
-      
+        
       }}
 
       initialViewState={{
