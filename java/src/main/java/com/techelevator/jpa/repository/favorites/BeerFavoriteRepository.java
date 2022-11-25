@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface BeerFavoriteRepository extends JpaRepository<BeerFavorite, Long> {
     List<BeerFavorite> findByUserId(Long userId);
+
 }

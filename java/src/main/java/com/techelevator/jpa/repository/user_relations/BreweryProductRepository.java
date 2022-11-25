@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface BreweryProductRepository extends JpaRepository<BreweryProduct, Long> {
     List<BreweryProduct> findByBreweryId(long breweryId);
+    List<BreweryProduct> findByBeerId(long beerId);
 }

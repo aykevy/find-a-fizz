@@ -26,6 +26,13 @@ public class BreweryProductController {
         return breweryProductService.getAllBreweryProductByBreweryId(breweryId);
     }
 
+    /* GET example: http://localhost:8080/breweryProduct/beerId?beerId=1 */
+    @GetMapping("/breweryProduct/beerId")
+    public List<BreweryProduct> getAllBreweryProductByBeerId(@RequestParam Long beerId)
+    {
+        return breweryProductService.getAllBreweryProductByBeerId(beerId);
+    }
+
     /*
         POST example via Postman adding a new brewery product: http://localhost:8080/breweryProduct
         Raw body example (Make sure to put in all fields except ID in the JSON body you are sending)

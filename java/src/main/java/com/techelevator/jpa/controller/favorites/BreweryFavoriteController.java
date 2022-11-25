@@ -14,13 +14,13 @@ public class BreweryFavoriteController {
     @Autowired
     private BreweryFavoriteService breweryFavoriteService;
 
-    /* GET example: http://localhost:8080/beerFavorites */
+    /* GET example: http://localhost:8080/breweryFavorites */
     @GetMapping("/breweryFavorites")
     public List<BreweryFavorite> getAllBreweryFavorites() {
         return breweryFavoriteService.getAllBreweryFavorites();
     }
 
-    /* GET example: http://localhost:8080/beerFavorites/userId?userId=1 */
+    /* GET example: http://localhost:8080/breweryFavorites/userId?userId=1 */
     @GetMapping("/breweryFavorites/userId")
     public List<BreweryFavorite> getAllBreweryFavoritesByUserId(@RequestParam Long userId)
     {

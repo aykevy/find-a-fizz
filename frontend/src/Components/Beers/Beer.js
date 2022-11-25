@@ -4,6 +4,7 @@ import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 import NewReview from "../Reviews/NewReview";
 import Reviews from "../Reviews/Reviews";
 import './Beer.css'
+import BrewerySlider from "../Carousels/BrewerySlider";
 
 
 export default function Beer({selectedBeer,postReview,userId}){
@@ -25,6 +26,11 @@ export default function Beer({selectedBeer,postReview,userId}){
         <CardBody>
                 <CardTitle className = 'selected--abv'>{selectedBeer.abvPercent}</CardTitle>
                 <CardText className = 'selected--type'>{selectedBeer.type}</CardText>
+        </CardBody>
+        </Card>
+        <Card>
+        <CardBody>
+                <BrewerySlider beerId={selectedBeer.id}/>
         </CardBody>
         </Card>
         <Card>

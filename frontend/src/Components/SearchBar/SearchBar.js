@@ -5,7 +5,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { Link } from 'react-router-dom';
 
 
-function SearchBar({getBeer,getBrewery,beers,breweries}) {
+function SearchBar({getBeer, getBrewery, beers, breweries}) {
     const [option, setOption] = React.useState("Beer");
 
     const [filteredBeers, setFilteredBeers] = React.useState([]);

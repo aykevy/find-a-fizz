@@ -5,6 +5,7 @@ import Reviews from "../Reviews/Reviews";
 import Maps from "../Maps/Maps";
 import NewReview from "../Reviews/NewReview";
 import './Brewery.css'
+import BeerSlider from "../Carousels/BeerSlider"
 
 
 export default function Brewery({selectedBrewery,postReview,userId,userLocation}){
@@ -64,6 +65,13 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation}
             {selectedBrewery.phone !== undefined  && <CardText> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
         </CardBody>
         </Card>
+
+        <Card>
+        <CardBody>
+                <BeerSlider breweryId={selectedBrewery.id}/>
+        </CardBody>
+        </Card>
+        
         <div class="break"></div> 
         <Card className = 'selected--review'>
         <CardBody>

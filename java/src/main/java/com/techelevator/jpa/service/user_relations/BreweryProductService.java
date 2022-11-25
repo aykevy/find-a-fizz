@@ -24,6 +24,10 @@ public class BreweryProductService {
         return breweryProductRepository.findByBreweryId(breweryId);
     }
 
+    public List<BreweryProduct> getAllBreweryProductByBeerId(Long beerId) {
+        return breweryProductRepository.findByBeerId(beerId);
+    }
+
     public void addBreweryProduct(BreweryProduct breweryProduct)
     {
         breweryProductRepository.save(breweryProduct);
