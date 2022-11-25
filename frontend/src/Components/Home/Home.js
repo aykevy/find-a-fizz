@@ -22,7 +22,7 @@ function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery,userLo
             case 'brewpub': return './assests/breweries/Brewpub.png'
             case 'proprietor': return './assests/breweries/Proprietor.png'
             case 'bar': return './assests/breweries/Bar.png'    
-            case 'nano':  return 'to-do'  
+            case 'nano':  return '/assests/breweries/Nano.png'   
             case 'planning': return './assests/breweries/InPlanning.png'
             case 'large': return './assests/breweries/Large.png'
             default: return ''

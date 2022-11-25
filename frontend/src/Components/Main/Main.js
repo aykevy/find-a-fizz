@@ -63,6 +63,7 @@ class Main extends Component {
     componentDidMount = () =>{ 
         this.props.fetchBeers();
         this.props.fetchBreweries();
+        
         //set some stuff up to getlocation data
 
         navigator.geolocation.getCurrentPosition( position => {

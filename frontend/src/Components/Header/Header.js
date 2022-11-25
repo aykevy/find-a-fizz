@@ -76,7 +76,7 @@ class Header extends Component {
                                <NavLink className='nav-link' to='/home'><span className="fa fa-home"></span> Home </NavLink>
                                <NavLink className='nav-link' to='/breweries'><span className='fa fa-beer'></span> Find a Brewery </NavLink>
                                <NavLink className='nav-link' to='/beers'><span className='fa fa-glass'></span> Find a Beer</NavLink>
-                               <NavLink className='nav-link' to='/contactus'><span className='fa fa-ban'></span> Something else? </NavLink>
+                               <NavLink className='nav-link' to='/account'><span className='fa fa-user-circle'></span> Account Management </NavLink>
                               </div>
                           </NavItem>
                      </Nav>
