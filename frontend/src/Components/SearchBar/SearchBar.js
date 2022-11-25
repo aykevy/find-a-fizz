@@ -67,7 +67,7 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
                 </div>
             </div>
 
-            {filteredBeers.length != 0 && option === "Beer" && (
+            {filteredBeers.length !== 0 && option === "Beer" && (
                 <div className="dataResult">
                     {
                         /*We slice here to only show top 20 results so it doesn't lag*/
@@ -82,7 +82,7 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
                 </div>
             )}
 
-            {filteredBreweries.length != 0 && option === "Brewery" && (
+            {filteredBreweries.length !== 0 && option === "Brewery" && (
                 <div className="dataResult">
                     {
                         /*We slice here to only show top 20 results so it doesn't lag*/

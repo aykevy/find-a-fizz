@@ -17,7 +17,7 @@ export default class HomeSlider extends Component {
     };
     
     return (
-      <div>
+      <div className="home--slider">
         <Slider {...settings}>
           <div>
           <img src= './assests/Homepage-Banner-0-Christmas.png' width="auto" height="500px"alt='Homepage-Banner-0'/>

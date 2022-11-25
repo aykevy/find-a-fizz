@@ -113,7 +113,7 @@ class Main extends Component {
                 <footer>
                    <h5>&copy; A Brewery Company - 2022</h5>
                    <button>login</button>
-               </footer>}
+                </footer>}
             </div>
         )
     }

@@ -7,4 +7,11 @@
     display: flex !important; 	
     justify-content: center; 	
     align-items: center; 
+    overflow: hidden;
+}
+.home--slider{
+    width: 60%;
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
 }

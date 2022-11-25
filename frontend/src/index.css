@@ -23,6 +23,7 @@ code {
   flex-direction: row;
   justify-content: space-between;
   max-height: 120px;
+  margin-top: 0px;
  }
  
  .navbar--collaspe{

@@ -4,6 +4,7 @@ import HomeSlider from '../Carousels/HomeSlider';
 import Maps from '../Maps/Maps';
 import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
+import './Home.css'
 
 function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery,userLocation,breweries}) {
     if(todaysBrewery || todaysBeer === undefined){
@@ -32,6 +33,7 @@ function Home({todaysBrewery,todaysBeer,getTodaysItems,getBeer,getBrewery,userLo
    
 return(
      <>
+     <div className='home--dailyFeatures'>
     <div className='home--featuredBeer'>    
     <Link to={'/beer/'+todaysBeer.id} style={{color:"black"} } component={<Beer selectedBeer={todaysBeer}/>}> 
                         <div className = 'beer--card--set'>             
@@ -45,8 +47,9 @@ return(
                         </div>   
                     </Link>
     </div>
+     <HomeSlider />
 
-      <div className='home--featuredBrewey'>    
+      <div className='home--featuredBrewery'>    
         <Link to={'/brewery/'+todaysBrewery.id} style={{color:"black"}}> 
             <Card className="selected--image">
             <CardImg top src = {setBreweryImage(todaysBrewery.breweryType)} alt =" This is where we have the small pictures things" onClick={(e) => getBrewery(todaysBrewery.id)}/>
@@ -61,8 +64,8 @@ return(
         </Card>
 
     </div>    
+     </div>
 
-     <HomeSlider />
      <div className= 'home--map'>
      <Maps userLocation={userLocation} fromHome={true} breweries={breweries} getBrewery={getBrewery}/>
      </div>
