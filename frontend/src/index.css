@@ -46,11 +46,15 @@ code {
 
  .navbar--logout {
   background-color: #ECA200;
-  border-style: solid;
-  border: black;
+  border: 5px solid #eca200;
   border-radius: 5px;
-  padding: 10px;
-  margin: 20px;
+  color:black;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+  font-kerning: auto;
   align-content: flex-end;
   flex-grow: 0;
 
@@ -58,29 +62,24 @@ code {
  .selectAndSearchBarLinedUp, .selectAndSearchBarLinedUp:focus{
   align-self: center;
  }
+
  footer{
   margin-top: 10px;
-  padding:  25px ;
+  padding:  10px ;
   position: fixed;
   bottom: 0;
-  height: 75px;
+  height: 5vw;
   width: 100%;
   background-color: #5B4037;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
+  text-align: center;
  }
  footer > h5 {
   text-align: start;
   color: #F7F5F1;
- }
- footer > button {
-  background-color: #ECA200;
-  border-style: none;
-  color:#F7F5F1;
-  padding-left: 15px;
-  padding-right: 15px;
  }
  .home--map{
   margin-left:5vw;

@@ -1,17 +1,29 @@
 .home--dailyFeatures{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    margin: 10px;
+    justify-content: space-evenly;
+    align-content: center;
+    margin: 20px;
     margin-top: 20px;
+    text-align: center;
 }
 .home--featuredBrewery{
     display: flex;
     flex-direction: column;
+    align-self: center;
     justify-content: center;
-
+    margin: 10px;
 }
-.selected--image {
-    margin-right: 50px;
+.home--featuredBeer {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 10px;
+}
+.selected--image{
+    margin-left: 20px;
+}
+.featuredBeer {
+    margin-bottom: 20px;
 }

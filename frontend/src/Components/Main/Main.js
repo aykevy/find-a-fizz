@@ -119,7 +119,6 @@ class Main extends Component {
                 {(this.props.location.pathname !== '/login') &&
                 <footer>
                    <h5>&copy; A Brewery Company - 2022</h5>
-                   <button>login</button>
                 </footer>}
             </div>
         )

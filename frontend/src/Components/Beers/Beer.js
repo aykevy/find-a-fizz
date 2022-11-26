@@ -30,11 +30,6 @@ export default function Beer({selectedBeer,postReview,userId}){
         </Card>
         <Card>
         <CardBody>
-                <BrewerySlider beerId={selectedBeer.id}/>
-        </CardBody>
-        </Card>
-        <Card>
-        <CardBody>
                 <CardTitle className = 'selected--review'>
                     <Reviews type={"beer"} id={selectedBeer.id}/>
                     <NewReview postReview={postReview} id={selectedBeer.id} userId={userId} type='beer'/>
@@ -42,6 +37,11 @@ export default function Beer({selectedBeer,postReview,userId}){
         </CardBody>
         </Card>
         </div>
+        <Card>
+        <CardBody>
+                <BrewerySlider beerId={selectedBeer.id}/>
+        </CardBody>
+        </Card>
         </>    
     )
 }

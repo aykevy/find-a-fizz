@@ -65,12 +65,6 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation}
             {selectedBrewery.phone !== undefined  && <CardText> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
         </CardBody>
         </Card>
-
-        <Card>
-        <CardBody>
-                <BeerSlider breweryId={selectedBrewery.id}/>
-        </CardBody>
-        </Card>
         
         <div class="break"></div> 
         <Card className = 'selected--review'>
@@ -84,6 +78,11 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation}
         </Card>
         <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude} userLocation={userLocation}/>
         </div>
+        <Card>
+        <CardBody>
+                <BeerSlider breweryId={selectedBrewery.id}/>
+        </CardBody>
+        </Card>
         </>    
     )
 }

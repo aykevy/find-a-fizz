@@ -59,17 +59,17 @@ export default function BrewerySlider(props)
     /*Jacob's Code*/
     function setBreweryImage(type){
         switch(type){
-            case 'closed': return './assests/breweries/Closed.png'
-            case 'taproom': return './assests/breweries/Taproom.png'
-            case 'regional': return './assests/breweries/Regional.png'
-            case 'micro': return './assests/breweries/Micro.png'
-            case 'contract': return './assests/breweries/Contract.png'
-            case 'brewpub': return './assests/breweries/Brewpub.png'
-            case 'proprietor': return './assests/breweries/Proprietor.png'
-            case 'bar': return './assests/breweries/Bar.png'    
+            case 'closed': return '/assests/breweries/Closed.png'
+            case 'taproom': return '/assests/breweries/Taproom.png'
+            case 'regional': return '/assests/breweries/Regional.png'
+            case 'micro': return '/assests/breweries/Micro.png'
+            case 'contract': return '/assests/breweries/Contract.png'
+            case 'brewpub': return '/assests/breweries/Brewpub.png'
+            case 'proprietor': return '/assests/breweries/Proprietor.png'
+            case 'bar': return '/assests/breweries/Bar.png'    
             case 'nano':  return 'to-do'  
-            case 'planning': return './assests/breweries/InPlanning.png'
-            case 'large': return './assests/breweries/Large.png'
+            case 'planning': return '/assests/breweries/InPlanning.png'
+            case 'large': return '/assests/breweries/Large.png'
             default: return ''
         }
     }
@@ -94,10 +94,14 @@ export default function BrewerySlider(props)
                 <Slider {...settings}>
                 {
                     breweries.map((item, index) => {
+                        console.log(item.breweryType);
+                        console.log(setBreweryImage(item.breweryType));
                         return (
+                            
                             <div>
-                                <img src={setBreweryImage(item.breweryType)} width="200px" height="200px" alt="brewery-carousel"/>
                                 <p>{item.name}</p>
+                                <img src={setBreweryImage(item.breweryType)} width="200px" height="200px" alt="brewery-carousel"/>
+                                
 
                             </div>
                         )
