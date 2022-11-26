@@ -7,15 +7,20 @@ import './Beer.css'
 import BrewerySlider from "../Carousels/BrewerySlider";
 
 
-export default function Beer({selectedBeer,postReview,userId}){
+export default function Beer({selectedBeer,postReview,userId,favorites}){
+    let isFavorite = favorites.beerFavorites.filter(function (favorite){return selectedBeer.id === favorite.beerId});
+    console.log(isFavorite)
     return(
         <>
         <div className="selected--beer">
-        <Link to='/beers/' style={{color: 'black'}}>
-        <Card className="selected--image">
-            <CardImg top src = {selectedBeer.imageUrl}/>
-        </Card>
-        </Link>
+          
+            <img className= 'user--favorite--beer' src = {isFavorite[0] ? './assests/favorites/NoFavorite.png' : './assests/favorites/NoFavorite.png'} alt='******* thumbs up'/> 
+                <Link to='/beers/' style={{color: 'black'}}>
+                    <Card className="selected--image">
+                        <CardImg top src = {selectedBeer.imageUrl}/>
+                    </Card>
+                </Link>
+  
         <Card>
         <CardBody className="selected--nameDesc">
                 <CardTitle className = 'selected--name'>{selectedBeer.name}</CardTitle>

@@ -1,14 +1,39 @@
-import userEvent from '@testing-library/user-event';
-import React, { useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
-import './accounts.css'
+import { Card, CardImg, CardText, CardTitle,CardBody, Button } from "reactstrap";
+import './Accounts.css'
 
 
 
 
 
 export default function Accounts(props){
+    const [showBeerReviews,setShowBeerReviews] = useState({show:false})
+    const [showBreweryReviews,setShowBreweryReviews] = useState({show:false})
+    const [showFavoriteBeers,setShowFavBeers] = useState({show:false})
+    const [showFavoriteBreweries,setShowFavBrewerys] = useState({show:false})
+    console.log(props.favorites)
+    function toggleWindows(state){
+
+        switch(state){
+            case 'BEER_REVIEWS':
+                setShowBeerReviews({show:!showBeerReviews.show});
+                break
+            case 'BEER_FAVORITES':
+                setShowFavBeers({show:!showFavoriteBeers.show})
+                break
+            case 'BREWERY_REVIEWS':
+                setShowBreweryReviews({show:!showBreweryReviews.show})
+                break
+            case 'BREWERY_FAVORITES':
+                setShowFavBrewerys({show:!showFavoriteBreweries.show})
+                break
+            default:
+                break    
+        }
+    }
+
 
     function setBreweryImage(type){
         switch(type){
@@ -40,23 +65,25 @@ export default function Accounts(props){
         return filter[0]
     }
 
-
+    if(props){
     return(
         <>
         <h1>
         Welcome back {props.user.username} please review your account details:
         </h1>
 
-        <h4>My Beer Reviews</h4>
-        {props.userReviews.beerReviews.map( review =>{
+        <h4 onClick = {() => toggleWindows('BEER_REVIEWS')}>
+        <i class="fa fa-comment" aria-hidden="true"/> My Beer Reviews</h4>
+        
+        {showBeerReviews.show && props.userReviews.beerReviews.map( review =>{
             // const result = props.breweries.filter( (beer) => {beer.id === review.beerId})
             let currentBeer = getItem(review.beerId,'beer');
             return(
-            <Card className='user--reviews'>
+            <Card key ={review.id} className='user--reviews'>
                 <CardTitle>
-                    <h4> 
+                    <h5> 
                   {currentBeer.name}
-                    </h4> 
+                    </h5> 
                 </CardTitle>
         
                 <div>
@@ -70,53 +97,85 @@ export default function Accounts(props){
                     <CardImg top src = {currentBeer.imageUrl} alt = {currentBeer.name} />
                 </Card>
                 </Link>
+                <Button onClick={()=>props.deleteUserReview(review,'beer')}> Delete Post </Button>
                 </Card>
         )})
             }
-        <h4>My Brewery Reviews</h4>
-
-        {props.userReviews.breweryReviews.map( review =>{
+        <h4 onClick = {() => toggleWindows('BREWERY_REVIEWS')}>
+        <i class="fa fa-comments" aria-hidden="true"/> My Brewery Reviews</h4>
+        <div className=''>  
+        {showBreweryReviews.show && props.userReviews.breweryReviews.map( review =>{
                   let currentBrewery = getItem(review.breweryId,'brewery');
             return(
-            <Card className='user--reviews'>
+            <Card key={review.id}className='user--reviews'>
                 <CardTitle>
-                    <h4> 
+                    <h5> 
                      {currentBrewery.name}
-                    </h4> 
+                    </h5> 
                 </CardTitle>
         
                 <div>
-                    <h5>Post ID: {review.id} </h5>
+                    <p>Post ID: {review.id} </p>
                     <p>Your Review: {review.review}</p>
                     <p>Your Rating: {review.rating}</p>
                     <p>Posted at: {review.createdAt}</p>
                 
                 </div>
-                <Link to={'/brewery/'+ currentBrewery.id}>
+               
                 <Card className='accounts--beer--image' onClick={() => props.getBrewery(currentBrewery.id)}>
+                   <Link to={'/brewery/'+ currentBrewery.id}>
                     <CardImg top src = {setBreweryImage(currentBrewery.breweryType)} alt = {currentBrewery.name} />
+                    </Link>
                 </Card>
-                </Link>
+           
+                <Button onClick={()=>props.deleteUserReview(review,'brewery')}> Delete Post </Button>
                 </Card>
         )})
             }
-
-        <Card>
-            <CardTitle>
-            My Favorite Items
-            </CardTitle>
-            <CardBody>
-            review list here with clicks maybe?
-            </CardBody>
-        </Card>
-        <Card>
-            <CardTitle>
-            My Favorite Places
-            </CardTitle>
-            <CardBody>
-            review list here with clicks maybe?
-            </CardBody>
-        </Card>
+        </div>
+        
+        <h4 onClick = {() => toggleWindows("BEER_FAVORITES")}>  
+        <i class="fa fa-diamond" aria-hidden="true"/> My Favorited Items</h4>
+        {showFavoriteBeers.show && props.favorites.beerFavorites.map(( favorite ) => {
+  
+            let currentBeer = getItem(favorite.beerId,'beer');
+          
+        return( 
+            <div>
+            <Card>
+                <CardTitle>
+                {currentBeer.name}
+                </CardTitle>
+                <Link to={'/beer/'+currentBeer.id}>
+                    <Card className='accounts--beer--image' onClick={() => props.getBeer(currentBeer.id)}>
+                        <CardImg top src = {currentBeer.imageUrl} alt = {currentBeer.name} />
+                    </Card>
+                </Link>
+            </Card>
+            </div>
+        )})}
+    
+        <h4 onClick = {() => {toggleWindows("BREWERY_FAVORITES"); console.log(showFavoriteBreweries.show)}}>
+        <i class="fa fa-map-o" aria-hidden="true"/> My Favorited Places</h4>
+        {showFavoriteBreweries.show && props.favorites.breweryFavorites.map(( favorite ) => {
+                 let currentBrewery = getItem(favorite.beerId,'brewery');
+        return(        
+            <div>
+            <Card>
+                <CardTitle>
+                {currentBrewery.name}
+                </CardTitle>
+                <Card className='accounts--beer--image' onClick={() => props.getBrewery(currentBrewery.id)}>
+                    <Link to={'/brewery/'+ currentBrewery.id}>
+                        <CardImg top src = {setBreweryImage(currentBrewery.breweryType)} alt = {currentBrewery.name} />
+                    </Link>
+                </Card>
+            </Card>
+            </div>
+        )})
+        }
         </>
     )
-}
+    } else {
+        return <></>
+    }}

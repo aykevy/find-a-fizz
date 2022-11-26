@@ -31,8 +31,9 @@ class Login extends Component {
 
         const userWithToken = await axios.post(baseUrl + '/login', data)
         await this.props.dispatch(addToken(userWithToken.data.token));
-        await this.props.dispatch(addUser(userWithToken.data.user))
-        await this.props.fetchReviews(userWithToken.data.user.id)
+        await this.props.dispatch(addUser(userWithToken.data.user));
+        await this.props.fetchReviews(userWithToken.data.user.id);
+        await this.props.fetchFavorites(userWithToken.data.user.id);
     }
 
     handleInputChange = (event) => {

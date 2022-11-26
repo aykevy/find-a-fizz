@@ -4,14 +4,14 @@ import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
 import Header from '../Header/Header'
-import {addToken, deleteUser, fetchBeers,getBeer,fetchBreweries,getBrewery,postReview,getLocation,addLocation, fetchReviews} from '../../Redux/actionCreators'
+import {addToken, deleteUser, fetchBeers,getBeer,fetchBreweries,getBrewery,postReview,getLocation,addLocation, fetchReviews, deleteUserReview,fetchFavorites,deleteUserFavorite} from '../../Redux/actionCreators'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import Beers from '../Beers/Beers'
 import Beer from '../Beers/Beer'
 import Breweries from '../Breweries/Breweries'
 import Brewery from '../Breweries/Brewery'
-import Accounts from '../accounts/accounts'
+import Accounts from '../Accounts/Accounts'
 
 //Setting the Redux store to this comp state so that if Store Changes State does and will rerender
 const mapStateToProps = state => {
@@ -21,7 +21,8 @@ const mapStateToProps = state => {
         beers: state.beers,
         breweries: state.breweries,
         location: state.location,
-        userReviews:state.userReviews
+        userReviews:state.userReviews,
+        userFavorites:state.userFavorites
     }
 }
 
@@ -37,13 +38,16 @@ const mapDispatchToProps = (dispatch) => ({
     postReview: (userId,beerId,review,rating,type) => {dispatch(postReview(userId,beerId,review,rating,type))},
     addLocation: (latitude,longitude) => {dispatch(addLocation(latitude,longitude))},
     getLocation: () => {dispatch(getLocation())},
-    fetchReviews: (id) => {dispatch(fetchReviews(id))}
+    fetchReviews: (id) => {dispatch(fetchReviews(id))},
+    deleteUserReview: (review,type) =>{dispatch(deleteUserReview(review,type))},
+    fetchFavorites: (id) => {dispatch(fetchFavorites(id))}
 });
 
 //Setting up vars to determine daily beer/brewery for Home page
 const today = new Date();
 let todaysBrewery = {};
 let todaysBeer = {};
+
 
 
 class Main extends Component {
@@ -94,10 +98,11 @@ class Main extends Component {
     
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
-                    <Route path='/login' component={() => <Login fetchReviews={this.props.fetchReviews} />}/>
+                    <Route path='/login' component={() => <Login fetchReviews={this.props.fetchReviews} fetchFavorites={this.props.fetchFavorites} />}/>
                     <Route path='/account' component={ this.props.token.token !== undefined ? () => 
                         <Accounts user={this.props.user} userReviews={this.props.userReviews} fetchReviews={this.props.fetchReviews}
-                                  beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]} getBeer={this.props.getBeer} getBrewery={this.props.getBrewery}/> : null}/>
+                                  beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]} getBeer={this.props.getBeer} getBrewery={this.props.getBrewery}
+                                  deleteUserReview={this.props.deleteUserReview} favorites={this.props.userFavorites}          /> : null}/>
                     <Route path='/register'component={() => <Register/>}/>
                     <Route path='/home' component={this.props.token.token !== undefined ? () => 
                         <Home todaysBrewery={todaysBrewery} todaysBeer={todaysBeer} getTodaysItems={this.getTodaysItems} 
@@ -105,15 +110,15 @@ class Main extends Component {
                               userLocation={this.props.location} breweries={this.props.breweries.breweries[0]}
                               /> : null}/>
                     <Route path='/beers' component={this.props.token.token !== undefined  ? () =>
-                        <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer}/> : null}/>
+                        <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer} favorites={this.props.userFavorites}/> : null}/>
                     <Route path='/breweries' component={this.props.token.token !== undefined ? () =>
-                         <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : null}/>
+                         <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery} favorites={this.props.userFavorites} />  : null}/>
                     <Route path='/beer/:id' component={ this.props.token.token !== undefined ? () => 
                         <Beer selectedBeer = {this.props.beers.selectedBeer} postReview={this.props.postReview} 
-                              userId={this.props.user.id} /> : null} />
+                              userId={this.props.user.id}  favorites={this.props.userFavorites} /> : null} />
                     <Route path='/brewery/:id' component={this.props.token.token !== undefined ? () => 
                         <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} postReview= {this.props.postReview} 
-                                 userId={this.props.user.id} userLocation={this.props.location}/> : null} />
+                                 userId={this.props.user.id} userLocation={this.props.location} favorites={this.props.userFavorites} /> : null} />
                     <Redirect to='/login'/>
                 </Switch>
                 {(this.props.location.pathname !== '/login') &&

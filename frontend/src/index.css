@@ -63,12 +63,21 @@ code {
   align-self: center;
  }
 
+ .user--favorite--beer{
+  z-index: 1;
+  position: absolute;
+  max-height: 15vh;
+  max-width: 10vw;
+  top: -5.8vh;
+  left: -1.4vw;
+}
+
  footer{
   margin-top: 10px;
   padding:  10px ;
   position: fixed;
   bottom: 0;
-  height: 5vw;
+  height: 3vw;
   width: 100%;
   background-color: #5B4037;
   display: flex;
@@ -76,6 +85,7 @@ code {
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  z-index: 1;
  }
  footer > h5 {
   text-align: start;

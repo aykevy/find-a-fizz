@@ -1,4 +1,4 @@
-import { baseUrl } from '../Shared/baseUrl';
+
 import * as ActionTypes from './actionTypes'
 
 //***************         User Actions            **********************************
@@ -189,8 +189,85 @@ export const reviewsLoading = () => ({
     type: ActionTypes.LOADING_USER_REVIEWS,
 })
 
+export const deleteUserReview = (review,type) => {
+    return dispatch => {
+        
+        if(type === 'beer'){  
 
+            dispatch(reviewsLoading());
+            
+            ActionTypes.axios.delete('/beerReview/' + review.id)
+            .then(res => {dispatch(removeUserReview(review,'beer')); alert('Review has been removed')})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+                }
 
-//TO DO - edit and delete user reviews
+        if(type === 'brewery'){  
+            
+            dispatch(reviewsLoading());
 
+            ActionTypes.axios.delete('/breweryReview/' + review.id)
+            .then(res => { dispatch(removeUserReview(review,'brewery')); alert('Review has been removed')})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+    }}}
+    
+  
+    export const removeUserReview = (review,type) => ({
+        type: ActionTypes.REMOVE_USER_REVIEW,
+        payload: {review:review,type:type}
+    })
 //user favorties
+export const favoritesLoading = () => ({
+    type: ActionTypes.LOADING_USER_FAVORITES,
+})
+
+export const addFavorites = (userFavorites,type) => ({
+    type: ActionTypes.ADD_USER_FAVORITE,
+    payload: {userFavorites:userFavorites, type:type}
+})
+
+export const fetchFavorites = (id) => {
+    return dispatch =>{
+        dispatch(favoritesLoading());
+    
+     ActionTypes.axios.get('/beerFavorites/userId?userId='+id)
+        .then(res => {dispatch(addFavorites(res.data,'beer'))})
+        //TO DO - ERROR HANDLING
+        .catch(error => console.log(error.message)) 
+
+        dispatch(favoritesLoading());
+
+        ActionTypes.axios.get('/breweryFavorites/userId?userId='+id)
+        .then(res => {dispatch(addFavorites(res.data,'brewery'))})
+        //TO DO - ERROR HANDLING
+        .catch(error => console.log(error.message))      
+}}
+
+export const deleteUserFavorite = (favorite,type) => {
+    return dispatch => {
+        
+        if(type === 'beer'){  
+
+            dispatch(favoritesLoading());
+            
+            ActionTypes.axios.delete('/beerFavorite/' + favorite.id)
+            .then(res => {dispatch(removeUserFavorite(favorite,'beer'));})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+                }
+
+        if(type === 'brewery'){  
+            
+            dispatch(favoritesLoading());
+
+            ActionTypes.axios.delete('/breweryFavorite/' + favorite.id)
+            .then(res => {dispatch(removeUserFavorite(favorite,'brewery'));})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+    }}}
+
+export const removeUserFavorite = (favorite,type) => ({
+    type: ActionTypes.REMOVE_USER_FAVORITE,
+    payload: {favorite:favorite,type:type}
+})
