@@ -22,5 +22,17 @@ export const SELECT_BREWERY = 'SELECT_BREWERY'
 //Location store
 export const ADD_LOCATION = 'ADD_LOCATION'
 export const GET_LOCATION = 'GET_LOCATION'
+//User Reviews
+export const ADD_USER_REVIEWS = 'ADD_USER_REVIEWS'
+export const LOADING_USER_REVIEWS = 'LOADING_USER_REVIEWS'
+export const DELETE_USER_REVIEWS = 'DELETE_USER_REVIEWS'
+export const UPDATE_USER_REVIEWS = 'UPDATE_USER_REVIEWS'
+//USER FAvorites
+export const FETCH_USER_FAVORITES = 'FETCH_USER_FAVORITES'
+export const DELETE_USER_FAVORITES = 'DELETE_USER_FAVORITES'
+export const UPDATE_USER_FAVORITES = 'UPDATE_USER_FAVORITES'
+
+
+
 //Setting up axios
 export const axios = require('axios').default;

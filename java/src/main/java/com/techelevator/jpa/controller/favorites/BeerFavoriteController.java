@@ -5,7 +5,8 @@ import com.techelevator.jpa.service.favorites.BeerFavoriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-
+@CrossOrigin
+@RestController
 public class BeerFavoriteController {
 
     @Autowired

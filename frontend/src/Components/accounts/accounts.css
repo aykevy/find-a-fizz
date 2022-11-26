@@ -1,0 +1,17 @@
+.accounts--beer--image{
+    max-width: 8vw;
+    border-style: solid;
+    border-color: black;
+    border-radius: 6px;
+    border-width: 1px;
+}
+
+.accounts--beer--image:hover{
+      background-position: 100% 100%;
+    transform: scale(1.08,1.03);
+    box-shadow: 4px 4px 2px black;
+    border-style: solid;
+    border-color: black;
+    border-radius: 6px;
+    border-width: 1px;
+  }

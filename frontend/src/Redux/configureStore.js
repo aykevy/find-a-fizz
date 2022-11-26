@@ -5,6 +5,7 @@ import {User} from './user'
 import {Beers} from './beers'
 import {Breweries} from './breweries'
 import { Location } from './location'
+import { UserReviews } from './userReviews'
 
 export const ConfigureStore = () => {
      const store = createStore(
@@ -15,7 +16,8 @@ export const ConfigureStore = () => {
             beers: Beers,
             //adding breweries to store
             breweries:Breweries,
-            location:Location
+            location:Location,
+            userReviews:UserReviews
         }),
         //thunk is the middleware to help with aysnc calls
         applyMiddleware(thunk)

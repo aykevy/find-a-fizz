@@ -1,6 +1,7 @@
 import React, { Component, useState } from "react";
 import { Link } from "react-router-dom";
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Popup } from "react-map-gl";
+import './maps.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 
@@ -72,6 +73,9 @@ function Maps(props){
      }}
      mapStyle='mapbox://styles/mapbox/streets-v12'
      >
+      <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
+              <img className='maps--user' src={'/assests/youMarker.png'}/>
+      </Marker>
       {allMarkers}
       {popUp && 
         <Popup anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onOpen={console.log('tried to open?')} onClose={() => setPopup(null)}>
@@ -108,6 +112,9 @@ function Maps(props){
       }}
       mapStyle='mapbox://styles/mapbox/streets-v12'
       >
+      <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
+              <img className='maps--user' src={'/assests/youMarker.png'}/>
+      </Marker>
       <Marker longitude={lng} latitude={lat}/>
       <FullscreenControl/>
       <NavigationControl position="bottom-left"/>

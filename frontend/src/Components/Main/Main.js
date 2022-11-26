@@ -4,13 +4,14 @@ import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
 import Header from '../Header/Header'
-import {addToken, deleteUser, fetchBeers,getBeer,fetchBreweries,getBrewery,postReview,getLocation,addLocation} from '../../Redux/actionCreators'
+import {addToken, deleteUser, fetchBeers,getBeer,fetchBreweries,getBrewery,postReview,getLocation,addLocation, fetchReviews} from '../../Redux/actionCreators'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import Beers from '../Beers/Beers'
 import Beer from '../Beers/Beer'
 import Breweries from '../Breweries/Breweries'
 import Brewery from '../Breweries/Brewery'
+import Accounts from '../accounts/accounts'
 
 //Setting the Redux store to this comp state so that if Store Changes State does and will rerender
 const mapStateToProps = state => {
@@ -19,7 +20,8 @@ const mapStateToProps = state => {
         user: state.user,
         beers: state.beers,
         breweries: state.breweries,
-        location: state.location
+        location: state.location,
+        userReviews:state.userReviews
     }
 }
 
@@ -34,7 +36,8 @@ const mapDispatchToProps = (dispatch) => ({
     getBrewery: (id) => {dispatch(getBrewery(id))},
     postReview: (userId,beerId,review,rating,type) => {dispatch(postReview(userId,beerId,review,rating,type))},
     addLocation: (latitude,longitude) => {dispatch(addLocation(latitude,longitude))},
-    getLocation: () => {dispatch(getLocation())}
+    getLocation: () => {dispatch(getLocation())},
+    fetchReviews: (id) => {dispatch(fetchReviews(id))}
 });
 
 //Setting up vars to determine daily beer/brewery for Home page
@@ -63,7 +66,7 @@ class Main extends Component {
     componentDidMount = () =>{ 
         this.props.fetchBeers();
         this.props.fetchBreweries();
-        
+    
         //set some stuff up to getlocation data
 
         navigator.geolocation.getCurrentPosition( position => {
@@ -91,7 +94,10 @@ class Main extends Component {
     
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
-                    <Route path='/login' component={() => <Login/>}/>
+                    <Route path='/login' component={() => <Login fetchReviews={this.props.fetchReviews} />}/>
+                    <Route path='/account' component={ this.props.token.token !== undefined ? () => 
+                        <Accounts user={this.props.user} userReviews={this.props.userReviews} fetchReviews={this.props.fetchReviews}
+                                  beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]} getBeer={this.props.getBeer} getBrewery={this.props.getBrewery}/> : null}/>
                     <Route path='/register'component={() => <Register/>}/>
                     <Route path='/home' component={this.props.token.token !== undefined ? () => 
                         <Home todaysBrewery={todaysBrewery} todaysBeer={todaysBeer} getTodaysItems={this.getTodaysItems} 
@@ -103,7 +109,7 @@ class Main extends Component {
                     <Route path='/breweries' component={this.props.token.token !== undefined ? () =>
                          <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery}/> : null}/>
                     <Route path='/beer/:id' component={ this.props.token.token !== undefined ? () => 
-                        <Beer selectedBeer = {this.props.beers.selectedBeer} postReview= {this.props.postReview} 
+                        <Beer selectedBeer = {this.props.beers.selectedBeer} postReview={this.props.postReview} 
                               userId={this.props.user.id} /> : null} />
                     <Route path='/brewery/:id' component={this.props.token.token !== undefined ? () => 
                         <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} postReview= {this.props.postReview} 

@@ -18,7 +18,7 @@ export default class NewReview extends Component{
         })
     }
     handleSubmit(values){
-        this.props.postReview(this.props.userId,this.props.id,values.review,values.rating,this.props.type)
+        this.props.postReview(this.props.userId,this.props.id,values.review,values.rating,this.props.type);
         this.toggleModal();
     }
 
@@ -28,7 +28,7 @@ render(){
         <Button onClick={this.toggleModal}> Leave a Review</Button>
         
         <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
-        <ModalHeader toggle={this.toggleModal}>Leave a review </ModalHeader>
+        <ModalHeader toggle={this.toggleModal}> Leave a review </ModalHeader>
         <ModalBody>
             <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
             <Row className = 'form-group'>

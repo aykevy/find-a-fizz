@@ -94,7 +94,7 @@ export const getBrewery = (id) =>{
 // calls the brewery.js listener to send back the 'OK' action to intital call, then calls api, and sends that data to a addBeers listener when it recieves it.
 export const fetchBreweries = (dispatch) => {
     return dispatch =>{
-        dispatch(beersLoading());
+        dispatch(breweryLoading());
     
      ActionTypes.axios.get('/breweries')
         .then(res => {dispatch(addBreweries(res.data))})
@@ -103,36 +103,39 @@ export const fetchBreweries = (dispatch) => {
 }};
 
 
-///Review stuff?
+
+//*************           REVIEW Actions         **********************************
+
 
 export const postReview = (userId,id,review,rating,type) =>{
+  
     return dispatch =>{
-        let newReview = {}
-        if (type ==='beer') {
+        
+        let newReview = {};
+
+        if(type === 'beer'){  
             newReview = {
-            userId:userId,
-            beerId:id,
-            review:review,
-            rating:rating
-         }
-        }
-        else {
+                userId:userId,
+                beerId:id,
+                review:review,
+                rating:rating
+             }
+        newReview.createdAt = new Date().toISOString()
+        ActionTypes.axios.post('/beerReview',newReview)
+            .then(res => {alert('Review posted, Thank you!')})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+        }    
+
+        if(type === 'brewery'){   
             newReview = {
                 userId:userId,
                 breweryId:id,
                 review:review,
                 rating:rating
          }
+            newReview.createdAt = new Date().toISOString()
 
-        newReview.createdAt = new Date().toISOString()
-
-        if(type === 'beer'){   
-        ActionTypes.axios.post('/beerReview',newReview)
-            .then(res => {alert('Review posted, Thank you!')})
-            //TO DO - ERROR HANDLING
-            .catch(error => console.log(error.message)) 
-        }    
-        if(type === 'brewery'){   
             ActionTypes.axios.post('/breweryReview',newReview)
             .then(res => {alert('Review posted, Thank you!')})
             //TO DO - ERROR HANDLING
@@ -140,8 +143,10 @@ export const postReview = (userId,id,review,rating,type) =>{
             }    
         }
     }
-}
-//Location stuff
+
+
+//*************           LOCATION Actions         **********************************
+
 
 export const addLocation = (latitude,longitude) => ({
     type: ActionTypes.ADD_LOCATION,
@@ -152,3 +157,40 @@ export const getLocation = () => ({
     type: ActionTypes.GET_LOCATION
 })
 ;
+
+
+//*************           USER ACCOUNT Actions         **********************************
+
+
+export const fetchReviews = (id) => {
+    return dispatch =>{
+        dispatch(reviewsLoading());
+    
+     ActionTypes.axios.get('/beerReviews/userId?userId='+id)
+        .then(res => {dispatch(addReviews(res.data,'beer'))})
+        //TO DO - ERROR HANDLING
+        .catch(error => console.log(error.message)) 
+
+        dispatch(reviewsLoading());
+
+        ActionTypes.axios.get('/breweryReviews/userId?userId='+id)
+        .then(res => {dispatch(addReviews(res.data,'brewery'))})
+        //TO DO - ERROR HANDLING
+        .catch(error => console.log(error.message))      
+}}
+
+export const addReviews = (userReviews,type) => ({
+    type: ActionTypes.ADD_USER_REVIEWS,
+    payload: {userReviews:userReviews,type:type}
+})
+
+// No data exchange - just a simple action to get an OK
+export const reviewsLoading = () => ({
+    type: ActionTypes.LOADING_USER_REVIEWS,
+})
+
+
+
+//TO DO - edit and delete user reviews
+
+//user favorties
