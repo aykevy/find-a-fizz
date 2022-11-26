@@ -14,14 +14,14 @@ public class BreweryFavorite {
     Long userId;
 
     @Column(name = "brewery_id")
-    Long beerId;
+    Long breweryId;
 
     public BreweryFavorite() {}
 
-    public BreweryFavorite(Long id, Long userId, Long beerId) {
+    public BreweryFavorite(Long id, Long userId, Long breweryId) {
         this.id = id;
         this.userId = userId;
-        this.beerId = beerId;
+        this.breweryId = breweryId;
     }
 
     public Long getId() {
@@ -40,11 +40,11 @@ public class BreweryFavorite {
         this.userId = userId;
     }
 
-    public Long getBeerId() {
-        return beerId;
+    public Long getBreweryId() {
+        return breweryId;
     }
 
-    public void setBeerId(Long beerId) {
-        this.beerId = beerId;
+    public void setBreweryId(Long breweryId) {
+        this.breweryId = breweryId;
     }
 }

@@ -24,9 +24,9 @@ public class BreweryFavoriteService {
         return breweryFavoriteRepository.findByUserId(userId);
     }
 
-    public void addBreweryFavorite(BreweryFavorite breweryFavorite)
+    public BreweryFavorite addBreweryFavorite(BreweryFavorite breweryFavorite)
     {
-        breweryFavoriteRepository.save(breweryFavorite);
+        return breweryFavoriteRepository.save(breweryFavorite);
     }
 
     public void deleteBreweryFavoriteById(Long id)

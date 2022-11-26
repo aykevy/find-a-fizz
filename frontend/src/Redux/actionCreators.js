@@ -244,15 +244,51 @@ export const fetchFavorites = (id) => {
         .catch(error => console.log(error.message))      
 }}
 
-export const deleteUserFavorite = (favorite,type) => {
+export const addUserFavorite = (itemId,userId,type) => {
     return dispatch => {
-        
+        let newFavorite={}
+
         if(type === 'beer'){  
+
+            newFavorite = {
+                userId:userId,
+                beerId:itemId
+            }
 
             dispatch(favoritesLoading());
             
-            ActionTypes.axios.delete('/beerFavorite/' + favorite.id)
-            .then(res => {dispatch(removeUserFavorite(favorite,'beer'));})
+            ActionTypes.axios.post('/beerFavorite/', newFavorite)
+            .then(res => {dispatch(addFavorites(res.data,'beer'));})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+                }
+
+        if(type === 'brewery'){  
+
+            newFavorite = {
+                userId: userId,
+                breweryId: itemId
+            }
+            
+            dispatch(favoritesLoading());
+
+            ActionTypes.axios.post('/breweryFavorite/',newFavorite)
+            .then(res => {dispatch(addFavorites(res.data,'brewery'));})
+            //TO DO - ERROR HANDLING
+            .catch(error => console.log(error.message)) 
+    }}}
+
+export const deleteUserFavorite = (favoriteId,type) => {
+    return dispatch => {
+        
+        
+        if(type === 'beer'){
+              
+
+            dispatch(favoritesLoading());
+            
+            ActionTypes.axios.delete('/beerFavorite/' + favoriteId)
+            .then(res => {dispatch(removeUserFavorite(favoriteId,'beer'));})
             //TO DO - ERROR HANDLING
             .catch(error => console.log(error.message)) 
                 }
@@ -261,13 +297,13 @@ export const deleteUserFavorite = (favorite,type) => {
             
             dispatch(favoritesLoading());
 
-            ActionTypes.axios.delete('/breweryFavorite/' + favorite.id)
-            .then(res => {dispatch(removeUserFavorite(favorite,'brewery'));})
+            ActionTypes.axios.delete('/breweryFavorite/' + favoriteId)
+            .then(res => {dispatch(removeUserFavorite(favoriteId,'brewery'));})
             //TO DO - ERROR HANDLING
             .catch(error => console.log(error.message)) 
     }}}
 
-export const removeUserFavorite = (favorite,type) => ({
+export const removeUserFavorite = (favoriteId,type) => ({
     type: ActionTypes.REMOVE_USER_FAVORITE,
-    payload: {favorite:favorite,type:type}
+    payload: {favoriteId:favoriteId,type:type}
 })

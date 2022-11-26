@@ -7,14 +7,23 @@ import './Beer.css'
 import BrewerySlider from "../Carousels/BrewerySlider";
 
 
-export default function Beer({selectedBeer,postReview,userId,favorites}){
-    let isFavorite = favorites.beerFavorites.filter(function (favorite){return selectedBeer.id === favorite.beerId});
-    console.log(isFavorite)
+export default function Beer({selectedBeer,postReview,userId,favorites,addFavorite,remFavorite}){
+    let isFavorite = favorites.filter(function (favorite){return selectedBeer.id === favorite.beerId});
+    
+    function toggleUserFavorite(item,type){
+       if(isFavorite[0]){
+            remFavorite(isFavorite[0].id,type);
+       }else{
+            addFavorite(item.id,userId,type);
+       }
+    }
+
+    
     return(
         <>
         <div className="selected--beer">
-          
-            <img className= 'user--favorite--beer' src = {isFavorite[0] ? './assests/favorites/NoFavorite.png' : './assests/favorites/NoFavorite.png'} alt='******* thumbs up'/> 
+        <img className= 'user--favorite--brewery' src = {isFavorite[0] ? '/assests/favorites/Favorited.png' :'/assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
+                onClick ={() => toggleUserFavorite(selectedBeer,'beer')}                />
                 <Link to='/beers/' style={{color: 'black'}}>
                     <Card className="selected--image">
                         <CardImg top src = {selectedBeer.imageUrl}/>

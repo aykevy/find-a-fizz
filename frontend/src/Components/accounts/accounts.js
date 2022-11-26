@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-import { Card, CardImg, CardText, CardTitle,CardBody, Button } from "reactstrap";
+import { Card, CardImg, CardTitle, Button } from "reactstrap";
 import './Accounts.css'
 
 
@@ -13,6 +13,7 @@ export default function Accounts(props){
     const [showBreweryReviews,setShowBreweryReviews] = useState({show:false})
     const [showFavoriteBeers,setShowFavBeers] = useState({show:false})
     const [showFavoriteBreweries,setShowFavBrewerys] = useState({show:false})
+
     console.log(props.favorites)
     function toggleWindows(state){
 
@@ -155,10 +156,10 @@ export default function Accounts(props){
             </div>
         )})}
     
-        <h4 onClick = {() => {toggleWindows("BREWERY_FAVORITES"); console.log(showFavoriteBreweries.show)}}>
+        <h4 onClick = {() => {toggleWindows("BREWERY_FAVORITES");}}>
         <i class="fa fa-map-o" aria-hidden="true"/> My Favorited Places</h4>
         {showFavoriteBreweries.show && props.favorites.breweryFavorites.map(( favorite ) => {
-                 let currentBrewery = getItem(favorite.beerId,'brewery');
+                 let currentBrewery = getItem(favorite.breweryId,'brewery');
         return(        
             <div>
             <Card>

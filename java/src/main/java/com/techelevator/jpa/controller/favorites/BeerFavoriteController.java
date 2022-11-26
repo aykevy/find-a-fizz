@@ -34,9 +34,9 @@ public class BeerFavoriteController {
             }
      */
     @PostMapping("/beerFavorite")
-    public void addBeerFavorite(@RequestBody BeerFavorite beerFavorite)
+    public BeerFavorite addBeerFavorite(@RequestBody BeerFavorite beerFavorite)
     {
-        beerFavoriteService.addBeerFavorite(beerFavorite);
+     return    beerFavoriteService.addBeerFavorite(beerFavorite);
     }
 
     /* DELETE example on Postman (Remember ID is the entry id on the table): http://localhost:8080/beerFavorite/43 */

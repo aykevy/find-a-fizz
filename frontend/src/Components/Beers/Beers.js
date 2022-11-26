@@ -6,9 +6,13 @@ import './Beer.css'
 
 function Beers(props){
 
-    function toggleIsFavorite(){
-        
-    }
+    function toggleUserFavorite(isFavorite,item,type){
+        if(isFavorite){
+             props.remFavorite(isFavorite.id,type);
+        }else{
+             props.addFavorite(item.id,props.userId,type);
+        }
+     }
 
     /**
      * 
@@ -24,14 +28,17 @@ function Beers(props){
         if(beers){
         return(
         <div className="beer--list">
-            {beers.map( (beer) => { 
-               let isFavorite = props.favorites.beerFavorites.filter(function (favorite){return beer.id === favorite.beerId});
+            {beers.map( (beer) => {
+               let isFavorite = props.favorites.filter(function (favorite){return beer.id === favorite.beerId});
+            //    console.log(' is Favorite Array: ' + isFavorite)
+            //    console.log(' is beer: ' + beer.id + ' ' + beer.name)
                url = '/beer/' + beer.id
                 return(
                 //{Setting Link to Route to single beer page I.E. url.com/beer/1 */}
                 <> 
                     <div className = 'beer--card--set' key = {beer.id}>  
-                        <img className= 'user--favorite--beer' src = {isFavorite[0] ? './assests/favorites/Favorited.png' :'./assests/favorites/NoFavorite.png'} alt='favorite thumbs up'/> 
+                        <img className= 'user--favorite--beer' src = {isFavorite[0] ? './assests/Favorites/Favorited.png' :'./assests/Favorites/NoFavorite.png'} alt='favorite thumbs up'
+                            onClick={()=> toggleUserFavorite(isFavorite[0],beer,'beer')}/> 
                         <Link to={url} style={{color:"black"}}>          
                             <Card className="beer--card" onClick ={ (e) => onBeerSelect(beer.id)}>
                                 <CardImg top src = {beer.imageUrl} alt = {beer.name} />

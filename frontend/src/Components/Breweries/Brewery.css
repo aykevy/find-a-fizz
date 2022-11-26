@@ -173,3 +173,17 @@
     margin: 10px;
   width: 50%;
   }
+  .thumbs--up--divider{
+  position: relative;
+  }
+
+  .container{
+    display: inline-block;
+  }
+  .user--favorite--brewery{
+    z-index: 1;
+    position: absolute;
+    max-height: 11vh;
+    max-width: 8vw;
+    left: 1.5vw;
+  }

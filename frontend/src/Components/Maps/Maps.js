@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, {useState } from "react";
 import { Link } from "react-router-dom";
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Popup } from "react-map-gl";
 import './maps.css'
@@ -7,8 +7,8 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 function Maps(props){
   
-  const [lng,setLng] = useState(props.lng);
-  const [lat,setLat] = useState(props.lat);
+  const lng = props.lng;
+  const lat = props.lat;
   const [popUp,setPopup] = useState(null)
 
   function formatPhoneNumber(phoneNumberString) {
@@ -36,7 +36,6 @@ function Maps(props){
   function handleClick(event,brewery){
     event.originalEvent.stopPropagation();
     setPopup(brewery);
-    console.log(brewery)
   }
 
   const mapToken = "pk.eyJ1IjoibG9sdmFsaWQiLCJhIjoiY2xhbzd2dGtiMDk1cDN1cGJzMGNtd3BzZiJ9.uxKaXVdPSP38OD7J4TA8XQ"
@@ -50,7 +49,8 @@ function Maps(props){
          <Marker key={brewery.id} longitude={brewery.longitude} latitude={brewery.latitude} 
                  onClick= {(event) => handleClick(event,brewery)}/>
        )
-      }})
+      }else{return <></>}
+    })
 
 
   return (
@@ -74,11 +74,11 @@ function Maps(props){
      mapStyle='mapbox://styles/mapbox/streets-v12'
      >
       <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
-              <img className='maps--user' src={'/assests/youMarker.png'}/>
+              <img className='maps--user' src={'/assests/youMarker.png'} alt ={'user icon'}/>
       </Marker>
       {allMarkers}
       {popUp && 
-        <Popup anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onOpen={console.log('tried to open?')} onClose={() => setPopup(null)}>
+        <Popup anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onClose={() => setPopup(null)}>
         <Link to={'/brewery/'+popUp.id}>
         <h5 onClick={() => props.getBrewery(popUp.id)}>{popUp.name}</h5>
         </Link>
@@ -113,7 +113,7 @@ function Maps(props){
       mapStyle='mapbox://styles/mapbox/streets-v12'
       >
       <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
-              <img className='maps--user' src={'/assests/youMarker.png'}/>
+              <img className='maps--user' src={'/assests/youMarker.png'} alt ={'user icon'}/>
       </Marker>
       <Marker longitude={lng} latitude={lat}/>
       <FullscreenControl/>

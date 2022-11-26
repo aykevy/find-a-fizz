@@ -94,15 +94,12 @@ export default function BrewerySlider(props)
                 <Slider {...settings}>
                 {
                     breweries.map((item, index) => {
-                        console.log(item.breweryType);
-                        console.log(setBreweryImage(item.breweryType));
                         return (
-                            
+             
                             <div>
                                 <p>{item.name}</p>
                                 <img src={setBreweryImage(item.breweryType)} width="200px" height="200px" alt="brewery-carousel"/>
-                                
-
+                        
                             </div>
                         )
                     }

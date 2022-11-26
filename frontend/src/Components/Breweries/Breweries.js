@@ -13,7 +13,6 @@ function Breweries(props){
     //max pages available, rouned up, currernt entries at 50;
     const totalPages = Math.ceil(props.breweries.length/ENTRIES_PER_PAGE);
 
-
     /**
      * 
      * @param {INT} id - Brewery ID
@@ -22,6 +21,15 @@ function Breweries(props){
     function onSelect(id){
         props.getBrewery(id)
     }
+
+    function toggleUserFavorite(isFavorite,item,type){
+        console.log(isFavorite)
+        if(isFavorite){
+             props.remFavorite(isFavorite.id,type);
+        }else{
+             props.addFavorite(item.id,props.userId,type);
+        }
+     }
 
     /**
      * 
@@ -124,23 +132,32 @@ function Breweries(props){
         {/*Renders a list of brewereis in card form, some conditional renderings based on if breweriees have information avaiable*/}
         <div className="brew--list">
             {breweries.map( (brewery) => { 
+                let isFavorite = props.favorites.filter(function (favorite){return brewery.id === favorite.breweryId});
                 url = '/brewery/' + brewery.id
+
                 return(
-                    //{Setting Link to Route to single brewery page I.E. url.com/brewery/1 */} 
-                    <Link to={url} style={{color:"black"}}> 
-                        <div className = 'brew--card--set'>              
-                            <Card className="brew--card" key = {brewery.id} onClick ={ (e) => onSelect(brewery.id)}>
-                                <CardImg top className='brew--image'src={setBreweryImage(brewery.breweryType)} alt = {brewery.name} />
-                                <CardBody>
-                                    <CardTitle className = 'brew--card--name'>{brewery.name}</CardTitle>
-                                    {brewery.breweryType !== undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}
-                                    <CardText className = 'brew--card--desc'>{brewery.city +", " + brewery.state}</CardText>
-                                    {brewery.countyProvince !== null &&  <CardText className = 'brew--card--desc'>{brewery.countyProvince}</CardText>}
-                                    {brewery.country !== null && <CardText className = 'brew--card--desc'> {brewery.country}</CardText>}
-                                </CardBody>
-                            </Card>
-                        </div>   
-                    </Link>
+                    <div className="thumbs--up--divider" key = {brewery.id}>
+                      <div className="container">
+                        <img className= 'user--favorite--brewery' src = {isFavorite[0] ? './assests/favorites/Favorited.png' :'./assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
+                              onClick ={() => toggleUserFavorite(isFavorite[0],brewery,'brewery')}      />
+                
+                            {/*//{Setting Link to Route to single brewery page I.E. url.com/brewery/1 */} 
+                            <Link to={url} style={{color:"black"}}> 
+                                <div className = 'brew--card--set'>              
+                                    <Card className="brew--card" key = {brewery.id} onClick ={ (e) => onSelect(brewery.id)}>
+                                        <CardImg top className='brew--image'src={setBreweryImage(brewery.breweryType)} alt = {brewery.name} />
+                                        <CardBody>
+                                            <CardTitle className = 'brew--card--name'>{brewery.name}</CardTitle>
+                                            {brewery.breweryType !== undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}
+                                            <CardText className = 'brew--card--desc'>{brewery.city +", " + brewery.state}</CardText>
+                                            {brewery.countyProvince !== null &&  <CardText className = 'brew--card--desc'>{brewery.countyProvince}</CardText>}
+                                            {brewery.country !== null && <CardText className = 'brew--card--desc'> {brewery.country}</CardText>}
+                                        </CardBody>
+                                    </Card>
+                                </div>   
+                            </Link>
+                        </div>
+                    </div>
                
                 )})    
             }  

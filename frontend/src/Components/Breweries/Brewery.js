@@ -8,8 +8,15 @@ import './Brewery.css'
 import BeerSlider from "../Carousels/BeerSlider"
 
 
-export default function Brewery({selectedBrewery,postReview,userId,userLocation}){
-   
+export default function Brewery({selectedBrewery,postReview,userId,userLocation,favorites,addFavorite,remFavorite}){
+    
+    function toggleUserFavorite(item,type){
+        if(isFavorite[0]){
+             remFavorite(isFavorite[0].id,type);
+        }else{
+             addFavorite(item.id,userId,type);
+        }
+     }
 
     function setBreweryImage(type){
         switch(type){
@@ -43,10 +50,13 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation}
         }
         return '';
     }
-      console.log(selectedBrewery.websiteUrl)
+      let isFavorite = favorites.filter(function (favorite){return selectedBrewery.id === favorite.breweryId});
+      console.log(isFavorite)
     return(
         <>
         <div className="selected--brewery">
+        <img className= 'user--favorite--brewery' src = {isFavorite[0] ? '/assests/favorites/Favorited.png' :'/assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
+                        onClick={ () => toggleUserFavorite(selectedBrewery,'brewery')}/>    
         <Link to='/breweries/' style={{color: 'black'}}>
         <Card className="selected--image">
              <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
