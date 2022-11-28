@@ -7,6 +7,7 @@ import './Review.css'
 function Reviews(props) {
     //TO DO - MOVE TO STORE
     const [reviewList, setReviewList] = React.useState([])
+    
     useEffect( () => {
         if ((props.type === 'beer' || props.type === 'brewery') && props !== undefined) {
             let fetchUrl = '';
@@ -27,7 +28,7 @@ function Reviews(props) {
         }
     }, [props.id, props.type]); /*Whenever you use variables outside of useEffect, important to add them to dependencys*/
 
-    if (props !== undefined && (reviewList.length > 0)) {
+    if (reviewList.length > 0) {
         return (  
             <div>
                 <table className="review--table">
@@ -57,16 +58,16 @@ function Reviews(props) {
             </div>
         )}
 
-        else if (props !== undefined) {
-            return(
-                <>
-                    <p>No comments on file, leave one!</p>
-                </>)
-        }
+    else {
+        return (
+            <div>
+                No Reviews. Be the first to leave one!
+            </div>
+        )
+    }
         
-        else {
-            return(<></>)
-        }
+        
+        
 }
 
 export default Reviews;

@@ -1,4 +1,4 @@
-package com.techelevator.jpa.repository.favorites;
+package com.techelevator.jpa.entity.repository.favorites;
 
 import com.techelevator.jpa.entity.favorites.BreweryFavorite;
 import org.springframework.data.jpa.repository.JpaRepository;

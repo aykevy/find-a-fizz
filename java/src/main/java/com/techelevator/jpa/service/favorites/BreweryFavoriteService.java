@@ -1,7 +1,7 @@
 package com.techelevator.jpa.service.favorites;
 
 import com.techelevator.jpa.entity.favorites.BreweryFavorite;
-import com.techelevator.jpa.repository.favorites.BreweryFavoriteRepository;
+import com.techelevator.jpa.entity.repository.favorites.BreweryFavoriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

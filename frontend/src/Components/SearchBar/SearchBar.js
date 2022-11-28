@@ -17,7 +17,10 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
         const searchWord = event.target.value;
         setCurrentTextOnBar(searchWord);
         const newFilter = beers.filter((beer) => {
-            return beer.name.toLowerCase().includes(searchWord.toLowerCase());
+            if (beer.name != null)
+            {
+                return beer.name.toLowerCase().includes(searchWord.toLowerCase());
+            }
         });
         searchWord === "" ? setFilteredBeers([]) : setFilteredBeers(newFilter);
     }
@@ -26,7 +29,11 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
         const searchWord = event.target.value;
         setCurrentTextOnBar(searchWord);
         const newFilter = breweries.filter((brewery) => {
-            return brewery.name.toLowerCase().includes(searchWord.toLowerCase());
+            if (brewery.name != null)
+            {
+                return brewery.name.toLowerCase().includes(searchWord.toLowerCase());
+            }
+            
         });
         searchWord === "" ? setFilteredBreweries([]) : setFilteredBreweries(newFilter);
     }
@@ -42,7 +49,6 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
     }
 
     return (
-        
         <div className="search">
 
             <div className = "selectAndSearchBarLinedUp">

@@ -58,9 +58,9 @@ public class BreweryController {
               "countyProvince": null, "obdbId": null, "tags": null }
      */
     @PostMapping("/brewery")
-    public void addBrewery(@RequestBody Brewery brewery)
+    public Brewery addBrewery(@RequestBody Brewery brewery)
     {
-        breweryService.addBrewery(brewery);
+        return breweryService.addBrewery(brewery);
     }
 
     /* DELETE example on Postman: http://localhost:8080/brewery/1 */

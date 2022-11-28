@@ -88,7 +88,7 @@ export default function BeerSlider(props)
     else {
         return (
             <div>
-                Nothing Loaded.
+                No beer info found. Owner of this place? Add a beer!
             </div>
         )
     }

@@ -1,7 +1,7 @@
 package com.techelevator.jpa.service;
 
 import com.techelevator.jpa.entity.Brewery;
-import com.techelevator.jpa.repository.BreweryRepository;
+import com.techelevator.jpa.entity.repository.BreweryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -39,13 +39,15 @@ public class BreweryService {
         return breweryRepository.findByPostalCode(postalCode);
     }
 
-    public void addBrewery(Brewery brewery)
+    public Brewery addBrewery(Brewery brewery)
     {
-        breweryRepository.save(brewery);
+        return breweryRepository.save(brewery);
     }
 
     public void deleteBreweryById(Long id)
     {
+        breweryRepository.deleteOwnershipCascade(id);
+        breweryRepository.deleteBreweryProductCascade(id);
         breweryRepository.deleteBreweryReviewCascade(id);
         breweryRepository.deleteById(id);
     }

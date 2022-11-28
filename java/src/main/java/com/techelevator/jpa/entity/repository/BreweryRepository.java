@@ -1,4 +1,4 @@
-package com.techelevator.jpa.repository;
+package com.techelevator.jpa.entity.repository;
 
 import com.techelevator.jpa.entity.Brewery;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -30,4 +30,15 @@ public interface BreweryRepository extends JpaRepository<Brewery, Long>
     @Modifying
     @Transactional
     int deleteBreweryReviewCascade(Long id);
+
+    @Query("DELETE FROM Ownership WHERE breweryId=:id")
+    @Modifying
+    @Transactional
+    int deleteOwnershipCascade(Long id);
+
+    @Query("DELETE FROM BreweryProduct WHERE breweryId=:id")
+    @Modifying
+    @Transactional
+    int deleteBreweryProductCascade(Long id);
+
 }

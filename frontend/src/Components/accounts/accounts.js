@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { Card, CardImg, CardTitle, Button } from "reactstrap";
 import './Accounts.css'
 
-
+import ExistingBreweryEmailRequest from '../Owner/ExistingBreweryEmailRequest'
+import BreweryModal from '../Owner/BreweryModal'
+import OwnershipTable from '../Owner/OwnershipTable'
 
 
 
@@ -72,6 +74,12 @@ export default function Accounts(props){
         <h1>
         Welcome back {props.user.username} please review your account details:
         </h1>
+
+        <div>
+            <ExistingBreweryEmailRequest />
+            <BreweryModal action={"add"} userId={16}/>
+            <OwnershipTable userId={16}/>
+        </div>
 
         <h4 onClick = {() => toggleWindows('BEER_REVIEWS')}>
         <i class="fa fa-comment" aria-hidden="true"/> My Beer Reviews</h4>

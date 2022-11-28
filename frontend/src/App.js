@@ -5,13 +5,16 @@ import {Provider} from 'react-redux'
 import {BrowserRouter} from 'react-router-dom'
 import {ConfigureStore} from './Redux/configureStore'
 
-import HomeSlider from './Components/Carousels/HomeSlider'
+import BreweryModal from './Components/Portal/BreweryModal'
+import ExistingBreweryEmailRequest from './Components/Portal/ExistingBreweryEmailRequest'
+import OwnershipTable from './Components/Portal/OwnershipTable'
 
-import Reviews from './Components/Reviews/Reviews';
 
 const store = ConfigureStore();
 
 function App() {
+ 
+  
   return (
     
     
@@ -21,6 +24,11 @@ function App() {
         
       </BrowserRouter>
     </Provider>
+    
+    
+    
+    
+   
   );
   
 }

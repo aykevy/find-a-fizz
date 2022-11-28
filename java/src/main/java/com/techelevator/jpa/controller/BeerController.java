@@ -39,9 +39,9 @@ public class BeerController {
             }
      */
     @PostMapping("/beer")
-    public void addBeer(@RequestBody Beer beer)
+    public Beer addBeer(@RequestBody Beer beer)
     {
-        beerService.addBeer(beer);
+        return beerService.addBeer(beer);
     }
 
     /* DELETE example on Postman: http://localhost:8080/beer/1 */

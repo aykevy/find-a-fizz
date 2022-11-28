@@ -112,7 +112,7 @@ export default function BrewerySlider(props)
     else {
         return (
             <div>
-                Nothing Loaded.
+                No breweries found. Be the first to add this to your brewery!
             </div>
         )
     }
