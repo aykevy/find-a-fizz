@@ -27,3 +27,7 @@
 .slick-next {
     margin: 10px;
 }
+
+.slick-arrow{
+    filter: invert(100%);
+}

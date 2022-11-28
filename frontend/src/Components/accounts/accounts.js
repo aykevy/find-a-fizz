@@ -74,12 +74,12 @@ export default function Accounts(props){
         <h1>
         Welcome back {props.user.username} please review your account details:
         </h1>
-
-        <div>
+        {console.log(props.user)}
+        {props.user.authorities[0].name === 'ROLE_BREWER' && <div>
             <ExistingBreweryEmailRequest />
             <BreweryModal action={"add"} userId={props.user.id}/>
             <OwnershipTable userId={props.user.id}/>
-        </div>
+        </div>}
 
         <h4 onClick = {() => toggleWindows('BEER_REVIEWS')}>
         <i class="fa fa-comment" aria-hidden="true"/> My Beer Reviews</h4>

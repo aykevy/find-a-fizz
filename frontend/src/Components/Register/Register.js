@@ -10,20 +10,28 @@ class Register extends Component{
         this.state = {
             username: '',
             password: '',
-            confirmPassword: ''
+            confirmPassword: '',
+            role:'USER'
         }
         
     }
 
     handleInputChange = (event) => {
+        console.log(event.target.checked)
         event.preventDefault()
         this.setState({
             [event.target.name]: event.target.value
         })
+        if(event.target.checked){
+            this.setState({role:'BREWER'})
+        } else if (!event.target.checked) {
+            this.setState({role:'USER'})
+        }
     }
 
-    handleSubmit = () => {
-        const data = {username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role: 'USER'}
+    handleSubmit = (values) => {
+        console.log(values)
+        const data = {username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role:this.state.role}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
         }else{
@@ -67,8 +75,17 @@ class Register extends Component{
                     onChange={this.handleInputChange}
                     required
                 />
+
+                <input
+                    type="checkbox"
+                    id="isBrewer"
+                    name='isBrewer'
+                    v-model="user.role"
+                    onChange={this.handleInputChange}
+                />
+                <label for='isBrewer'> I own a Brewery</label>
                 <Link to="/login">Have an account?</Link>
-                <button type="submit" onClick={this.handleSubmit}>Sign in</button>
+                <button type="submit" onClick={()=> this.handleSubmit()}>Sign in</button>
             </div>
         )
     }
