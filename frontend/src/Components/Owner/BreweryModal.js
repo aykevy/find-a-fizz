@@ -4,6 +4,8 @@ import { Control, LocalForm } from 'react-redux-form';
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios';
 
+import '../Accounts/Accounts.css'
+
 export default class NewBreweryModal extends React.Component {
 
     constructor(props) {
@@ -116,7 +118,7 @@ export default class NewBreweryModal extends React.Component {
         let modalTitle = (this.props.action === "add" ? "Add new brewery" : "Update brewery")
         return(
             <div>
-                <Button onClick={this.toggleModal}>{modalTitle}</Button>
+                <Button className="account--brewery--addButton" onClick={this.toggleModal}><i className="fa fa-building" aria-hidden="true"></i>{modalTitle}</Button>
                 <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>{modalTitle}</ModalHeader>
                     <ModalBody>
@@ -126,8 +128,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="name" md={2}>Name</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".name" id="name" name="name" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".name" id="name" name="name" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -135,8 +137,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="street" md={2}>Street</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".street" id="street" name="street" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".street" id="street" name="street" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -144,8 +146,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="city" md={2}>City</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".city" id="city" name="city" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".city" id="city" name="city" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -153,8 +155,8 @@ export default class NewBreweryModal extends React.Component {
                              <Row className = 'form-group'>
                                 <Label htmlFor="state" md={2}>State</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".state" id="state" name="state" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".state" id="state" name="state" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -162,8 +164,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="country" md={2}>Country</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".country" id="country" name="country" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".country" id="country" name="country" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -171,8 +173,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="postalCode" md={2}>Postal Code</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".postalCode" id="postalCode" name="postalCode" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".postalCode" id="postalCode" name="postalCode" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -180,8 +182,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="address2" md={2}>Address 2</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".address2" id="address2" name="address2" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".address2" id="address2" name="address2" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -189,8 +191,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="address3" md={2}>Address 3</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".address3" id="address3" name="address3" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".address3" id="address3" name="address3" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -198,8 +200,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="countyProvince" md={2}>County Province</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".countyProvince" id="countyProvince" name="countyProvince" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".countyProvince" id="countyProvince" name="countyProvince" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -207,8 +209,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="phone" md={2}>Phone</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".phone" id="phone" name="phone" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".phone" id="phone" name="phone" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -216,8 +218,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="websiteUrl" md={2}>Website URL</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".websiteUrl" id="websiteUrl" name="websiteUrl" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".websiteUrl" id="websiteUrl" name="websiteUrl" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -225,8 +227,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="longitude" md={2}>Longitude</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".longitude" id="longitude" name="longitude" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".longitude" id="longitude" name="longitude" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -234,8 +236,8 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="latitude" md={2}>Latitude</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".latitude" id="latitude" name="latitude" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".latitude" id="latitude" name="latitude" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 

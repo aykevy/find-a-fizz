@@ -4,6 +4,8 @@ import { Control, LocalForm } from 'react-redux-form';
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios';
 
+import '../Accounts/Accounts.css'
+
 export default class NewBeerModal extends React.Component {
 
     constructor(props) {
@@ -51,8 +53,7 @@ export default class NewBeerModal extends React.Component {
     putBeer(beerId, name = null, description = null, imageUrl = null, abvPercent = null, type = null)
     {
         const putBeerURL = baseUrl + '/beer/' + beerId;
-        console.log(putBeerURL)
-
+     
         axios.put(putBeerURL, {
             name: name,
             description: description,
@@ -95,8 +96,9 @@ export default class NewBeerModal extends React.Component {
     render() {
         let modalTitle = (this.props.action === "add" ? "Add new beer" : "Update beer")
         return( 
-            <div>
-                <Button onClick={this.toggleModal}>{modalTitle}</Button>
+            <div className="accounts--add--beer">
+                <Button onClick={this.toggleModal}> <i class="fa fa-beer" aria-hidden="true"/>
+                        {modalTitle}</Button>
                 <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>{modalTitle}</ModalHeader>
                     <ModalBody>
@@ -106,8 +108,8 @@ export default class NewBeerModal extends React.Component {
                              <Row className = 'form-group'>
                                 <Label htmlFor="name" md={2}>Name</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".name" id="name" name="name" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".name" id="name" name="name" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -115,8 +117,8 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="description" md={2}>Description</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".description" id="description" name="description" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".description" id="description" name="description" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -124,8 +126,8 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="imageUrl" md={2}>Image URL</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".imageUrl" id="imageUrl" name="imageUrl" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".imageUrl" id="imageUrl" name="imageUrl" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -133,8 +135,8 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="abvPercent" md={2}>ABV Percent</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".abvPercent" id="abvPercent" name="abvPercent" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".abvPercent" id="abvPercent" name="abvPercent" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 
@@ -142,8 +144,8 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="type" md={2}>Type</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".type" id="type" name="type" rows="1" className='form-control'>
-                                    </Control.textarea>
+                                    <Control.text model=".type" id="type" name="type" rows="1" className='form-control'>
+                                    </Control.text>
                                 </Col>
                             </Row>
 

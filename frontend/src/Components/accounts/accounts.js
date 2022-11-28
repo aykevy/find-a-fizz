@@ -75,9 +75,7 @@ export default function Accounts(props){
         Welcome back {props.user.username} please review your account details:
         </h1>
         {console.log(props.user)}
-        {props.user.authorities[0].name === 'ROLE_BREWER' && <div>
-            <ExistingBreweryEmailRequest />
-            <BreweryModal action={"add"} userId={props.user.id}/>
+        {props.user.authorities[0].name === 'ROLE_BREWER' && <div className='account--brewery--tables'>
             <OwnershipTable userId={props.user.id}/>
         </div>}
 
@@ -85,7 +83,6 @@ export default function Accounts(props){
         <i class="fa fa-comment" aria-hidden="true"/> My Beer Reviews</h4>
         
         {showBeerReviews.show && props.userReviews.beerReviews.map( review =>{
-            // const result = props.breweries.filter( (beer) => {beer.id === review.beerId})
             let currentBeer = getItem(review.beerId,'beer');
             return(
             <Card key ={review.id} className='user--reviews'>

@@ -1,12 +1,16 @@
 import React from "react"
 import { baseUrl } from '../../Shared/baseUrl'
 import {useEffect} from 'react'
+import { Card, CardBody } from "reactstrap"
 import axios from 'axios'
 
 import DeleteEntryModal from "./DeleteEntryModal"
 import BeerModal from "./BeerModal"
+import ExistingBreweryEmailRequest from "./ExistingBreweryEmailRequest"
 import BreweryModal from "./BreweryModal"
 import { fetchBeers } from "../../Redux/actionCreators"
+
+import '../Accounts/Accounts.css'
 
 export default function OwnershipTable(props) 
 {
@@ -114,32 +118,39 @@ export default function OwnershipTable(props)
         
 
         return (
-            <div>
-                <h3>Breweries You Own</h3>
+            <div className="account--brewery">
+                <Card >
+                <h3 className="account--brewery--owned">Breweries You Own</h3>
+                <div className="account--brewery--buttons">
+                    <BreweryModal className = 'account--brewery--add' action={"add"} userId={props.userId}/>
+                    <ExistingBreweryEmailRequest class='account--brewery--existing'/>
+                </div>
                 <table className="ownership--table">
-                    <thead className="ownership--table--head">
-                        <tr>
-                            <th>Brewery Id</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Street</th>
-                            <th>City</th>
-                            <th>State</th>
-                            <th>Postal</th>
-                            <th>Website URL</th>
-                            <th>Phone</th>
-                            <th>Country</th>
-                            <th>Longitude</th>
-                            <th>Latitude</th>
-                            <th>Address 2</th>
-                            <th>Address 3</th>
-                        </tr>
-                    </thead>
-
+                    <CardBody>
+                        <thead className="ownership--table--head">
+                            <tr>
+                                <th>Brewery Id</th>
+                                <th>Name</th>
+                                <th>Type</th>
+                                <th>Street</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Postal</th>
+                                <th>Website URL</th>
+                                <th>Phone</th>
+                                <th>Country</th>
+                                <th>Longitude</th>
+                                <th>Latitude</th>
+                                <th>Address 2</th>
+                                <th>Address 3</th>
+                            </tr>
+                        </thead>
+                    </CardBody>    
                     <tbody className="ownership--table--body">
                         {
                             breweriesList.map(brewery => {
                             return (
+                                <CardBody>
                                 <tr key={brewery.id}>
                                     <td>{ brewery.id }</td>
                                     <td>{ brewery.name }</td>
@@ -155,18 +166,27 @@ export default function OwnershipTable(props)
                                     <td>{ brewery.latitude}</td>
                                     <td>{ brewery.address2 }</td>
                                     <td>{ brewery.address3 }</td>
+                                    <div className="brewery--buttons">
                                     <td> <BeerModal action={"add"} breweryId={brewery.id}/></td>
                                     <td> <BreweryModal action={"update"} userId={props.userId} breweryId={brewery.id}/></td>
                                     <td> <DeleteEntryModal beerOrBrewery={"brewery"} breweryId={brewery.id} userId={props.userId}/></td>
+                                    </div>
                                 </tr>
+                                </CardBody>
                             )})
                         }
                     </tbody>
                 </table>
+                </Card>
 
+                {breweriesAndBeers.length > 0 ? ( 
+                   
+                <div className="owner--beers--relation">
+                <Card>
                 <h3>Beers For Your Breweries</h3>
                 <table className="breweryProduct--table">
                     <thead className="breweryProduct--table--head">
+                        <CardBody>
                         <tr>
                             <th>Brewery Id</th>
                             <th>Beer Id</th>
@@ -175,14 +195,15 @@ export default function OwnershipTable(props)
                             <th>ABV %</th>
                             <th>Type</th>
                             <th>Image URL</th>
-                            
                         </tr>
+                        </CardBody>
                     </thead>
 
                     <tbody className="ownership--table--body">
                         {
                             breweriesAndBeers.map(relationEntry => {
                             return (
+                                <CardBody>
                                 <tr key={relationEntry.id}>
                                     <td>{ relationEntry.breweryId}</td>
                                     <td>{ relationEntry.beerId }</td>
@@ -194,10 +215,26 @@ export default function OwnershipTable(props)
                                     <td> <BeerModal action={"update"} beerId={relationEntry.beerId}/></td>
                                     <td> <DeleteEntryModal beerOrBrewery={"beer"} beerId={relationEntry.beerId}/></td>
                                 </tr>
+                                </CardBody>
                             )})
                         }
                     </tbody>
                 </table>
+                </Card>
+                </div>)
+                :
+                (
+                <div className="owner--empty--relation">
+                <Card> 
+                    <CardBody>
+                    <h4>You have no beers assigned to your breweries.</h4>    
+                    <h5>Add beers above to help improve our users and your customers experience!</h5>.
+                    </CardBody>
+                </Card>    
+                </div>
+
+                )
+                }
             </div>
         )
     }
