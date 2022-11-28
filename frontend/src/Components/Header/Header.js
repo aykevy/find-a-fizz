@@ -63,8 +63,10 @@ class Header extends Component {
         <>
           <Navbar dark expand='md' className='navbar--collection'>
                 <NavbarToggler onClick={this.toggleNav}/>
-                     <NavbarBrand className='navbar--logo' href="/home">
+                     <NavbarBrand className='navbar--logo'>
+                      <Link to='/home'>
                         <img src= './assests/logo.png' height='100' width='100' alt='Brewery Finder'/>
+                      </Link>
                      </NavbarBrand>
             
                 <SearchBar getBeer={this.props.getBeer} getBrewery={this.props.getBrewery} beers={this.props.beers} breweries={this.props.breweries}/>

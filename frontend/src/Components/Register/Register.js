@@ -2,6 +2,7 @@ import axios from 'axios'
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import { baseUrl } from '../../Shared/baseUrl'
+import './Register.css'
 
 class Register extends Component{
 
@@ -30,10 +31,11 @@ class Register extends Component{
     }
 
     handleSubmit = (values) => {
-        console.log(values)
+        
         const data = {username: this.state.username, password: this.state.password, confirmPassword: this.state.confirmPassword, role:this.state.role}
         if(this.state.password === this.state.confirmPassword){
             axios.post(baseUrl + "/register", data)
+            alert('Account has been created, return to Login page to Login.')
         }else{
             alert("Password and Confirm Password must match!!!")
         }
@@ -41,7 +43,10 @@ class Register extends Component{
 
     render(){
         return(
-            <div>
+            <div className='register--page--main'>
+                <body className='register--page--boxes'>
+                <img className='register--logo' src= './assests/RegisterLogo.png' alt='Register Now'/>
+                <div className='register--inputs'>
                 <h1>Create Account</h1>
                 <label class="sr-only">Username</label>
                 <input
@@ -75,17 +80,19 @@ class Register extends Component{
                     onChange={this.handleInputChange}
                     required
                 />
-
+                <label for='isBrewer' className='form-control'> I am a Brewery owner</label>
                 <input
                     type="checkbox"
                     id="isBrewer"
                     name='isBrewer'
                     v-model="user.role"
+                    className='register--owner--checkbox'
                     onChange={this.handleInputChange}
                 />
-                <label for='isBrewer'> I own a Brewery</label>
-                <Link to="/login">Have an account?</Link>
-                <button type="submit" onClick={()=> this.handleSubmit()}>Sign in</button>
+                <button className='submit--button' type="submit" onClick={()=> this.handleSubmit()}>Create Account</button>
+                <Link to="/login">Already have an account?</Link>
+                </div>
+                </body>
             </div>
         )
     }

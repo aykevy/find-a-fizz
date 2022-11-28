@@ -1,0 +1,72 @@
+ /* Registration Page */
+ .register--page--main{
+    margin: 0px;
+    padding: 0px;
+    background-color: #e8e8e8;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    z-index: 2;
+   }
+
+   .register--page--boxes{
+      position: relative;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 30px;
+      box-sizing: border-box;
+      border:2px solid white;
+      box-shadow: 5px 5px 3px #dfba7b;
+   }
+
+  .register--inputs {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 5px;
+   padding-left: 10px;
+  }
+
+  .register--logo{
+   height: auto;
+   max-width: 60%;
+   padding: 2px;
+   padding-right: 4px;
+   border: 1px solid white;
+   box-shadow: 5px 5px 3px #dfba7b;
+  }
+ .form-control{
+   margin-top: 5px;
+   margin-bottom: 5px;
+   background-color: #e8e8e8;
+  }
+  .submit--button{
+   background-color:#5B4037;
+   border: 5px solid #5B4037;
+   margin: 5px;
+   color: #e8e8e8;
+   font-style: oblique;
+  }
+  .register--owner--checkbox{
+    position: relative;
+    align-self: flex-end;
+    margin-right: 20px;
+    offset-anchor: top;
+    top:-30px;
+  }
+  h1{
+   color: #5B4037;
+   font-weight: bold;
+  }
+  a {
+   color: #ECA200;
+  }
+
