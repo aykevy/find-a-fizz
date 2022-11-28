@@ -77,8 +77,8 @@ export default function Accounts(props){
 
         <div>
             <ExistingBreweryEmailRequest />
-            <BreweryModal action={"add"} userId={16}/>
-            <OwnershipTable userId={16}/>
+            <BreweryModal action={"add"} userId={props.user.id}/>
+            <OwnershipTable userId={props.user.id}/>
         </div>
 
         <h4 onClick = {() => toggleWindows('BEER_REVIEWS')}>
