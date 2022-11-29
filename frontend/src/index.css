@@ -72,26 +72,6 @@ code {
   left: 0;
 }
 
-
- footer{
-  margin-top: 10px;
-  padding:  10px ;
-  position: fixed;
-  bottom: 0;
-  height: 3vw;
-  width: 100%;
-  background-color: #5B4037;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  z-index: 1;
- }
- footer > h5 {
-  text-align: start;
-  color: #F7F5F1;
- }
  .home--map{
   margin-left:5vw;
   margin-right:5vw;

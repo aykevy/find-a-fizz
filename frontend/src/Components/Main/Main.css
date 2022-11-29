@@ -1,0 +1,29 @@
+footer{
+    
+    position: fixed;
+    bottom: 0;
+    height: 3vw;
+    width: 100%;
+    background-color: #5B4037;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    z-index: 5;
+   }
+   footer > p {
+    align-self:baseline;
+    margin-left: 10px;
+    font-size: .8rem;
+   }
+   footer > h5{
+    margin-left: 10px;
+   }
+
+   footer > h5, footer > p {
+    text-align: left;
+    color: #F7F5F1;
+   }
+   .footer--spaced{
+    margin-top: 15vh;
+   }

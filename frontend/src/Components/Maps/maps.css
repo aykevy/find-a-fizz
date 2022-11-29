@@ -38,3 +38,7 @@
   .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
     border-bottom-color: black;
   }
+
+  .mapboxgl-control-container > .mapboxgl-ctrl-bottom-right, .mapboxgl-control-container > .mapboxgl-ctrl-top-right,  .mapboxgl-control-container >  .mapboxgl-ctrl-bottom-left {
+    z-index: 0;
+  }

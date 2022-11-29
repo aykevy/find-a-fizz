@@ -12,6 +12,7 @@ import Beer from '../Beers/Beer'
 import Breweries from '../Breweries/Breweries'
 import Brewery from '../Breweries/Brewery'
 import Accounts from '../Accounts/Accounts'
+import './Main.css'
 
 //Setting the Redux store to this comp state so that if Store Changes State does and will rerender
 const mapStateToProps = state => {
@@ -60,6 +61,7 @@ const mapDispatchToProps = (dispatch) => ({
 const today = new Date();
 let todaysBrewery = {};
 let todaysBeer = {};
+const sendToLogin = <Redirect to='/login'/>
 
 
 
@@ -98,60 +100,53 @@ class Main extends Component {
     render(){
         return(
             <div>
-                {this.props.token.token !== undefined ?
-                        <div>
-                            <Link to='/home'>Home | </Link>
-                            <Link to='/login' onClick={this.handleLogout}>logout</Link> 
-                            <Redirect to='/home'/>
-
-                        </div>  
-                    : 
-                        <Link to='/login'>Home | </Link>
-                }
                 {(this.props.location.pathname !== '/login') &&  <Header handleLogout={this.handleLogout} getBrewery={this.props.getBrewery} getBeer={this.props.getBeer} beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]}/>}
     
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
-                    <Route path='/login' component={() => <Login fetchReviews={this.props.fetchReviews} fetchFavorites={this.props.fetchFavorites} />}/>
+                    <Route exact path='/' render = { ()=> {this.props.token.token ? <Redirect to='/home'/> : <Redirect to='/login'/> }}/>   
+                    <Route exact path='/login' component={() => <Login fetchReviews={this.props.fetchReviews} fetchFavorites={this.props.fetchFavorites} />}/>
                     
-                    <Route path='/account' component={ this.props.token.token !== undefined ? () => 
+                    <Route exact path='/account' component={ this.props.token.token !== undefined ? () => 
                         <Accounts user={this.props.user} userReviews={this.props.userReviews} fetchReviews={this.props.fetchReviews}
                                   beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]} getBeer={this.props.getBeer} getBrewery={this.props.getBrewery}
                                   deleteUserReview={this.props.deleteUserReview} favorites={this.props.userFavorites}          /> : null}/>
 
-                    <Route path='/register'component={() => <Register/>}/>
+                    <Route exact path='/register'component={() => <Register/>}/>
 
-                    <Route path='/home' component={this.props.token.token !== undefined ? () => 
+                    <Route exact path='/home' component={this.props.token.token !== undefined ? () => 
                         <Home todaysBrewery={todaysBrewery} todaysBeer={todaysBeer} getTodaysItems={this.getTodaysItems} 
                               getBeer={this.props.getBeer} getBrewery={this.props.getBrewery}
                               userLocation={this.props.location} breweries={this.props.breweries.breweries[0]}
-                              /> : null}/>
+                              /> : null }/> 
 
-                    <Route path='/beers' component={this.props.token.token !== undefined  ? () =>
+                    <Route exact path='/beers' component={this.props.token.token !== undefined  ? () =>
                         <Beers beers={this.props.beers.beers[0]} getBeer={this.props.getBeer} favorites={this.props.userFavorites.beerFavorites}
                                addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} userId={this.props.user.id}/> : null}/>
 
-                    <Route path='/breweries' component={this.props.token.token !== undefined ? () =>
+                    <Route exact path='/breweries' component={this.props.token.token !== undefined ? () =>
                          <Breweries breweries={this.props.breweries.breweries[0]} getBrewery={this.props.getBrewery} favorites={this.props.userFavorites.breweryFavorites} 
                                     addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} userId={this.props.user.id}/>  : null}/>
 
-                    <Route path='/beer/:id' component={ this.props.token.token !== undefined ? () => 
+                    <Route exact path='/beer/:id' component={ this.props.token.token !== undefined ? () => 
                         <Beer selectedBeer = {this.props.beers.selectedBeer} postReview={this.props.postReview} 
                               userId={this.props.user.id}  favorites={this.props.userFavorites.beerFavorites} 
                               addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />
 
-                    <Route path='/brewery/:id' component={this.props.token.token !== undefined ? () => 
+                    <Route exact path='/brewery/:id' component={this.props.token.token !== undefined ? () => 
                         <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} postReview= {this.props.postReview} 
                                  userId={this.props.user.id} userLocation={this.props.location} favorites={this.props.userFavorites.breweryFavorites} 
-                                 addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />
-
-                    <Redirect to='/login'/>
+                                 addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />           
                 </Switch>
                 {(this.props.location.pathname !== '/login') &&
-                <footer>
-                     {console.log(this.props.userFavorites.beerFavorites)}
-                   <h5>&copy; A Brewery Company - 2022</h5>
-                </footer>}
+                <>
+                <div className='footer--spaced'></div>
+
+                <footer className='footer'>
+                   <h5 className='footer--brand'>Find-A-Fizz</h5>
+                   <p className='footer--company'>&copy; 2022 - A Brewery Company</p>
+                </footer></>
+                }
             </div>
         )
     }

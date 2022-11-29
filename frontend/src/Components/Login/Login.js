@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {addToken, addUser} from '../../Redux/actionCreators'
@@ -76,7 +76,9 @@ class Login extends Component {
                     required
                 />
                 <Link to="/register">Need an account?</Link>
+                <Link to='/home'>
                 <button className='submit--button' type="submit" onClick={this.handleLogin}>Sign in</button>
+                </Link>
                 </div>
                 </body>
             </div>
