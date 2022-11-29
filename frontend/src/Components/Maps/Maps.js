@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Popup } from "react-map-gl";
 import './maps.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import ContactTypes from "../Social/ContactTypes";
 
 
 function Maps(props){
@@ -78,13 +79,18 @@ function Maps(props){
       </Marker>
       {allMarkers}
       {popUp && 
-        <Popup anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onClose={() => setPopup(null)}>
-        <Link to={'/brewery/'+popUp.id}>
-        <h5 onClick={() => props.getBrewery(popUp.id)}>{popUp.name}</h5>
-        </Link>
-        {popUp.phone && <p>Phone: {formatPhoneNumber(popUp.phone)}</p>}
-        <p>Brewery type: {popUp.breweryType}</p>
-        </Popup>}
+        <div className="maps--markers">
+
+          <Popup className = 'maps--marker' anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onClose={() => setPopup(null)}>
+
+            <Link to={'/brewery/'+popUp.id}>
+                 <h5 onClick={() => props.getBrewery(popUp.id)}>{popUp.name}</h5>
+            </Link>
+            {popUp.phone && <p>Phone: {formatPhoneNumber(popUp.phone)}</p>}
+            <p>Brewery type: {popUp.breweryType}</p>
+            <ContactTypes className ='maps--popup--social' phone={formatPhoneNumber(popUp.phone)} website={popUp.website} location={popUp.city +', ' + popUp.state} name={popUp.name}/>
+          </Popup>
+        </div>}
      <FullscreenControl/>
      <NavigationControl position="bottom-left"/>
      <GeolocateControl/>

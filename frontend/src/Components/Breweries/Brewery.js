@@ -6,6 +6,7 @@ import Maps from "../Maps/Maps";
 import NewReview from "../Reviews/NewReview";
 import './Brewery.css'
 import BeerSlider from "../Carousels/BeerSlider"
+import ContactTypes from "../Social/ContactTypes";
 
 
 export default function Brewery({selectedBrewery,postReview,userId,userLocation,favorites,addFavorite,remFavorite}){
@@ -51,7 +52,7 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         return '';
     }
       let isFavorite = favorites.filter(function (favorite){return selectedBrewery.id === favorite.breweryId});
-      console.log(isFavorite)
+      
     return(
         <>
         <div className="selected--brewery">
@@ -62,6 +63,9 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
              <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
+
+        <ContactTypes phone={formatPhoneNumber(selectedBrewery.phone)} website={selectedBrewery.websiteUrl} name={selectedBrewery.name} location={selectedBrewery.city +', '+ selectedBrewery.state}/>
+
         <Card className="selected--nameDesc">
         <CardBody>
                 <CardTitle className = 'selected--name'>{selectedBrewery.name}</CardTitle>
@@ -75,7 +79,7 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
             {selectedBrewery.phone !== undefined  && <CardText> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
         </CardBody>
         </Card>
-        
+
         <div class="break"></div> 
         <Card className = 'selected--review'>
         <CardBody>
