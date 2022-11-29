@@ -8,7 +8,7 @@ import DeleteEntryModal from "./DeleteEntryModal"
 import BeerModal from "./BeerModal"
 import ExistingBreweryEmailRequest from "./ExistingBreweryEmailRequest"
 import BreweryModal from "./BreweryModal"
-import { fetchBeers } from "../../Redux/actionCreators"
+
 
 import '../Accounts/Accounts.css'
 
@@ -26,6 +26,7 @@ export default function OwnershipTable(props)
 
     /* All ownership relations with the given user id */
     const [ownershipRelations, setOwnershipRelations] = React.useState([])
+
 
    
     useEffect( () => {
@@ -114,8 +115,7 @@ export default function OwnershipTable(props)
     if (ownershipRelations.length > 0) {
         const breweriesList = getOwnedBreweries();
         const breweriesAndBeers = getBreweriesAndBeers(breweriesList);
-        console.log(breweriesAndBeers);
-        
+           
 
         return (
             <div className="account--brewery">

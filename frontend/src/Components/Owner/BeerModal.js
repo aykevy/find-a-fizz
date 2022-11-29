@@ -1,12 +1,21 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, Label, Row , Col } from 'reactstrap';
-import { Control, LocalForm } from 'react-redux-form';
+import { Control, LocalForm,Errors } from 'react-redux-form';
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios';
 
 import '../Accounts/Accounts.css'
 
+const required = (val) => val && val.length;
+const minLength = (len) => (val) => val && (val.length >= len);
+const isNumber = (val) => !isNaN(Number(val));
+//there's a lot going on here, essentially lots of optional checks for http:\\, the file path names, and then checking lasty it's a valid image react will tack
+const validImage = (val) => /^(?:(?<scheme>[^:\/?#]+):)?(?:\/\/(?<authority>[^\/?#]*))?(?<path>[^?#]*\/)?(?<file>[^?#]*\.(?<extension>[Jj][Pp][Ee]?[Gg]|[Pp][Nn][Gg]|[Gg][Ii][Ff]))(?:\?(?<query>[^#]*))?(?:#(?<fragment>.*))?$/gm.test(val)
+
+
+
 export default class NewBeerModal extends React.Component {
+    
 
     constructor(props) {
         super(props)
@@ -16,6 +25,7 @@ export default class NewBeerModal extends React.Component {
         this.toggleModal = this.toggleModal.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
     }
+
 
     postBeer(breweryId, name = null, description = null, imageUrl = null, abvPercent = null, type = null)
     {
@@ -102,14 +112,21 @@ export default class NewBeerModal extends React.Component {
                 <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>{modalTitle}</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleSubmit((this.props.action === "add" ? "add" : "update"), this.props.breweryId, this.props.beerId, values)}>
+                        <LocalForm model= 'beer' onSubmit={(values) => this.handleSubmit((this.props.action === "add" ? "add" : "update"), this.props.breweryId, this.props.beerId, values)}>
                             
                             {/*  Name  */}
                              <Row className = 'form-group'>
                                 <Label htmlFor="name" md={2}>Name</Label>
                                 <Col md={10}>
-                                    <Control.text model=".name" id="name" name="name" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".name" id="name" name="name" rows="1" className='form-control'
+                                        validators={{required ,minLength: minLength(3)}}/>
+
+                                    <Errors className='text-danger' model='beer.name' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters '
+                                            }}
+                                            /> 
                                 </Col>
                             </Row>
 
@@ -117,8 +134,16 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="description" md={2}>Description</Label>
                                 <Col md={10}>
-                                    <Control.text model=".description" id="description" name="description" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".description" id="description" name="description" rows="1" className='form-control'
+                                                validators={{required,minLength: minLength(3)}}/>
+
+                                    <Errors className='text-danger' model='beer.description' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters '
+                                            }}
+                                            />        
+                                   
                                 </Col>
                             </Row>
 
@@ -126,8 +151,17 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="imageUrl" md={2}>Image URL</Label>
                                 <Col md={10}>
-                                    <Control.text model=".imageUrl" id="imageUrl" name="imageUrl" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".imageUrl" id="imageUrl" name="imageUrl" rows="1" className='form-control'
+                                    validators={{required,minLength: minLength(3),validImage}}/>
+                                    
+                                    <Errors className='text-danger' model='beer.imageUrl' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters ',
+                                                validImage: 'Must be a valid image format in ending in .png, .jpeg, or .gif,'
+                                            }}
+                                            />  
+                                    
                                 </Col>
                             </Row>
 
@@ -135,8 +169,15 @@ export default class NewBeerModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="abvPercent" md={2}>ABV Percent</Label>
                                 <Col md={10}>
-                                    <Control.text model=".abvPercent" id="abvPercent" name="abvPercent" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".abvPercent" id="abvPercent" name="abvPercent" rows="1" className='form-control'
+                                    validators={{required,isNumber}}/>
+
+                                    <Errors className='text-danger' model='beer.abvPercent' show='touched'
+                                        messages={ {
+                                            required: 'Required ',
+                                            isNumber: 'Please enter a valid number.'
+                                        }}
+                                        />  
                                 </Col>
                             </Row>
 

@@ -1,12 +1,14 @@
-.accounts--beer--image{
+.accounts--selected--image{
     max-width: 8vw;
     border-style: solid;
     border-color: black;
     border-radius: 6px;
     border-width: 1px;
+    align-self: center;
+    padding-bottom: 5px;
 }
 
-.accounts--beer--image:hover{
+.accounts--selected--image:hover{
       background-position: 100% 100%;
     transform: scale(1.08,1.03);
     box-shadow: 4px 4px 2px black;
@@ -30,11 +32,58 @@
   .account--brewery{
     margin-left:  auto;
     margin-right: auto;
+    display: flex;
+    flex-wrap:wrap;
+    gap:15px;
+    justify-content:center;
+    width: 100%;
   }
   .account--brewery--addButton{
    width: fit-content;
    
   }
+  .accounts--options--box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5vw;
+  }
+  .accounts--selected{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    max-width: fit-content;
+    max-height: fit-content;
+  }
+  .accounts--options--select{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 15px;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .accounts--selected--delete{
+    width: 90%;
+  }
+  .accounts--selected--beerFav{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    padding:10px;
+  }
+  .accounts--selected--titles, .account--user--reviews{
+    padding: 10px;
+  }
+  .account--user--breweryFavs{
+    padding:20px;
+  }
+  
 
   .account--brewery--buttons{
     display: flex;
@@ -50,6 +99,12 @@
     margin-right: auto;
     padding-left: 20px;
   }
+  .owner--beers--relation{
+    width: 73%;
+  }
+  .owner--empty--relation{
+    width:71%
+  }
  .brewery--buttons{
   display: flex;
   flex-direction: row;
@@ -57,4 +112,20 @@
  }
  .accounts--add--beer button, .acccounts--brewery--delete button{
   width: fit-content;
+ }
+ .break{
+  flex-basis: 100%;
+  height: 0;
+ }
+ .active h4{
+  padding: 4px;
+  border-style:groove;
+  border-color: black;
+  border: 1px 0 black;
+  font-size: 1.8rem;
+ }
+ h1{
+  align-self: center;
+  justify-content: center;
+  text-align: center;
  }

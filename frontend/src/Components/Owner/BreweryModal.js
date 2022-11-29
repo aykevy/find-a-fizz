@@ -1,10 +1,22 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, Label, Row , Col } from 'reactstrap';
-import { Control, LocalForm } from 'react-redux-form';
+import { Control, LocalForm,Errors } from 'react-redux-form';
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios';
 
 import '../Accounts/Accounts.css'
+
+const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+const validLat = (val) => Math.abs(val) <= 90;
+const validLong = (val) => Math.abs(val) <= 180;
+
+//checks string to see if it would make a valid website url
+const validWebsite = (val) => /^(https?\:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})(\/[\w]*)*$/.test(val);
+
+//verifs a phone number
+const validPhone = (val) => /^\+?\d{1,3}(\-|\x20)?\(?\d+\)?((\-|\x20)?\d+)+$/gm.test(val);
 
 export default class NewBreweryModal extends React.Component {
 
@@ -122,14 +134,23 @@ export default class NewBreweryModal extends React.Component {
                 <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>{modalTitle}</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleSubmit((this.props.action === "add" ? "add" : "update"), this.props.userId, this.props.breweryId, values)}>
+                        <LocalForm model='brewery' onSubmit={(values) => this.handleSubmit((this.props.action === "add" ? "add" : "update"), this.props.userId, this.props.breweryId, values)}>
 
                             {/*  Name  */}
                             <Row className = 'form-group'>
                                 <Label htmlFor="name" md={2}>Name</Label>
                                 <Col md={10}>
-                                    <Control.text model=".name" id="name" name="name" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".name" id="name" name="name" rows="1" className='form-control'
+                                    validators={{required,minLength:minLength(2),maxLength:maxLength(20)}}/>
+
+                                    <Errors className='text-danger' model='brewery.name' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters ',
+                                                maxLength: 'Must be under 21 Characters'
+                                            }}
+                                            /> 
+                                    
                                 </Col>
                             </Row>
 
@@ -137,8 +158,16 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="street" md={2}>Street</Label>
                                 <Col md={10}>
-                                    <Control.text model=".street" id="street" name="street" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".street" id="street" name="street" rows="1" className='form-control'
+                                    validators={{required,minLength:minLength(2)}}/>
+
+                                    <Errors className='text-danger' model='brewery.street' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters '
+                                            }}
+                                            /> 
+                                 
                                 </Col>
                             </Row>
 
@@ -146,8 +175,15 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="city" md={2}>City</Label>
                                 <Col md={10}>
-                                    <Control.text model=".city" id="city" name="city" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".city" id="city" name="city" rows="1" className='form-control'
+                                    validators={{required,minLength:minLength(2)}}/>
+                                    <Errors className='text-danger' model='brewery.city' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters '
+                                            }}
+                                            /> 
+                                    
                                 </Col>
                             </Row>
 
@@ -155,8 +191,16 @@ export default class NewBreweryModal extends React.Component {
                              <Row className = 'form-group'>
                                 <Label htmlFor="state" md={2}>State</Label>
                                 <Col md={10}>
-                                    <Control.text model=".state" id="state" name="state" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".state" id="state" name="state" rows="1" className='form-control'
+                                    validators={{required,minLength:minLength(2)}}/>
+
+                                    <Errors className='text-danger' model='brewery.state' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters '
+                                            }}
+                                            /> 
+                            
                                 </Col>
                             </Row>
 
@@ -164,8 +208,15 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="country" md={2}>Country</Label>
                                 <Col md={10}>
-                                    <Control.text model=".country" id="country" name="country" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".country" id="country" name="country" rows="1" className='form-control'
+                                    validators={{required,minLength:minLength(2)}}/>
+                                    <Errors className='text-danger' model='brewery.country' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than 2 characters '
+                                            }}
+                                            /> 
+                                   
                                 </Col>
                             </Row>
 
@@ -173,8 +224,16 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="postalCode" md={2}>Postal Code</Label>
                                 <Col md={10}>
-                                    <Control.text model=".postalCode" id="postalCode" name="postalCode" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".postalCode" id="postalCode" name="postalCode" rows="1" className='form-control'
+                                    validators={{required,minLength:minLength(2),maxLength:maxLength(10)}}/>
+                                    <Errors className='text-danger' model='brewery.postalCode' show='touched'
+                                            messages={ {
+                                                required: 'Required ',
+                                                minLength: 'Must be greater than two digits',
+                                                maxLength: 'Must be less than ten digits'
+                                            }}
+                                            /> 
+                                    
                                 </Col>
                             </Row>
 
@@ -182,8 +241,14 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="address2" md={2}>Address 2</Label>
                                 <Col md={10}>
-                                    <Control.text model=".address2" id="address2" name="address2" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".address2" id="address2" name="address2" rows="1" className='form-control'
+                                    validators={{minLength:minLength(2)}}/>
+                                <Errors className='text-danger' model='brewery.address2' show='touched'
+                                        messages={ {
+                                            minLength: 'Must be greater than 2 characters '
+                                        }}
+                                        /> 
+                          
                                 </Col>
                             </Row>
 
@@ -191,8 +256,14 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="address3" md={2}>Address 3</Label>
                                 <Col md={10}>
-                                    <Control.text model=".address3" id="address3" name="address3" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".address3" id="address3" name="address3" rows="1" className='form-control'
+                                    validators={{minLength:minLength(2)}}/>
+                                <Errors className='text-danger' model='brewery.address3' show='touched'
+                                messages={ {
+                                    minLength: 'Must be greater than 2 characters '
+                                }}
+                                /> 
+                                    
                                 </Col>
                             </Row>
 
@@ -200,8 +271,14 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="countyProvince" md={2}>County Province</Label>
                                 <Col md={10}>
-                                    <Control.text model=".countyProvince" id="countyProvince" name="countyProvince" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".countyProvince" id="countyProvince" name="countyProvince" rows="1" className='form-control'
+                                    validators={{minLength:minLength(2)}}/>
+                                <Errors className='text-danger' model='brewery.countyProvince' show='touched'
+                                messages={ {
+                                    minLength: 'Must be greater than 2 characters '
+                                }}
+                                /> 
+                        
                                 </Col>
                             </Row>
 
@@ -209,8 +286,16 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="phone" md={2}>Phone</Label>
                                 <Col md={10}>
-                                    <Control.text model=".phone" id="phone" name="phone" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".phone" id="phone" name="phone" rows="1" className='form-control' 
+                                    validators={{required,validPhone}}/>
+
+                                    <Errors className='text-danger' model='brewery.phone' show='touched'
+                                    messages={ {
+                                            required: 'Required ',
+                                            validPhone: 'Must be a valid phone number'
+                                    }}
+                                    /> 
+                                 
                                 </Col>
                             </Row>
 
@@ -218,8 +303,15 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="websiteUrl" md={2}>Website URL</Label>
                                 <Col md={10}>
-                                    <Control.text model=".websiteUrl" id="websiteUrl" name="websiteUrl" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".websiteUrl" id="websiteUrl" name="websiteUrl" rows="1" className='form-control'
+                                     validators={{validWebsite}}/>
+
+                                    <Errors className='text-danger' model='brewery.websiteUrl' show='touched'
+                                    messages={ {
+                                    validWebsite: 'Must be a valid website link'
+                            }}
+                                    /> 
+                                    
                                 </Col>
                             </Row>
 
@@ -227,8 +319,15 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="longitude" md={2}>Longitude</Label>
                                 <Col md={10}>
-                                    <Control.text model=".longitude" id="longitude" name="longitude" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".longitude" id="longitude" name="longitude" rows="1" className='form-control'
+                                    validators={{validLong}}/>
+
+                                    <Errors className='text-danger' model='brewery.longitude' show='touched'
+                                    messages={ {
+                                            validLong: 'Must be a number between 180 and -180'
+                                    }}
+                                    /> 
+                                
                                 </Col>
                             </Row>
 
@@ -236,8 +335,16 @@ export default class NewBreweryModal extends React.Component {
                             <Row className = 'form-group'>
                                 <Label htmlFor="latitude" md={2}>Latitude</Label>
                                 <Col md={10}>
-                                    <Control.text model=".latitude" id="latitude" name="latitude" rows="1" className='form-control'>
-                                    </Control.text>
+                                    <Control.text model=".latitude" id="latitude" name="latitude" rows="1" className='form-control'
+                                     validators={{validLat}}/>
+
+                                     
+                                    <Errors className='text-danger' model='brewery.latitude' show='touched'
+                                    messages={ {
+                                            validLat: 'Must be a number between 90 and -90'
+                                    }}
+                                    /> 
+
                                 </Col>
                             </Row>
 
