@@ -58,11 +58,15 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         <div className="selected--brewery">
         <img className= 'user--favorite--brewery' src = {isFavorite[0] ? '/assests/favorites/Favorited.png' :'/assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
                         onClick={ () => toggleUserFavorite(selectedBrewery,'brewery')}/>    
+        <div className="brew--map">
         <Link to='/breweries/' style={{color: 'black'}}>
         <Card className="selected--image">
              <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
+        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude} userLocation={userLocation}/>
+        </div>
+        <div className="brewery--info">
 
         <ContactTypes phone={formatPhoneNumber(selectedBrewery.phone)} website={selectedBrewery.websiteUrl} name={selectedBrewery.name} location={selectedBrewery.city +', '+ selectedBrewery.state}/>
 
@@ -79,8 +83,9 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
             {selectedBrewery.phone !== undefined  && <CardText> Contact Phone: {formatPhoneNumber(selectedBrewery.phone)}</CardText>}
         </CardBody>
         </Card>
+        </div>
 
-        <div class="break"></div> 
+        <div className="brewery--reviews">
         <Card className = 'selected--review'>
         <CardBody>
                 <CardTitle>
@@ -90,9 +95,9 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
                 </CardTitle>
         </CardBody>
         </Card>
-        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude} userLocation={userLocation}/>
+        </div> 
         </div>
-        <Card>
+        <Card className="beer--list">
         <CardBody>
                 <BeerSlider breweryId={selectedBrewery.id}/>
         </CardBody>

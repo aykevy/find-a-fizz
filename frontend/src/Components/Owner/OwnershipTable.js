@@ -245,6 +245,8 @@ export default function OwnershipTable(props)
             <div>
                 <h3>Breweries You Own</h3>
                 You own no breweries! Add one.
+                <BreweryModal className = 'account--brewery--add' action={"add"} userId={props.userId}/>
+
             </div>
         )
     }

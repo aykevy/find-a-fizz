@@ -35,7 +35,7 @@ return(
      <>
      <div className='home--dailyFeatures'>
     <div className='home--featuredBeer'> 
-    <h2 className='featuredBeer'>Beer of the Day: {todaysBeer.name}</h2>   
+    <h2 className='featuredBeer'>Beer of the Day:</h2>   
     <Link to={'/beer/'+todaysBeer.id} style={{color:"black"} } component={<Beer selectedBeer={todaysBeer}/>}> 
                         <div className = 'beer--card--set'>             
                             <Card className="beer--card" key = {todaysBeer.id}>
@@ -51,7 +51,7 @@ return(
      <HomeSlider />
 
       <div className='home--featuredBrewery'>
-        <h2 className='featuredBrewery'>Featured Brewery: {todaysBrewery.name}</h2>   
+        <h2 className='featuredBrewery'>Featured Brewery:</h2>   
         <Link to={'/brewery/'+todaysBrewery.id} style={{color:"black"}}> 
             <Card className="selected--image">
             <CardImg top src = {setBreweryImage(todaysBrewery.breweryType)} alt ="Image of Brewery Type" onClick={(e) => getBrewery(todaysBrewery.id)}/>

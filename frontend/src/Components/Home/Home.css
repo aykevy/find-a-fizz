@@ -10,14 +10,14 @@
 .home--featuredBrewery{
     display: flex;
     flex-direction: column;
-    align-self: center;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
     margin: 10px;
 }
 .home--featuredBeer {
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-start;
    align-items: center;
    margin: 10px;
 }
@@ -26,5 +26,9 @@
 }
 .featuredBeer {
     margin-bottom: 20px;
+}
+h2 {
+    max-height: 115px;
+    
 }
 

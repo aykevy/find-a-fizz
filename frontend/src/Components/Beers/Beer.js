@@ -29,7 +29,7 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
                         <CardImg top src = {selectedBeer.imageUrl}/>
                     </Card>
                 </Link>
-  
+        <div className="selected--info">
         <Card>
         <CardBody className="selected--nameDesc">
                 <CardTitle className = 'selected--name'>{selectedBeer.name}</CardTitle>
@@ -42,6 +42,8 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
                 <CardText className = 'selected--type'>{selectedBeer.type}</CardText>
         </CardBody>
         </Card>
+        </div>
+        <div className="selected--reviewTable">
         <Card>
         <CardBody>
                 <CardTitle className = 'selected--review'>
@@ -51,11 +53,14 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
         </CardBody>
         </Card>
         </div>
+        </div>
+        <div className="breweries--found">
         <Card>
         <CardBody>
                 <BrewerySlider beerId={selectedBeer.id}/>
         </CardBody>
         </Card>
-        </>    
+        </div>
+        </>  
     )
 }
