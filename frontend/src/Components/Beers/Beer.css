@@ -87,11 +87,11 @@ h5 {
   padding: 50px;
   gap: 50px;
  }
-a:nth-child(even) .beer--card{
+.beer--card--set:nth-child(odd) .beer--card{
   background-color: #FFBD6D;
 
 }
-a:nth-child(odd) .beer--card{
+.beer--card--set:nth-child(even) .beer--card{
   background-color: #FFD371;
 
 }
@@ -100,7 +100,9 @@ a:nth-child(odd) .beer--card{
   cursor: pointer;
   position: relative;
   min-width: 15vw;
- 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
  }
 
  .beer--card:hover {
@@ -114,6 +116,8 @@ a:nth-child(odd) .beer--card{
  }
 
  .beer--card--name{
+  flex-shrink:1;
+  align-self: flex-end;
   font-size: 1rem;
   font-weight: bold;
   text-decoration: underline;
@@ -127,6 +131,8 @@ a:nth-child(odd) .beer--card{
   display: block;
 }
 .card-img-top {
+  flex-grow: 1;
+  align-self: flex-end;
   margin-top: 10px;
 }
 .card-body {
@@ -154,4 +160,7 @@ a:nth-child(odd) .beer--card{
   text-align: center;
   align-self: center;
   bottom: -50px;
+}
+.brew--image{
+  align-self: center;
 }

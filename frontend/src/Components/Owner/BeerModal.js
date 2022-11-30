@@ -109,7 +109,7 @@ export default class NewBeerModal extends React.Component {
             <div className="accounts--add--beer">
                 <Button onClick={this.toggleModal}> <i class="fa fa-beer" aria-hidden="true"/>
                         {modalTitle}</Button>
-                <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
+                <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal} backdrop='static' >
                     <ModalHeader toggle={this.toggleModal}>{modalTitle}</ModalHeader>
                     <ModalBody>
                         <LocalForm model= 'beer' onSubmit={(values) => this.handleSubmit((this.props.action === "add" ? "add" : "update"), this.props.breweryId, this.props.beerId, values)}>

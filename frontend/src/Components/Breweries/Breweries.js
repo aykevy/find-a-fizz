@@ -118,17 +118,7 @@ function Breweries(props){
         if(breweries){
         return(
         <>
-        <div className="brew--results">
-        <p>Showing Results {pageNumber * 50} through {(pageNumber + 1) * 50}</p>
-        </div>
-      
-        <PageBar/>
-        <div className="brew--buttons">
-            <button onClick = {(e) => navSearchResulst('next')} className = 'brew--navButton'> Next Page </button>
-            <button onClick = {(e) => navSearchResulst('back')} className = 'brew--navButton'> Back Page </button>
-            <button onClick = {(e) => navSearchResulst('first')} className = 'brew--navButton'> First Page</button>
-            <button onClick = {(e) => navSearchResulst('last')} className = 'brew--navButton'> Last Page</button>
-        </div>
+
         {/*Renders a list of brewereis in card form, some conditional renderings based on if breweriees have information avaiable*/}
         <div className="brew--list">
             {breweries.map( (brewery) => { 
@@ -160,8 +150,22 @@ function Breweries(props){
                     </div>
                
                 )})    
-            }  
+            }
+        
+              
         </div>
+        <div className="brew--results">
+        <p>Showing Results {pageNumber * 50} through {(pageNumber + 1) * 50}</p>
+        </div>
+
+        <div className="brew--buttons">
+            <button onClick = {(e) => navSearchResulst('first')} className = 'brew--navButton'> <i class="fa fa-angle-double-left" aria-hidden="true"></i> First Page</button>
+            <button onClick = {(e) => navSearchResulst('back')} className = 'brew--navButton'> <i class="fa fa-angle-left" aria-hidden="true"></i>  Back Page </button>
+            <button onClick = {(e) => navSearchResulst('next')} className = 'brew--navButton'> Next Page <i class="fa fa-angle-right" aria-hidden="true"></i>
+ </button>
+            <button onClick = {(e) => navSearchResulst('last')} className = 'brew--navButton'> Last Page <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+        </div>
+        <PageBar/>
         </>
         )
     }

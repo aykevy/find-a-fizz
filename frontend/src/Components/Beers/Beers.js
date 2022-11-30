@@ -42,7 +42,7 @@ function Beers(props){
                         <Link to={url} style={{color:"black"}}>          
                             <Card className="beer--card" onClick ={ (e) => onBeerSelect(beer.id)}>
                                 <CardImg top src = {beer.imageUrl} alt = {beer.name} />
-                                <CardBody>
+                                <CardBody className="beer--card--name">
                                     <CardTitle className = 'beer--card--name'>{beer.name}</CardTitle>
                                 </CardBody>
                             </Card>
