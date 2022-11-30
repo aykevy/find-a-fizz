@@ -71,8 +71,8 @@ class Main extends Component {
     }
 
     getTodaysItems = () => {
-        todaysBrewery =  this.props.breweries.breweries[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.breweries.breweries[0].length)];
-        todaysBeer =  this.props.beers.beers[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.beers.beers[0].length)];
+        todaysBrewery =  this.props.breweries.breweries[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.breweries.breweries[0].length)+55];
+        todaysBeer =  this.props.beers.beers[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.beers.beers[0].length)+1];
     }
 
     handleLogout = () => {
@@ -138,7 +138,7 @@ class Main extends Component {
                                  userId={this.props.user.id} userLocation={this.props.location} favorites={this.props.userFavorites.breweryFavorites} 
                                  addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />           
                 </Switch>
-                {(this.props.location.pathname !== '/login') &&
+                {(this.props.token.token) &&
                 <>
                 <div className='footer--spaced'></div>
                 <footer className='footer'>
