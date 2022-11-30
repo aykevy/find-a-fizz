@@ -1,3 +1,5 @@
+import { CompareSharp } from '@material-ui/icons';
+import { act } from 'react-dom/test-utils';
 import * as ActionTypes from './actionTypes';
 
 export const Breweries = (state = {
@@ -7,6 +9,16 @@ export const Breweries = (state = {
 }, action) => {
 switch (action.type) {
     case ActionTypes.ADD_BREWERIES:
+        let sorted = action.payload.sort((a,b) => {
+            
+            let fa = a.name.toLowerCase();
+            let fb = b.name.toLowerCase();
+            if (fa < fb){ return -1}
+            if (fa > fb){ return 1};
+            return 0;
+        })   
+        // let sorted = action.payload.filter((item) =>  { console.log(item); return item.id == 8163})
+        
         //this should add the fetched breweries into the store state when recieved from ASYNC API Call
         return  {...state, loading:false, breweries: [...state.breweries, action.payload],selectedBrewery:{}}
 
