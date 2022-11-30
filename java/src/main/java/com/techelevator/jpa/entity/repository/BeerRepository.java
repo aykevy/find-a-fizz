@@ -4,6 +4,7 @@ import com.techelevator.jpa.entity.Beer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
@@ -20,10 +21,10 @@ public interface BeerRepository extends JpaRepository<Beer, Long>
     @Query("DELETE FROM BeerReview WHERE beerId=:id")
     @Modifying
     @Transactional
-    int deleteBeerReviewCascade(Long id);
+    int deleteBeerReviewCascade(@Param("id") Long id);
 
     @Query("DELETE FROM BreweryProduct WHERE beerId=:id")
     @Modifying
     @Transactional
-    int deleteBreweryProductCascade(Long id);
+    int deleteBreweryProductCascade(@Param("id") Long id);
 }
