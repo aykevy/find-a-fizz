@@ -73,9 +73,19 @@ max-height: 250px;
   margin: 15px;
 }
 .brew--card{
-  min-height: 400px;
-  min-width: 400px;
+  min-height: 300px;
+  min-width: 300px;
+  border: 2px solid black;
+  border-radius: 7px;
   align-items: center;
+}
+.brew--card--daily{
+  min-height: 300px;
+  min-width: 300px;
+  border: 2px solid black;
+  border-radius: 7px;
+  align-items: center;
+  background-color: #FFBD6D;
 }
 .brew--card--set{
   display: flex;
@@ -98,10 +108,37 @@ max-height: 250px;
   border-radius: 7px;
   border-width: 1px;
 }
+.brew--card--daily:hover{
+  background-position: 100% 100%;
+  transform: scale(1.08,1.03);
+  box-shadow: 10px 10px 5px black;
+  border-style: solid;
+  border-color: black;
+  border-radius: 7px;
+  border-width: 1px;
+
+}
 .brew--card--name{
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 800;
   text-decoration: underline;
+}
+.brew--card--home{
+  border:1px solid #F7F5F1;
+  background-color: #F7F5F1;
+}
+.selected--name--home {
+  margin-top: 10px;
+  font-size: larger;
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: #FFD371;
+}
+.selected--desc--home {
+  padding: 2px;
+  inline-size: auto;
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 a:nth-child(even) .brew--card{
@@ -128,42 +165,70 @@ a:hover{
  
   border-width: 1px;
 }
+.selected--image--brew {
+  margin-left: 0;
+  margin-right: 0;
+  border:1px solid #F7F5F1;
+}
+.selected--image--brew:hover {
+  background-color:  white;
+  background-position: 100% 100%;
+  transform: scale(1.05,1.05);
+  box-shadow: 10px 10px 5px #FFD371;
+  border-style: solid;
+  border-color: white;
+ 
+  border-width: 1px;
+}
 .selected--brewery{
   display: flex;
   flex-direction: row;
-  gap:10px;
+  gap: 5px;
   margin-top: 10px;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  justify-content: space-evenly;
+  margin-left: 2vw;
+  margin-right: 2vw;
+  justify-content: space-around;
   align-content: center;
-}
-.selected--name{
-  text-decoration: underline;
-  font-size: 1.3rem;
 }
 .brewery--info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  
+  align-content: center;
+  justify-content: space-evenly;
+  text-align: center;
+  border: 1px solid white;
+  max-width: 25vw;
+  border: 1px solid #F7F5F1;
+  gap: 5px;
 }
-.selected--nameDesc{
+.selected--name--brew{
+  font-size: x-large;
+  text-decoration: underline;
+  text-align: center;
+}
+.selected--nameDesc--brew{
   margin: 5px;
   padding: 2px;
   
 }
-.selected--card--desc{
+.selected--desc--brew{
   margin: 5px;
  
 }
-.selected--review{
-  display: flex;
-  text-align: center;
-}
 .brewery--reviews{
-  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-grow: 33;
+  border: 1px solid #F7F5F1;
+ 
 }
+.selected--review--brew{
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
 .btn-secondary{
   margin: 10px;
   width: 50%;
@@ -182,8 +247,16 @@ position: relative;
   max-width: 8vw;
   left: 1.5vw;
 }
-.brew--map{
+.brew--main{
   display: flex;
   flex-direction: column;
   align-content: center;
+  gap: 30px;
+  margin-right: 15px;
+}
+.beer--list--brews {
+  position: relative;
+  text-align: center;
+  align-self: center;
+  bottom: -50px;
 }

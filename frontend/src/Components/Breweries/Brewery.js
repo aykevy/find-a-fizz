@@ -58,9 +58,9 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         <div className="selected--brewery">
         <img className= 'user--favorite--brewery' src = {isFavorite[0] ? '/assests/favorites/Favorited.png' :'/assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
                         onClick={ () => toggleUserFavorite(selectedBrewery,'brewery')}/>    
-        <div className="brew--map">
+        <div className="brew--main">
         <Link to='/breweries/' style={{color: 'black'}}>
-        <Card className="selected--image">
+        <Card className="selected--image--brew">
              <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
@@ -68,15 +68,15 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         </div>
         <div className="brewery--info">
 
-        <ContactTypes phone={formatPhoneNumber(selectedBrewery.phone)} website={selectedBrewery.websiteUrl} name={selectedBrewery.name} location={selectedBrewery.city +', '+ selectedBrewery.state}/>
-
         <Card className="selected--nameDesc">
         <CardBody>
-                <CardTitle className = 'selected--name'>{selectedBrewery.name}</CardTitle>
-                <CardText className = 'selected--desc'>{selectedBrewery.street +", "+ selectedBrewery.city +", " + selectedBrewery.state}</CardText>
+                <CardTitle className = 'selected--name--brew'>{selectedBrewery.name}</CardTitle>
+                <CardText className = 'selected--desc--brew'>{selectedBrewery.street +", "+ selectedBrewery.city +", " + selectedBrewery.state}</CardText>
         </CardBody>
         </Card>
-        <Card className = 'selected--card--desc'>
+        <ContactTypes className='brew--contacts' phone={formatPhoneNumber(selectedBrewery.phone)} website={selectedBrewery.websiteUrl} name={selectedBrewery.name} location={selectedBrewery.city +', '+ selectedBrewery.state}/>
+        <Card className = 'selected--card--desc--brew'>
+        <h5>Contact Us:</h5>
         <CardBody>
             {(selectedBrewery.websiteUrl !== (undefined || '' || null) || selectedBrewery.phone !== undefined) && <CardText > Contact {selectedBrewery.name} at:</CardText>}
             {selectedBrewery.websiteUrl !== (undefined || '' || null) && <CardText>Website:  <span>{selectedBrewery.websiteUrl}</span></CardText>}
@@ -86,7 +86,7 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         </div>
 
         <div className="brewery--reviews">
-        <Card className = 'selected--review'>
+        <Card className = 'selected--review--brew'>
         <CardBody>
                 <CardTitle>
                     {/* TO DO - Move to Store - it's messing up sometimes with 400*/}
@@ -97,7 +97,7 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         </Card>
         </div> 
         </div>
-        <Card className="beer--list">
+        <Card className="beer--list--brews">
         <CardBody>
                 <BeerSlider breweryId={selectedBrewery.id}/>
         </CardBody>

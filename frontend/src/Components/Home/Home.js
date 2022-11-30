@@ -53,15 +53,15 @@ return(
       <div className='home--featuredBrewery'>
         <h2 className='featuredBrewery'>Featured Brewery:</h2>   
         <Link to={'/brewery/'+todaysBrewery.id} style={{color:"black"}}> 
-            <Card className="selected--image">
+            <Card className="brew--card--daily">
             <CardImg top src = {setBreweryImage(todaysBrewery.breweryType)} alt ="Image of Brewery Type" onClick={(e) => getBrewery(todaysBrewery.id)}/>
              </Card>
         </Link>
 
         <Card>
-        <CardBody className="selected--nameDesc">
-                <CardTitle className = 'selected--name'>{todaysBrewery.name}</CardTitle>
-                <CardText className = 'selected--desc'>{todaysBrewery.street +", "+ todaysBrewery.city +", " + todaysBrewery.state}</CardText>
+        <CardBody className="brew--card--home">
+                <CardTitle className = 'selected--name--home'>{todaysBrewery.name}</CardTitle>
+                <CardText className = 'selected--desc--home'>{todaysBrewery.street +", "+ todaysBrewery.city +", " + todaysBrewery.state}</CardText>
         </CardBody>
         </Card>
 

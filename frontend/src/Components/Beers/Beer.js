@@ -25,15 +25,15 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
         <img className= 'user--favorite--brewery' src = {isFavorite[0] ? '/assests/favorites/Favorited.png' :'/assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
                 onClick ={() => toggleUserFavorite(selectedBeer,'beer')}                />
                 <Link to='/beers/' style={{color: 'black'}}>
-                    <Card className="selected--image">
+                    <Card className="selected--image--beer">
                         <CardImg top src = {selectedBeer.imageUrl}/>
                     </Card>
                 </Link>
         <div className="selected--info">
         <Card>
         <CardBody className="selected--nameDesc">
-                <CardTitle className = 'selected--name'>{selectedBeer.name}</CardTitle>
-                <CardText className = 'selected--desc'>{selectedBeer.description}</CardText>
+                <CardTitle className = 'selected--name--beer'>{selectedBeer.name}</CardTitle>
+                <CardText className = 'selected--desc--beer'>{selectedBeer.description}</CardText>
         </CardBody>
         </Card>
         <Card>
