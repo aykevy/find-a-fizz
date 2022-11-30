@@ -44,6 +44,14 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
         </CardBody>
         </Card>
         </div>
+        </div>
+        <div className="breweries--found">
+        <Card>
+        <CardBody className="found--brews">
+                <BrewerySlider beerId={selectedBeer.id}/>
+        </CardBody>
+        </Card>
+        </div>
         <div className="selected--reviewTable">
         <Card>
         <CardBody>
@@ -51,14 +59,6 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
                     <Reviews type={"beer"} id={selectedBeer.id}/>
                     <NewReview postReview={postReview} id={selectedBeer.id} userId={userId} type='beer'/>
                 </CardTitle>
-        </CardBody>
-        </Card>
-        </div>
-        </div>
-        <div className="breweries--found">
-        <Card>
-        <CardBody className="found--brews">
-                <BrewerySlider beerId={selectedBeer.id}/>
         </CardBody>
         </Card>
         </div>

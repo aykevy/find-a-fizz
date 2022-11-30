@@ -245,9 +245,9 @@ position: relative;
 .user--favorite--brewery{
   z-index: 1;
   position: absolute;
-  max-height: 11vh;
+  max-height: 9vh;
   max-width: 8vw;
-  left: 1.5vw;
+  left: 16vw;
 }
 .brew--main{
   display: flex;
