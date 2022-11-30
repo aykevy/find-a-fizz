@@ -64,7 +64,6 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
              <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
-        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude} userLocation={userLocation}/>
         </div>
         <div className="brewery--info">
 
@@ -84,7 +83,14 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         </CardBody>
         </Card>
         </div>
+        <Maps className='brewery--map' lat={selectedBrewery.latitude} lng ={selectedBrewery.longitude} userLocation={userLocation}/>
 
+        </div>
+        <Card className="beer--list--brews">
+        <CardBody>
+                <BeerSlider breweryId={selectedBrewery.id}/>
+        </CardBody>
+        </Card>
         <div className="brewery--reviews">
         <Card className = 'selected--review--brew'>
         <CardBody>
@@ -96,12 +102,6 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         </CardBody>
         </Card>
         </div> 
-        </div>
-        <Card className="beer--list--brews">
-        <CardBody>
-                <BeerSlider breweryId={selectedBrewery.id}/>
-        </CardBody>
-        </Card>
         </>    
     )
 }

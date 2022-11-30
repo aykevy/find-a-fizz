@@ -55,7 +55,7 @@ function Maps(props){
 
 
   return (
-   <div>  
+   <div className="map--set">  
      <Map
      mapboxAccessToken= {mapToken}
      style={{
@@ -99,7 +99,7 @@ function Maps(props){
 
   )} else if( lat && lng !== undefined)
    return (
-    <div>
+    <div className="map--unset">
       <Map 
       mapboxAccessToken= {mapToken}
 

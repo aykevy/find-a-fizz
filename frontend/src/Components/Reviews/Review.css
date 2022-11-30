@@ -41,11 +41,9 @@
   background-color: #e8e8e8;
 }
 .selected--review > button {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
+  display: flex;
   justify-content: center;
-  right: -150px;
+  align-items: center;
 }
 .review--rating{
   display: flex;

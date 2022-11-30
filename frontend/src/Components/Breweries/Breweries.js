@@ -128,7 +128,7 @@ function Breweries(props){
                 return(
                     <div className="thumbs--up--divider" key = {brewery.id}>
                       <div className="container">
-                        <img className= 'user--favorite--brewery' src = {isFavorite[0] ? './assests/favorites/Favorited.png' :'./assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
+                        <img className= 'user--favorite--breweries' src = {isFavorite[0] ? './assests/favorites/Favorited.png' :'./assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
                               onClick ={() => toggleUserFavorite(isFavorite[0],brewery,'brewery')}      />
                 
                             {/*//{Setting Link to Route to single brewery page I.E. url.com/brewery/1 */} 

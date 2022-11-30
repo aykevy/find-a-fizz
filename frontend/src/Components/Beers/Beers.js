@@ -37,7 +37,7 @@ function Beers(props){
                 //{Setting Link to Route to single beer page I.E. url.com/beer/1 */}
                 <> 
                     <div className = 'beer--card--set' key = {beer.id}>  
-                        <img className= 'user--favorite--beer' src = {isFavorite[0] ? './assests/Favorites/Favorited.png' :'./assests/Favorites/NoFavorite.png'} alt='favorite thumbs up'
+                        <img className= 'user--favorite--beers' src = {isFavorite[0] ? './assests/Favorites/Favorited.png' :'./assests/Favorites/NoFavorite.png'} alt='favorite thumbs up'
                             onClick={()=> toggleUserFavorite(isFavorite[0],beer,'beer')}/> 
                         <Link to={url} style={{color:"black"}}>          
                             <Card className="beer--card" onClick ={ (e) => onBeerSelect(beer.id)}>
