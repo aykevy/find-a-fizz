@@ -114,19 +114,17 @@ a:hover{
     background-color:  #F7F5F1;
 }
 .selected--image{
-  border: 2px;
   margin-left: 0;
-  border-color: black;
-  border-style: solid;
   margin-right: 0;
+  border:1px solid #F7F5F1;
 }
 .selected--image:hover{
   background-color:  white;
   background-position: 100% 100%;
-  transform: scale(1.1,1.1);
-  box-shadow: 10px 10px 5px black;
+  transform: scale(1.05,1.05);
+  box-shadow: 10px 10px 5px #FFD371;
   border-style: solid;
-  border-color: black;
+  border-color: white;
  
   border-width: 1px;
 }
@@ -152,22 +150,16 @@ a:hover{
 }
 .selected--nameDesc{
   margin: 5px;
-  border: 2px;
-  border-color: black;
-  border-style: solid;
+  padding: 2px;
+  
 }
 .selected--card--desc{
   margin: 5px;
-  border: 2px;
-  border-color: black;
-  border-style: solid;
+ 
 }
 .selected--review{
   display: flex;
   text-align: center;
-  border: 2px;
-  border-color: black;
-  border-style: solid
 }
 .brewery--reviews{
   flex-basis: 100%;

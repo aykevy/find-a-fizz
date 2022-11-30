@@ -3,14 +3,25 @@
   flex-wrap: wrap;
   position: relative;
   justify-content: space-around;
-  margin: 20px;
+  margin: 10px;
 }
-.selected--nameDesc{
+.selected--name {
   background-color: #FFD371;
+  font-size: x-large;
+  padding-bottom: 5px;
+}
+.selected--desc{
+  font-size: larger;
+  font-style: italic;
+ 
+}
+h5 {
+  text-decoration: underline;
 }
 .selected--image{
-  background-color: #F7F5F1;
-  max-width: 20vw;
+  background-color: white;
+  max-width: 25vw;
+  min-width: 300px;
 
 }
 /* Single Beer Page */
@@ -20,24 +31,35 @@
   align-content: center;
   justify-content: space-evenly;
   text-align: center;
+  border: 1px solid white;
+  max-width: 25vw;
+  border: 1px solid #F7F5F1;
 }
 .selected--reviewTable {
   display: flex;
   flex-direction: column;
-  
+  flex-grow: 33;
+  border: 1px solid #F7F5F1;
+ 
+}
+.selected--review{
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 .selected--image:hover{
   background-color: #F7F5F1;
   max-width: 25vw;
-  margin: 20px;
-  margin-left: 20px;
+  margin: 10px;
+  margin-left: 10px;
+  margin-right: 20px;
   background-position: 100% 100%;
-  transform: scale(1.08,1.03);
-  box-shadow: 10px 10px 5px black;
+  transform: scale(1.05,1.05);
+  box-shadow: 10px 10px 5px #FFD371;
   border-style: solid;
-  border-color: black;
-  border-radius: 7px;
+  border-color: white;
+  border-radius: 3px;
   border-width: 1px;
 }
 .beer--card--set > img{
@@ -80,7 +102,6 @@ a:nth-child(odd) .beer--card{
   position: relative;
   min-width: 15vw;
  
-  
  }
 
  .beer--card:hover {
@@ -113,4 +134,25 @@ a:nth-child(odd) .beer--card{
   padding: 0;
   padding-left: 10px;
   padding-right: 10px;
+}
+.card {
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+}
+.found--brews {
+  height: 100%;
+}
+.selected--abvType {
+  margin: 5px;
+  
+}
+.user--favorite--brewery {
+  position: fixed;
+}
+.breweries--found{
+  position: relative;
+  text-align: center;
+  align-self: center;
+  bottom: -50px;
 }

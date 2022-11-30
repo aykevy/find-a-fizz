@@ -3,6 +3,8 @@
  .review--table {
     border: 3px solid white;
     width: fit-content;
+    height: 100%;
+    max-width: 50vw;
   }
   .review--table--head {
     border: 2px solid white;
@@ -18,18 +20,27 @@
   }
   .review--table--body td {
     border: 2px solid white;
+    padding: 10px;
+  }
+  .review--table--head th {
+    width: fit-content;
+    padding: 5px;
   }
   .review--table--body td:nth-child(1) {
-    width: 15%;
     color: green;
+    font-weight: bold;
   }
   .review--table--body td:nth-child(2) {
-    width: 70%;
+    width: fit-content;
     font-style: italic;
+    inline-size: 300px;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .review--table--body tr:nth-child(even){
     background-color: #e8e8e8;
   }
+
   .review--rating{
     display: flex;
     align-items: flex-start;

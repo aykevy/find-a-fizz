@@ -37,8 +37,9 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
         </CardBody>
         </Card>
         <Card>
-        <CardBody>
-                <CardTitle className = 'selected--abv'>{selectedBeer.abvPercent}</CardTitle>
+        <CardBody className="selected--abvType">
+                <h5>Additional Information:</h5>
+                <CardTitle className = 'selected--abv'>{selectedBeer.abvPercent}% ABV</CardTitle>
                 <CardText className = 'selected--type'>{selectedBeer.type}</CardText>
         </CardBody>
         </Card>
@@ -56,7 +57,7 @@ export default function Beer({selectedBeer,postReview,userId,favorites,addFavori
         </div>
         <div className="breweries--found">
         <Card>
-        <CardBody>
+        <CardBody className="found--brews">
                 <BrewerySlider beerId={selectedBeer.id}/>
         </CardBody>
         </Card>
