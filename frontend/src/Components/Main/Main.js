@@ -13,6 +13,8 @@ import Breweries from '../Breweries/Breweries'
 import Brewery from '../Breweries/Brewery'
 import Accounts from '../Accounts/Accounts'
 import './Main.css'
+import ContactTypes from '../Social/ContactTypes'
+import { LaptopWindowsTwoTone } from '@material-ui/icons'
 
 //Setting the Redux store to this comp state so that if Store Changes State does and will rerender
 const mapStateToProps = state => {
@@ -144,6 +146,14 @@ class Main extends Component {
                 <footer className='footer'>
                    <h5 className='footer--brand'>Find-A-Fizz</h5>
                    <p className='footer--company'>&copy; 2022 - A Brewery Company</p>
+                   <ContactTypes className='footer--brand--links'
+                        instagram={'https://www.instagram.com/findafizz/'} 
+                        twitter={'www.twitter.com/findafizz'} 
+                        facebook={'www.facebook.com/findafizz'}
+                        youtube={'www.youtube.com/watch?v=5CiKsJ31E4Y?autoplay=1'}
+                        linkedIn={['www.linkedin.com/jacob-lay-d','www.linkedin.com/in/kevin-lam916/','www.linkedin.com/in/b-cameron-hunt/']}
+                        name='findafizz'
+                        />
                 </footer></>
                 }
             </div>

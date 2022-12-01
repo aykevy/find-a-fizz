@@ -1,5 +1,4 @@
 footer{
-    
     position: fixed;
     bottom: 0;
     height: 3vw;
@@ -10,11 +9,14 @@ footer{
     align-items: center;
     text-align: center;
     z-index: 5;
+    justify-content: space-between;
    }
+
    footer > p {
     align-self:baseline;
     margin-left: 10px;
     font-size: .8rem;
+    flex-grow: 1;
    }
    footer > h5{
     margin-left: 10px;
@@ -26,5 +28,7 @@ footer{
    }
    .footer--spaced{
     margin-top: 5vh;
-
+   }
+   .footer--brand--links{
+    gap: 5px;
    }
