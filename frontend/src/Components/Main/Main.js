@@ -63,8 +63,6 @@ const mapDispatchToProps = (dispatch) => ({
 const today = new Date();
 let todaysBrewery = {};
 let todaysBeer = {};
-const sendToLogin = <Redirect to='/login'/>
-
 
 
 class Main extends Component {
@@ -106,7 +104,7 @@ class Main extends Component {
     
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>
-                    <Route exact path='/' render = { ()=> {this.props.token.token ? <Redirect to='/home'/> : <Redirect to='/login'/> }}/>   
+                    <Route exact path='/' render = { ()=> {return(this.props.token.token ? <Redirect to='/home'/> : <Redirect to='/login'/> )}}/>   
                     <Route exact path='/login' component={() => <Login fetchReviews={this.props.fetchReviews} fetchFavorites={this.props.fetchFavorites} />}/>
                     
                     <Route exact path='/account' component={ this.props.token.token !== undefined ? () => 
@@ -138,7 +136,7 @@ class Main extends Component {
                     <Route exact path='/brewery/:id' component={this.props.token.token !== undefined ? () => 
                         <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} postReview= {this.props.postReview} 
                                  userId={this.props.user.id} userLocation={this.props.location} favorites={this.props.userFavorites.breweryFavorites} 
-                                 addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />           
+                                 addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />                      
                 </Switch>
                 {(this.props.token.token) &&
                 <>
