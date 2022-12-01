@@ -149,7 +149,7 @@ class Main extends Component {
                    <ContactTypes className='footer--brand--links'
                         instagram={'https://www.instagram.com/findafizz/'} 
                         twitter={'www.twitter.com/findafizz'} 
-                        facebook={'www.facebook.com/findafizz'}
+                        facebook={'www.facebook.com/people/Find-a-Fizz/100088184448015/'}
                         youtube={'www.youtube.com/watch?v=5CiKsJ31E4Y?autoplay=1'}
                         linkedIn={['www.linkedin.com/jacob-lay-d','www.linkedin.com/in/kevin-lam916/','www.linkedin.com/in/b-cameron-hunt/']}
                         name='findafizz'
