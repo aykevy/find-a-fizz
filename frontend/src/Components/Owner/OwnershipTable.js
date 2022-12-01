@@ -120,13 +120,13 @@ export default function OwnershipTable(props)
 
         return (
             <div className="account--brewery">
-                <Card >
+                <Card className="breweries--owned" >
                 <h3 className="account--brewery--owned">Breweries You Own</h3>
                 <div className="account--brewery--buttons">
                     <BreweryModal className = 'account--brewery--add' action={"add"} userId={props.userId}/>
                     <ExistingBreweryEmailRequest class='account--brewery--existing'/>
                 </div>
-                <div className="owners--table"></div>
+                <div className="owners--table">
                 <table className="ownership--table">
                     <CardBody>
                         <thead className="ownership--table--head">
@@ -138,13 +138,16 @@ export default function OwnershipTable(props)
                                 <th>City</th>
                                 <th>State</th>
                                 <th>Postal</th>
-                                <th>Website URL</th>
+                                <th>Website.URL</th>
                                 <th>Phone</th>
                                 <th>Country</th>
-                                <th>Longitude</th>
-                                <th>Latitude</th>
+                                <th>Lng</th>
+                                <th>Lat</th>
                                 <th>Address 2</th>
                                 <th>Address 3</th>
+                                <th>Add Beer</th>
+                                <th>Update</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                     </CardBody>    
@@ -155,19 +158,19 @@ export default function OwnershipTable(props)
                                 <CardBody>
                                 <tr key={brewery.id}>
                                     <td>{ brewery.id }</td>
-                                    <td>{ brewery.name }</td>
+                                    <td className="long">{ brewery.name }</td>
                                     <td>{ brewery.breweryType}</td>
-                                    <td>{ brewery.street}</td>
+                                    <td className="long">{ brewery.street}</td>
                                     <td>{ brewery.city }</td>
                                     <td>{ brewery.state }</td>
                                     <td>{ brewery.postalCode}</td>
-                                    <td>{ brewery.websiteUrl}</td>
-                                    <td>{ brewery.phone }</td>
+                                    <td className="long">{ brewery.websiteUrl}</td>
+                                    <td className="long">{ brewery.phone }</td>
                                     <td>{ brewery.country }</td>
                                     <td>{ brewery.longitude}</td>
                                     <td>{ brewery.latitude}</td>
-                                    <td>{ brewery.address2 }</td>
-                                    <td>{ brewery.address3 }</td>
+                                    <td className="long">{ brewery.address2 }</td>
+                                    <td className="long">{ brewery.address3 }</td>
                                     <div className="brewery--buttons">
                                     <td> <BeerModal action={"add"} breweryId={brewery.id}/></td>
                                     <td> <BreweryModal action={"update"} userId={props.userId} breweryId={brewery.id}/></td>
@@ -179,16 +182,18 @@ export default function OwnershipTable(props)
                         }
                     </tbody>
                 </table>
+                </div>
                 </Card>
 
                 {breweriesAndBeers.length > 0 ? ( 
                    
-                <div className="owner--beers--relation">
-                <Card>
+            <div className="owner--beers--relation">
+                <Card className="owned--beers">
                 <h3>Beers For Your Breweries</h3>
+                <div className="owners--beers--table">
                 <table className="breweryProduct--table">
-                    <thead className="breweryProduct--table--head">
-                        <CardBody>
+                    <CardBody>
+                        <thead className="breweryProduct--table--head">
                         <tr>
                             <th>Brewery Id</th>
                             <th>Beer Id</th>
@@ -197,11 +202,14 @@ export default function OwnershipTable(props)
                             <th>ABV %</th>
                             <th>Type</th>
                             <th>Image URL</th>
+                            <th>Update</th>
+                            <th>Remove</th>
+                    
                         </tr>
-                        </CardBody>
-                    </thead>
+                        </thead>
+                    </CardBody>
 
-                    <tbody className="ownership--table--body">
+                    <tbody className="breweryProduct--table--body">
                         {
                             breweriesAndBeers.map(relationEntry => {
                             return (
@@ -211,17 +219,20 @@ export default function OwnershipTable(props)
                                     <td>{ relationEntry.beerId }</td>
                                     <td>{ relationEntry.name }</td>
                                     <td>{ relationEntry.description}</td>
-                                    <td>{ relationEntry.abvPercent }</td>
+                                    <td>{ relationEntry.abvPercent }%</td>
                                     <td>{ relationEntry.type}</td>
                                     <td>{ relationEntry.imageUrl }</td>
+                                    <div className="beer--buttons">
                                     <td> <BeerModal action={"update"} beerId={relationEntry.beerId}/></td>
                                     <td> <DeleteEntryModal beerOrBrewery={"beer"} beerId={relationEntry.beerId}/></td>
+                                    </div>
                                 </tr>
                                 </CardBody>
                             )})
                         }
                     </tbody>
                 </table>
+                </div>
                 </Card>
                 </div>)
                 :

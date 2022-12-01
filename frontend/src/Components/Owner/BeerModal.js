@@ -104,7 +104,7 @@ export default class NewBeerModal extends React.Component {
     }
 
     render() {
-        let modalTitle = (this.props.action === "add" ? "Add new beer" : "Update beer")
+        let modalTitle = (this.props.action === "add" ? "Add" : "Update")
         return( 
             <div className="accounts--add--beer">
                 <Button onClick={this.toggleModal}> <i class="fa fa-beer" aria-hidden="true"/>

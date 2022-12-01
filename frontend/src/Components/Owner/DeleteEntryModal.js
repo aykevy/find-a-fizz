@@ -58,7 +58,7 @@ export default class DeleteEntryModal extends React.Component {
     }
 
     render() {
-        let modalTitle = (this.props.beerOrBrewery === "brewery" ? "Delete brewery" : "Delete beer")
+        let modalTitle = (this.props.beerOrBrewery === "brewery" ? "Delete" : "Delete")
         return (
             <div className="acccounts--brewery--delete">
             <Button onClick={this.toggleModal}><i className={this.props.beerOrBrewery==='brewery' ? "fa fa-building" : 'fa fa-beer'} aria-hidden="true"></i>{modalTitle}</Button>

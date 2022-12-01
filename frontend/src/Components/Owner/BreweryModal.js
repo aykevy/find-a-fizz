@@ -127,7 +127,7 @@ export default class NewBreweryModal extends React.Component {
     }
 
     render() {
-        let modalTitle = (this.props.action === "add" ? "Add new brewery" : "Update brewery")
+        let modalTitle = (this.props.action === "add" ? "Add new brewery" : "Update")
         return(
             <div>
                 <Button className="account--brewery--addButton" onClick={this.toggleModal}><i className="fa fa-building" aria-hidden="true"></i>{modalTitle}</Button>

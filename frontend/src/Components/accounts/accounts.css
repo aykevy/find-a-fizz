@@ -108,7 +108,8 @@
  .brewery--buttons{
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  align-content: center;
+  justify-content: center;
  }
  .accounts--add--beer button, .acccounts--brewery--delete button{
   width: fit-content;
