@@ -8,6 +8,7 @@ import DeleteEntryModal from "./DeleteEntryModal"
 import BeerModal from "./BeerModal"
 import ExistingBreweryEmailRequest from "./ExistingBreweryEmailRequest"
 import BreweryModal from "./BreweryModal"
+import "./OwnershipTable.css"
 
 
 import '../Accounts/Accounts.css'
@@ -125,6 +126,7 @@ export default function OwnershipTable(props)
                     <BreweryModal className = 'account--brewery--add' action={"add"} userId={props.userId}/>
                     <ExistingBreweryEmailRequest class='account--brewery--existing'/>
                 </div>
+                <div className="owners--table"></div>
                 <table className="ownership--table">
                     <CardBody>
                         <thead className="ownership--table--head">
