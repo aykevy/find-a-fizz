@@ -7,9 +7,9 @@ import ContactTypes from "../Social/ContactTypes";
 
 
 function Maps(props){
-  
   const lng = props.lng;
   const lat = props.lat;
+  const zoomLevel = setZoomLevel(lng,lat)
   const [popUp,setPopup] = useState(null)
 
   function formatPhoneNumber(phoneNumberString) {
@@ -21,6 +21,28 @@ function Maps(props){
     }
     return '';
 }
+
+  function setZoomLevel(){
+    const difLat = Math.abs(Math.abs(lat) - Math.abs(props.userLocation.latitude));
+    const difLong = Math.abs(Math.abs(lng) - Math.abs(props.userLocation.longitude)); 
+
+    if(difLat || difLong > 60){
+      return 2;
+    }
+    if(difLat || difLong > 40){
+      return 3;
+    }
+    if(difLat || difLong > 20){
+      return 4;
+    }
+    if(difLat || difLong > 10){
+      return 5;
+    }
+    if(difLat || difLong > 1){
+      return 6;
+    }
+    return 1;
+  }
 
   function validateLocationData(brewery){
     const valid = (brewery.latitude > -90) && (brewery.latitude < 90) && (brewery.longitude < 180) && (brewery.longitude > -180) && (brewery.latitude !== null) && (brewery.longitude !== null)
@@ -69,7 +91,7 @@ function Maps(props){
      initialViewState={{
        longitude: props.userLocation.longitude,
        latitude: props.userLocation.latitude,
-       zoom:6
+       zoom:7
   
      }}
      mapStyle='mapbox://styles/mapbox/streets-v12'
@@ -104,8 +126,8 @@ function Maps(props){
       mapboxAccessToken= {mapToken}
 
       style={{
-        width: '280px',
-        height: '280px',
+        width: '30vw',
+        height: '60vh',
         borderRadius: '15px',
         border: '2px solid black'
         
@@ -114,7 +136,7 @@ function Maps(props){
       initialViewState={{
         longitude: props.userLocation.longitude,
         latitude: props.userLocation.latitude,
-        zoom:5
+        zoom:zoomLevel
       }}
       mapStyle='mapbox://styles/mapbox/streets-v12'
       >
