@@ -9,7 +9,8 @@ import ContactTypes from "../Social/ContactTypes";
 function Maps(props){
   const lng = props.lng;
   const lat = props.lat;
-  const zoomLevel = setZoomLevel(lng,lat)
+  const zoomLevel = setZoomLevel()
+  console.log('Zoom: ' + zoomLevel)
   const [popUp,setPopup] = useState(null)
 
   function formatPhoneNumber(phoneNumberString) {
@@ -26,22 +27,26 @@ function Maps(props){
     const difLat = Math.abs(Math.abs(lat) - Math.abs(props.userLocation.latitude));
     const difLong = Math.abs(Math.abs(lng) - Math.abs(props.userLocation.longitude)); 
 
-    if(difLat || difLong > 60){
-      return 2;
+    console.log(difLat)
+    console.log(difLong)
+    let zoom = 0;
+
+    if((difLat && difLong) < 40){
+      zoom = 2;
     }
-    if(difLat || difLong > 40){
-      return 3;
+    if((difLat && difLong) < 10){
+      zoom = 3;
     }
-    if(difLat || difLong > 20){
-      return 4;
+    if((difLat && difLong) < 5){
+      zoom = 4;
     }
-    if(difLat || difLong > 10){
-      return 5;
+    if((difLat && difLong) < 3){
+      zoom = 5;
     }
-    if(difLat || difLong > 1){
-      return 6;
+    if((difLat && difLong) < 1){
+      zoom = 6
     }
-    return 1;
+    return zoom;
   }
 
   function validateLocationData(brewery){

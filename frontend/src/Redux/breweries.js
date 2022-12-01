@@ -9,8 +9,7 @@ export const Breweries = (state = {
 }, action) => {
 switch (action.type) {
     case ActionTypes.ADD_BREWERIES:
-        let sorted = action.payload.sort((a,b) => {
-            
+        action.payload.sort((a,b) => {
             let fa = a.name.toLowerCase();
             let fb = b.name.toLowerCase();
             if (fa < fb){ return -1}

@@ -23,7 +23,7 @@ function Breweries(props){
     }
 
     function toggleUserFavorite(isFavorite,item,type){
-        console.log(isFavorite)
+      
         if(isFavorite){
              props.remFavorite(isFavorite.id,type);
         }else{
@@ -114,7 +114,7 @@ function Breweries(props){
     let url = '';
     // Slices the array into a section that just holds the selected entries per page based on what page we are on.
     let breweries = props.breweries.slice((pageNumber -1 ) * ENTRIES_PER_PAGE, ((pageNumber) * ENTRIES_PER_PAGE));
-    console.log(breweries)
+   
         if(breweries){
         return(
         <>
