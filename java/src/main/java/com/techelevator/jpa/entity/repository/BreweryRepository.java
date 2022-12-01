@@ -14,7 +14,6 @@ import java.util.List;
 @Repository
 public interface BreweryRepository extends JpaRepository<Brewery, Long>
 {
-    List<Brewery> findAll();
     List<Brewery> findByCity(String city);
     List<Brewery> findByState(String state);
     List<Brewery> findByPostalCode(String postalCode);

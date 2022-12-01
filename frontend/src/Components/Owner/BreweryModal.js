@@ -38,7 +38,7 @@ export default class NewBreweryModal extends React.Component {
     postBrewery(userId, name = null, breweryType = null, street = null, city = null, state = null, postalCode = null, websiteUrl = null, phone = null, country = null, longitude = null, latitude = null, address2 = null, address3 = null, countyProvince = null, type = null) {
         const postBeerURL = baseUrl + '/brewery';
         const today = new Date();
-        const todayFormatted = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+        const todayFormatted = today.toISOString();
         
         axios.post(postBeerURL, {
             name: name,
