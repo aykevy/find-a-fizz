@@ -40,7 +40,7 @@
 .review--table--body tr:nth-child(even){
   background-color: #e8e8e8;
 }
-.selected--review > button {
+.review--table--body > button {
   display: flex;
   justify-content: center;
   align-items: center;

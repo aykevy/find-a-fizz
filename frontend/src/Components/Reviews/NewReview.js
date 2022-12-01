@@ -25,7 +25,7 @@ export default class NewReview extends Component{
 render(){    
     return(
         <>
-        <Button onClick={this.toggleModal}> Leave a Review</Button>
+        <Button className="review--button" onClick={this.toggleModal}> Leave a Review</Button>
         
         <Modal isOpen={this.state.isCommenting} toggle={this.toggleModal}>
         <ModalHeader toggle={this.toggleModal}> Leave a review </ModalHeader>
