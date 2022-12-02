@@ -172,11 +172,11 @@ h5 {
 }
 .user--favorite--beer{
   z-index: 1;
-  position: absolute;
+  position: relative;
   max-height: 9vh;
   max-width: 8vw;
-  left: 17vw;
-  top: 7vw;
+  left: 7%;
+  top: 6%;
 }
 .user--favorite--beers{
   z-index: 1;

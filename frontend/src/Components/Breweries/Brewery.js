@@ -61,7 +61,7 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
         <div className="brew--main">
         <Link to='/breweries/' style={{color: 'black'}}>
         <Card className="selected--image--brew">
-             <CardImg top className='brew--image' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
+             <CardImg top className='brew--image--main' src={setBreweryImage(selectedBrewery.breweryType)} alt = {selectedBrewery.name} />
         </Card>
         </Link>
         </div>

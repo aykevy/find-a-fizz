@@ -158,6 +158,9 @@
   margin-right: 0;
   border:1px solid #F7F5F1;
 }
+.brew--image--main{
+  aspect-ratio: 1;
+}
 .selected--image:hover{
   background-color:  white;
   background-position: 100% 100%;
@@ -188,7 +191,7 @@
   margin: 15px;
   gap: 20px;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 .brewery--info {
   display: flex;
@@ -236,9 +239,8 @@
 }
 
 .review--button{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  left: 35%;
 }
 .thumbs--up--divider{
 position: relative;
@@ -249,11 +251,11 @@ position: relative;
 }
 .user--favorite--brewery{
   z-index: 1;
-  position: absolute;
+  position: relative;
   max-height: 9vh;
   max-width: 8vw;
-  left: 5vw;
-  top: 1;
+  left: 8%;
+  top: -11vw;
 }
 .user--favorite--breweries{
   z-index: 1;
