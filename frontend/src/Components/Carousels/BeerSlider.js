@@ -10,7 +10,7 @@ import './BeerSlider.css'
 export default function BeerSlider(props) 
 {
   
-    /* All beers on website, change later to use store */
+    /* All beers on website */
     const [beers, setBeers] = React.useState([]);
 
     /* All beer relations with the given brewery id */
@@ -69,7 +69,7 @@ export default function BeerSlider(props)
         
         const beers = getFilteredBeers();
         return (  
-            <div>
+            <div className="beer-slider">
                 <Slider {...settings}>
                 {
                     beers.map((item, index) => {

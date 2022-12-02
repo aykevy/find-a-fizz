@@ -1,7 +1,7 @@
 package com.techelevator.jpa.service.user_relations;
 
 import com.techelevator.jpa.entity.user_relations.Ownership;
-import com.techelevator.jpa.entity.repository.user_relations.OwnershipRepository;
+import com.techelevator.jpa.repository.user_relations.OwnershipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;

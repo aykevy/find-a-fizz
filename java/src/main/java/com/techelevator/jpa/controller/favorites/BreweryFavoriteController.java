@@ -4,7 +4,6 @@ import com.techelevator.jpa.entity.favorites.BreweryFavorite;
 import com.techelevator.jpa.service.favorites.BreweryFavoriteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin

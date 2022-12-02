@@ -1,4 +1,4 @@
-package com.techelevator.jpa.entity.repository.reviews;
+package com.techelevator.jpa.repository.reviews;
 
 import com.techelevator.jpa.entity.reviews.BreweryReview;
 import org.springframework.data.jpa.repository.JpaRepository;

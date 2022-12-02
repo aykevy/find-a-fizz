@@ -5,9 +5,10 @@ import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios';
 
 export default class DeleteEntryModal extends React.Component {
+
     constructor(props){
         super(props)
-        this.state={
+        this.state = {
             isCommenting:false
         }
         this.toggleModal = this.toggleModal.bind(this)
@@ -41,7 +42,6 @@ export default class DeleteEntryModal extends React.Component {
             .catch(function (error) {
                 console.log(error);
             });
-            
         }
     }
 

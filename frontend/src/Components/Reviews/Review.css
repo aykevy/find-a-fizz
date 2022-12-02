@@ -1,4 +1,4 @@
- /* finalized Table css -cam */
+ /* Review */
 
  .review--table {
   border: 3px solid white;
@@ -6,30 +6,37 @@
   height: 100%;
   max-width: 50vw;
 }
+
 .review--table--head {
   border: 2px solid white;
   background-color: #ECA200;
   color: #F7F5F1;
   text-align: center;
 }
-.review--table--body{
+
+.review--table--body {
   text-align: center;
 }
+
 .review--table--body tr {
   border: 2px solid white;
 }
+
 .review--table--body td {
   border: 2px solid white;
   padding: 10px;
 }
+
 .review--table--head th {
   width: fit-content;
   padding: 5px;
 }
+
 .review--table--body td:nth-child(1) {
   color: green;
   font-weight: bold;
 }
+
 .review--table--body td:nth-child(2) {
   width: fit-content;
   font-style: italic;
@@ -37,18 +44,22 @@
   overflow-wrap: break-word;
   hyphens: auto;
 }
+
 .review--table--body tr:nth-child(even){
   background-color: #e8e8e8;
 }
+
 .review--table--body > button {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.review--rating{
+
+.review--rating {
   display: flex;
   align-items: flex-start;
 }
-.form-checkinput{
+
+.form-checkinput {
   margin-left: 35px;
 }

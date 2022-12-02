@@ -4,7 +4,7 @@ import Login from '../Login/Login'
 import Register from '../Register/Register'
 import Home from '../Home/Home'
 import Header from '../Header/Header'
-import {addToken, deleteUser, fetchBeers,getBeer,fetchBreweries,getBrewery,postReview,getLocation,addLocation, fetchReviews, deleteUserReview,fetchFavorites,deleteUserFavorite,addUserFavorite} from '../../Redux/actionCreators'
+import {addToken, deleteUser, fetchBeers, getBeer, fetchBreweries, getBrewery, postReview, getLocation, addLocation, fetchReviews, deleteUserReview, fetchFavorites, deleteUserFavorite, addUserFavorite} from '../../Redux/actionCreators'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import Beers from '../Beers/Beers'
@@ -14,9 +14,8 @@ import Brewery from '../Breweries/Brewery'
 import Accounts from '../Accounts/Accounts'
 import './Main.css'
 import ContactTypes from '../Social/ContactTypes'
-import { LaptopWindowsTwoTone } from '@material-ui/icons'
 
-//Setting the Redux store to this comp state so that if Store Changes State does and will rerender
+/* Setting the redux store to this comp state so that if store changes, state does and will re-render */
 const mapStateToProps = state => {
     return {
         token: state.token,
@@ -29,14 +28,13 @@ const mapStateToProps = state => {
     }
 }
 
-//Actions available from the store to be passed to comp. and their props.
-
+/* Actions available from the store to be passed to comp and their props */
 const mapDispatchToProps = (dispatch) => ({
-    //user dispatches
+    //User dispatches
     addToken: () => { dispatch(addToken()) },
     deleteUser: () => { dispatch(deleteUser())},
 
-    //beer dispatches
+    //Beer dispatches
     fetchBeers: () => {dispatch(fetchBeers())},
     getBeer: (id) => {dispatch(getBeer(id))},
 
@@ -44,29 +42,28 @@ const mapDispatchToProps = (dispatch) => ({
     fetchBreweries: () => {dispatch(fetchBreweries())},
     getBrewery: (id) => {dispatch(getBrewery(id))},
 
-    //review dispatches
+    //Review dispatches
     postReview: (userId,beerId,review,rating,type) => {dispatch(postReview(userId,beerId,review,rating,type))},
     fetchReviews: (id) => {dispatch(fetchReviews(id))},
     deleteUserReview: (review,type) =>{dispatch(deleteUserReview(review,type))},
 
-    //location dispatches
+    //Location dispatches
     addLocation: (latitude,longitude) => {dispatch(addLocation(latitude,longitude))},
     getLocation: () => {dispatch(getLocation())},
 
-    //favorite dispatches
+    //Favorite dispatches
     fetchFavorites: (id) => {dispatch(fetchFavorites(id))},
     addUserFavorite: (itemId,userId,type) =>{dispatch(addUserFavorite(itemId,userId,type))},
     deleteUserFavorite: (id,type) =>{dispatch(deleteUserFavorite(id,type))}
 });
 
-//Setting up vars to determine daily beer/brewery for Home page
+/* Setting up variables to determine daily beer/brewery for home */
 const today = new Date();
 let todaysBrewery = {};
 let todaysBeer = {};
 
-
 class Main extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -78,29 +75,25 @@ class Main extends Component {
     handleLogout = () => {
         this.props.addToken("")
         this.props.deleteUser()
-      
     }
 
-    //fetch API information on load of Comp.
-    componentDidMount = () =>{ 
+    /* Fetch API information on load of comp */
+    componentDidMount = () => { 
         this.props.fetchBeers();
         this.props.fetchBreweries();
     
-        //set some stuff up to getlocation data
-
-        navigator.geolocation.getCurrentPosition( position => {
+        //Set some stuff up to get location data
+        navigator.geolocation.getCurrentPosition(position => {
             const long = position.coords.longitude;
             const lati = position.coords.latitude;
             this.props.addLocation(lati,long);
-          })
-          
-        
+        })
     }
    
-    render(){
+    render() {
         return(
             <div>
-                {(this.props.location.pathname !== '/login') &&  <Header handleLogout={this.handleLogout} getBrewery={this.props.getBrewery} getBeer={this.props.getBeer} beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]}/>}
+                {(this.props.location.pathname !== '/login') && <Header handleLogout={this.handleLogout} getBrewery={this.props.getBrewery} getBeer={this.props.getBeer} beers={this.props.beers.beers[0]} breweries={this.props.breweries.breweries[0]}/>}
     
                 {/* Routing information - this.props.token.token checks to verify user is logged in, if not no information will display and should reroute to Login page*/}
                 <Switch>

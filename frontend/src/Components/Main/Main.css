@@ -1,4 +1,6 @@
-footer{
+/* Main */
+
+footer {
     position: fixed;
     bottom: 0;
     height: 3vw;
@@ -10,25 +12,28 @@ footer{
     text-align: center;
     z-index: 5;
     justify-content: space-between;
-   }
+}
 
-   footer > p {
+footer > p {
     align-self:baseline;
     margin-left: 10px;
     font-size: .8rem;
     flex-grow: 1;
-   }
-   footer > h5{
-    margin-left: 10px;
-   }
+}
 
-   footer > h5, footer > p {
+footer > h5 {
+    margin-left: 10px;
+}
+
+footer > h5, footer > p {
     text-align: left;
     color: #F7F5F1;
-   }
-   .footer--spaced{
+}
+
+.footer--spaced {
     margin-top: 5vh;
-   }
-   .footer--brand--links{
+}
+
+.footer--brand--links {
     gap: 5px;
-   }
+}

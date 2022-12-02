@@ -10,7 +10,7 @@ import './BrewerySlider.css'
 export default function BrewerySlider(props) 
 {
   
-    /* All breweries on website, change later to use store */
+    /* All breweries on website */
     const [breweries, setBreweries] = React.useState([]);
 
     /* All brewery relations with the given beer id */
@@ -56,8 +56,7 @@ export default function BrewerySlider(props)
         
     }
 
-    /*Jacob's Code*/
-    function setBreweryImage(type){
+    function setBreweryImage(type) {
         switch(type){
             case 'closed': return '/assests/breweries/Closed.png'
             case 'taproom': return '/assests/breweries/Taproom.png'
@@ -90,7 +89,7 @@ export default function BrewerySlider(props)
     
         const breweries = getFilteredBreweries();
         return (  
-            <div>
+            <div className="brewery-slider">
                 <Slider {...settings}>
                 {
                     breweries.map((item, index) => {

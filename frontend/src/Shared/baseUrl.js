@@ -1,5 +1,6 @@
 import axios from "axios";
 
 export const baseUrl = 'http://localhost:8080';
-//setting Axios default URL
+
+/* Set Axios Default URL */
 axios.defaults.baseURL = baseUrl;

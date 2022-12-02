@@ -1,12 +1,11 @@
 import React, {useState } from "react";
 import { Link } from "react-router-dom";
 import { Map, Marker, NavigationControl, GeolocateControl, FullscreenControl, Popup } from "react-map-gl";
-import './maps.css'
+import './Maps.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import ContactTypes from "../Social/ContactTypes";
 
-
-function Maps(props){
+function Maps(props) {
   const lng = props.lng;
   const lat = props.lat;
   const zoomLevel = setZoomLevel()
@@ -23,7 +22,7 @@ function Maps(props){
     return '';
 }
 
-  function setZoomLevel(){
+  function setZoomLevel() {
     const difLat = Math.abs(Math.abs(lat) - Math.abs(props.userLocation.latitude));
     const difLong = Math.abs(Math.abs(lng) - Math.abs(props.userLocation.longitude)); 
 
@@ -31,44 +30,44 @@ function Maps(props){
     console.log(difLong)
     let zoom = 0;
 
-    if((difLat && difLong) < 40){
+    if ((difLat && difLong) < 40) {
       zoom = 2;
     }
-    if((difLat && difLong) < 10){
+    if ((difLat && difLong) < 10) {
       zoom = 3;
     }
-    if((difLat && difLong) < 5){
+    if ((difLat && difLong) < 5) {
       zoom = 4;
     }
-    if((difLat && difLong) < 3){
+    if ((difLat && difLong) < 3) {
       zoom = 5;
     }
-    if((difLat && difLong) < 1){
+    if ((difLat && difLong) < 1) {
       zoom = 6
     }
     return zoom;
   }
 
-  function validateLocationData(brewery){
+  function validateLocationData(brewery) {
     const valid = (brewery.latitude > -90) && (brewery.latitude < 90) && (brewery.longitude < 180) && (brewery.longitude > -180) && (brewery.latitude !== null) && (brewery.longitude !== null)
     return valid
   }
 
-  function closeToUser(brewery){
+  function closeToUser(brewery) {
     const closeLat = Math.abs(Math.abs(brewery.latitude) - Math.abs(props.userLocation.latitude)) <1
     const closeLong = Math.abs(Math.abs(brewery.longitude) - Math.abs(props.userLocation.longitude)) <1
     return (closeLat && closeLong)
   }
 
 
-  function handleClick(event,brewery){
+  function handleClick(event,brewery) {
     event.originalEvent.stopPropagation();
     setPopup(brewery);
   }
 
   const mapToken = "pk.eyJ1IjoibG9sdmFsaWQiLCJhIjoiY2xhbzd2dGtiMDk1cDN1cGJzMGNtd3BzZiJ9.uxKaXVdPSP38OD7J4TA8XQ"
 
-  if(props.fromHome){
+  if (props.fromHome) {
 
     const allMarkers = props.breweries.map( brewery =>{
 
@@ -161,7 +160,5 @@ function Maps(props){
   }
 
 } 
-
-
 
 export default Maps;
