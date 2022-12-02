@@ -43,6 +43,20 @@ code {
   flex-direction: row;
   align-content: space-around;
  }
+ .nav-link:hover{
+  display: flex;
+  flex-grow:1;
+  padding: 5px;
+  background-color: #3c1704;
+  flex-direction: row;
+  align-content: space-around;
+ }
+ .navbar--logo:hover {
+  background-color: #3c1704;
+ }
+ .navbar--logo > a:hover {
+  background-color: #3c1704;
+ }
 
  .navbar--logout {
   background-color: #ECA200;
