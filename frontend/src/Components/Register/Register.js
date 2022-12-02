@@ -4,7 +4,11 @@ import {Link} from 'react-router-dom'
 import { baseUrl } from '../../Shared/baseUrl'
 import './Register.css'
 
+//short Regex to validate password - non functional -cause it would be annoying normally during testing
+// const validateRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.gm();
+
 class Register extends Component{
+
 
     constructor(props){
         super(props);
@@ -18,7 +22,6 @@ class Register extends Component{
     }
 
     handleInputChange = (event) => {
-        console.log(event.target.checked)
         event.preventDefault()
         this.setState({
             [event.target.name]: event.target.value

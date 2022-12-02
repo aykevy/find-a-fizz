@@ -145,11 +145,11 @@ class Main extends Component {
                    <h5 className='footer--brand'>Find-A-Fizz</h5>
                    <p className='footer--company'>&copy; 2022 - A Brewery Company</p>
                    <ContactTypes className='footer--brand--links'
-                        instagram={'https://www.instagram.com/findafizz/'} 
+                        instagram={'www.instagram.com/findafizz/'} 
                         twitter={'www.twitter.com/findafizz'} 
                         facebook={'www.facebook.com/people/Find-a-Fizz/100088184448015/'}
                         youtube={'www.youtube.com/watch?v=5CiKsJ31E4Y?autoplay=1'}
-                        linkedIn={['www.linkedin.com/jacob-lay-d','www.linkedin.com/in/kevin-lam916/','www.linkedin.com/in/b-cameron-hunt/']}
+                        linkedIn={['www.linkedin.com/in/jacob-lay-d','www.linkedin.com/in/kevin-lam916/','www.linkedin.com/in/b-cameron-hunt/']}
                         name='findafizz'
                         />
                 </footer></>
