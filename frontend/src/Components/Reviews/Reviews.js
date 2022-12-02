@@ -5,12 +5,13 @@ import axios from 'axios'
 import './Review.css'
 
 function Reviews(props) {
-    //TO DO - MOVE TO STORE
+
     const [reviewList, setReviewList] = React.useState([])
     
     useEffect( () => {
         if ((props.type === 'beer' || props.type === 'brewery') && props !== undefined) {
             let fetchUrl = '';
+            
             if (props.type.toLowerCase() === 'beer') {
                 fetchUrl = (baseUrl + "/beerReviews/beerId?beerId=" + props.id);
             }
@@ -26,7 +27,7 @@ function Reviews(props) {
             }
             fetchData();
         }
-    }, [props.id, props.type]); /*Whenever you use variables outside of useEffect, important to add them to dependencys*/
+    }, [props.id, props.type]);
 
     if (reviewList.length > 0) {
         return (  
@@ -65,9 +66,6 @@ function Reviews(props) {
             </div>
         )
     }
-        
-        
-        
 }
 
 export default Reviews;

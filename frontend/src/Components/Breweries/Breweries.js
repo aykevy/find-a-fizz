@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
 import './Brewery.css'
 
-
-
-function Breweries(props){
-    //setting the selected page number for brewry list.
+function Breweries(props) {
+    //Setting the selected page number for brewery list
     const [pageNumber,setPageNumber] = React.useState(1);
-    //TO_DO - make input field to allow user to select entries per page for like 20/50/100?
+
+    //50 entries
     const ENTRIES_PER_PAGE = 50;
-    //max pages available, rouned up, currernt entries at 50;
+
+    //Max pages available, rounded up, current entries at 50
     const totalPages = Math.ceil(props.breweries.length/ENTRIES_PER_PAGE);
 
     /**
@@ -18,16 +18,16 @@ function Breweries(props){
      * @param {INT} id - Brewery ID
      * grabs single brewery and sends to Main to route to single page
      */
-    function onSelect(id){
+    function onSelect(id) {
         props.getBrewery(id)
     }
 
-    function toggleUserFavorite(isFavorite,item,type){
-      
-        if(isFavorite){
-             props.remFavorite(isFavorite.id,type);
-        }else{
-             props.addFavorite(item.id,props.userId,type);
+    function toggleUserFavorite(isFavorite, item, type) {
+        if (isFavorite) {
+             props.remFavorite(isFavorite.id, type);
+        }
+        else {
+             props.addFavorite(item.id, props.userId, type);
         }
      }
 
@@ -37,15 +37,15 @@ function Breweries(props){
      * @returns action to set the current page based on information recieved
      */
     function navSearchResulst(action){
-        switch(action){
+        switch(action) {
             case 'next':
-                if (pageNumber < totalPages){
-                return setPageNumber(pageNumber + 1);
+                if (pageNumber < totalPages) {
+                    return setPageNumber(pageNumber + 1);
                 }
                 break
             case 'back':
-                if(pageNumber - 1 > 0){
-                return  setPageNumber(pageNumber - 1);
+                if (pageNumber - 1 > 0) {
+                    return  setPageNumber(pageNumber - 1);
                 }
                 break
             case 'first': 
@@ -60,7 +60,7 @@ function Breweries(props){
 
     }
 
-    function setBreweryImage(type){
+    function setBreweryImage(type) {
         switch(type){
             case 'closed': return '/assests/breweries/Closed.png'
             case 'taproom': return '/assests/breweries/Taproom.png'
@@ -75,7 +75,6 @@ function Breweries(props){
             case 'large': return '/assests/breweries/Large.png'
             default: return ''
         }
-
     }
 
     /**
@@ -84,7 +83,7 @@ function Breweries(props){
      *  PageNumber -/+ 5 is used to generate an array 10 long total, and so current page is in the middle of those #'s
      *  to allow back/forward nav
      */
-    function pageNumberLinks(){
+    function pageNumberLinks() {
         let linkNumbers = []
         let active= ''
        
@@ -100,7 +99,7 @@ function Breweries(props){
      * 
      * @returns the PageBar UL which holds a map of pagelinks 
      */
-    function PageBar(){
+    function PageBar() {
         return(        
         <>
             <ul className="brew--navlinks">
@@ -115,7 +114,7 @@ function Breweries(props){
     // Slices the array into a section that just holds the selected entries per page based on what page we are on.
     let breweries = props.breweries.slice((pageNumber -1 ) * ENTRIES_PER_PAGE, ((pageNumber) * ENTRIES_PER_PAGE));
    
-        if(breweries){
+        if (breweries) {
         return(
         <>
 
@@ -161,15 +160,14 @@ function Breweries(props){
         <div className="brew--buttons">
             <button onClick = {(e) => navSearchResulst('first')} className = 'brew--navButton'> <i class="fa fa-angle-double-left" aria-hidden="true"></i> First Page</button>
             <button onClick = {(e) => navSearchResulst('back')} className = 'brew--navButton'> <i class="fa fa-angle-left" aria-hidden="true"></i>  Back Page </button>
-            <button onClick = {(e) => navSearchResulst('next')} className = 'brew--navButton'> Next Page <i class="fa fa-angle-right" aria-hidden="true"></i>
- </button>
+            <button onClick = {(e) => navSearchResulst('next')} className = 'brew--navButton'> Next Page <i class="fa fa-angle-right" aria-hidden="true"></i></button>
             <button onClick = {(e) => navSearchResulst('last')} className = 'brew--navButton'> Last Page <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
         </div>
         <PageBar/>
         </>
         )
     }
-    else{
+    else {
         return(
             <></>
         )

@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
 .ownership--table {
     border: 1px solid white;
     table-layout: fixed;
@@ -13,6 +14,7 @@
     max-width: 90vw;
     align-content: center;
 }
+
 .ownership--table--head {
     border: 1px solid white;
     background-color: #ECA200;
@@ -20,6 +22,7 @@
     text-align: center;
     white-space: no wrap;
 }
+
 .ownership--table--body {
     text-align: center;
     display: flex;
@@ -27,34 +30,39 @@
     justify-content: space-between;
     align-content: center;
 }
+
 .ownership--table--body tr {
     border: 1px solid white;
     text-justify: auto;
     text-align: center;
 }
+
 .ownership--table--body td{
     border: 1px solid white;
     padding: 5px;
     width: calc(100%/17);
 }
+
 .ownership--table--head th {
     width: calc(100%/17);
     margin: 2px;
     padding: 5px;
     border: 1px solid white;
 }
+
 .brewery--buttons > td{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     width: calc(100%/3);
 }
+
 .breweries--owned {
     height: fit-content;
     padding: 10px;
 }
 
-/*beers owned css*/
+/* CSS for beers owned. */
 .owners--beers--table{
     text-align: center;
     width: 100%;
@@ -71,6 +79,7 @@
     max-width:90vw;
     align-content: center;
 }
+
 .breweryProduct--table--head{
     border: 1px solid white;
     background-color: #ECA200;
@@ -79,6 +88,7 @@
     align-items: center;
     width: auto;
 }
+
 .breweryProduct--table--body {
     text-align: center;
     display: flex;
@@ -87,11 +97,13 @@
     align-content: center;
     width: auto;
 }
+
 .breweryProduct--table--body tr {
     border: 1px solid white;
     text-justify: auto;
     text-align: center;
 }
+
 .breweryProduct--table--body td {
     border: 1px solid white;
     padding: 5px;
@@ -101,6 +113,7 @@
     overflow-wrap: break-word;
     hyphens: auto;
 }
+
 .breweryProduct--table--head th {
     width: calc(100%/9);
     margin: 2px;
@@ -108,25 +121,25 @@
     border: 1px solid white;
     inline-size: 130px;
 }
+
 .breweryProduct--table--body td:nth-child(4) {
-   
     padding: 5px;
-    
 }
+
 .breweryProduct--table--head th:nth-child(4) {
     width: calc(100%/9);
     margin: 2px;
     padding: 5px;
-    
-   
 }
-.beer--buttons > td{
+
+.beer--buttons > td {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: calc(100%/2);
 }
-.beer--buttons{
+
+.beer--buttons {
     display: flex;
     flex-direction: row;
     align-content: center;

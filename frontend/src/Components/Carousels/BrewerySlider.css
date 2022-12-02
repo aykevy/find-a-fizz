@@ -1,3 +1,5 @@
+/* Brewery Slider */
+
 .slick-track { 	
     display: flex !important; 
 }
@@ -7,4 +9,9 @@
     display: flex !important; 	
     justify-content: center; 	
     align-items: center; 
+}
+
+.brewery-slider {
+    margin-left: 200px;
+    margin-right: 200px;
 }

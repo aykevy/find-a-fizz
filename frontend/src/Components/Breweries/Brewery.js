@@ -9,17 +9,18 @@ import BeerSlider from "../Carousels/BeerSlider"
 import ContactTypes from "../Social/ContactTypes";
 
 
-export default function Brewery({selectedBrewery,postReview,userId,userLocation,favorites,addFavorite,remFavorite}){
+export default function Brewery({selectedBrewery, postReview, userId, userLocation, favorites, addFavorite, remFavorite}) {
     
-    function toggleUserFavorite(item,type){
-        if(isFavorite[0]){
+    function toggleUserFavorite(item,type) {
+        if (isFavorite[0]) {
              remFavorite(isFavorite[0].id,type);
-        }else{
+        }
+        else {
              addFavorite(item.id,userId,type);
         }
      }
 
-    function setBreweryImage(type){
+    function setBreweryImage(type) {
         switch(type){
             case 'closed': return '/assests/breweries/Closed.png'
             case 'taproom': return '/assests/breweries/Taproom.png'
@@ -34,7 +35,6 @@ export default function Brewery({selectedBrewery,postReview,userId,userLocation,
             case 'large': return '/assests/breweries/Large.png'
             default: return ''
         }
-
     }
 
     /**

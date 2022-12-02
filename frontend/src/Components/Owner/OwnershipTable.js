@@ -3,23 +3,19 @@ import { baseUrl } from '../../Shared/baseUrl'
 import {useEffect} from 'react'
 import { Card, CardBody } from "reactstrap"
 import axios from 'axios'
-
 import DeleteEntryModal from "./DeleteEntryModal"
 import BeerModal from "./BeerModal"
 import ExistingBreweryEmailRequest from "./ExistingBreweryEmailRequest"
 import BreweryModal from "./BreweryModal"
 import "./OwnershipTable.css"
-
-
 import '../Accounts/Accounts.css'
 
 export default function OwnershipTable(props) 
 {
-  
-    /* All beers on website, change later to use store */
+    /* All beers on website */
     const [beers, setBeers] = React.useState([]);
 
-    /* All breweries on website, change later to use store */
+    /* All breweries on website */
     const [breweries, setBreweries] = React.useState([]);
 
     /* All brewery_product relations on website */
@@ -28,9 +24,7 @@ export default function OwnershipTable(props)
     /* All ownership relations with the given user id */
     const [ownershipRelations, setOwnershipRelations] = React.useState([])
 
-
-   
-    useEffect( () => {
+    useEffect(() => {
         let fetchBeersURL = baseUrl + "/beers"
         async function fetchBeers()
         {
@@ -67,8 +61,7 @@ export default function OwnershipTable(props)
         fetchBreweries()
         fetchBreweryProducts()
         fetchOwnerships()
-      
-   
+
     }, [props.userId]);
     
     /*Get brewery objects by filtering from the universal*/
@@ -88,9 +81,11 @@ export default function OwnershipTable(props)
     /*Get beer objects by filtering from the universal*/
     function getBreweriesAndBeers (breweriesList) {
         let ownedBreweriesIds = breweriesList.map( function(breweries) {return breweries.id;});
+
         const getOwnedRelations = breweryProductRelations.filter((relation) => {
                 return ownedBreweriesIds.includes(relation.breweryId)
         });
+
         const finalFilter = getOwnedRelations.map (
             function(relation)
             {
@@ -116,8 +111,6 @@ export default function OwnershipTable(props)
     if (ownershipRelations.length > 0) {
         const breweriesList = getOwnedBreweries();
         const breweriesAndBeers = getBreweriesAndBeers(breweriesList);
-           
-
         return (
             <div className="account--brewery">
                 <Card className="breweries--owned" >
@@ -185,81 +178,75 @@ export default function OwnershipTable(props)
                 </div>
                 </Card>
 
-                {breweriesAndBeers.length > 0 ? ( 
-                   
-            <div className="owner--beers--relation">
-                <Card className="owned--beers">
-                <h3>Beers For Your Breweries</h3>
-                <div className="owners--beers--table">
-                <table className="breweryProduct--table">
-                    <CardBody>
-                        <thead className="breweryProduct--table--head">
-                        <tr>
-                            <th>Brewery Id</th>
-                            <th>Beer Id</th>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>ABV %</th>
-                            <th>Type</th>
-                            <th>Image URL</th>
-                            <th>Update</th>
-                            <th>Remove</th>
-                    
-                        </tr>
-                        </thead>
-                    </CardBody>
+                { breweriesAndBeers.length > 0 ? (   
+                    <div className="owner--beers--relation">
+                        <Card className="owned--beers">
+                            <h3>Beers For Your Breweries</h3>
+                            <div className="owners--beers--table">
+                                <table className="breweryProduct--table">
+                                    <CardBody>
+                                        <thead className="breweryProduct--table--head">
+                                            <tr>
+                                                <th>Brewery Id</th>
+                                                <th>Beer Id</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>ABV %</th>
+                                                <th>Type</th>
+                                                <th>Image URL</th>
+                                                <th>Update</th>
+                                                <th>Remove</th>
+                                            </tr>
+                                        </thead>
+                                    </CardBody>
 
-                    <tbody className="breweryProduct--table--body">
-                        {
-                            breweriesAndBeers.map(relationEntry => {
-                            return (
-                                <CardBody>
-                                <tr key={relationEntry.id}>
-                                    <td>{ relationEntry.breweryId}</td>
-                                    <td>{ relationEntry.beerId }</td>
-                                    <td>{ relationEntry.name }</td>
-                                    <td>{ relationEntry.description}</td>
-                                    <td>{ relationEntry.abvPercent }%</td>
-                                    <td>{ relationEntry.type}</td>
-                                    <td>{ relationEntry.imageUrl }</td>
-                                    <div className="beer--buttons">
-                                    <td> <BeerModal action={"update"} beerId={relationEntry.beerId}/></td>
-                                    <td> <DeleteEntryModal beerOrBrewery={"beer"} beerId={relationEntry.beerId}/></td>
-                                    </div>
-                                </tr>
-                                </CardBody>
-                            )})
-                        }
-                    </tbody>
-                </table>
-                </div>
-                </Card>
-                </div>)
+                                    <tbody className="breweryProduct--table--body">
+                                    {
+                                        breweriesAndBeers.map(relationEntry => {
+                                        return (
+                                            <CardBody>
+                                            <tr key={relationEntry.id}>
+                                                <td>{ relationEntry.breweryId}</td>
+                                                <td>{ relationEntry.beerId }</td>
+                                                <td>{ relationEntry.name }</td>
+                                                <td>{ relationEntry.description}</td>
+                                                <td>{ relationEntry.abvPercent }%</td>
+                                                <td>{ relationEntry.type}</td>
+                                                <td>{ relationEntry.imageUrl }</td>
+                                                <div className="beer--buttons">
+                                                    <td> <BeerModal action={"update"} beerId={relationEntry.beerId}/></td>
+                                                    <td> <DeleteEntryModal beerOrBrewery={"beer"} beerId={relationEntry.beerId}/></td>
+                                                </div>
+                                            </tr>
+                                            </CardBody>
+                                        )})
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </Card>
+                    </div>)
                 :
                 (
-                <div className="owner--empty--relation">
-                <Card> 
-                    <CardBody>
-                    <h4>You have no beers assigned to your breweries.</h4>    
-                    <h5>Add beers above to help improve our users and your customers experience!</h5>.
-                    </CardBody>
-                </Card>    
-                </div>
-
-                )
-                }
+                    <div className="owner--empty--relation">
+                        <Card> 
+                            <CardBody>
+                                <h4>You have no beers assigned to your breweries.</h4>    
+                                <h5>Add beers above to help improve our users and your customers experience!</h5>.
+                            </CardBody>
+                        </Card> 
+                    </div>
+                )}
             </div>
         )
     }
 
     else {
         return (
-            
             <div>
                 <h3>Breweries You Own</h3>
                 You own no breweries! Add one.
                 <BreweryModal className = 'account--brewery--add' action={"add"} userId={props.userId}/>
-
             </div>
         )
     }

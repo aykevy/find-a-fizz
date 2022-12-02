@@ -4,13 +4,18 @@ import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
 import { Link } from 'react-router-dom';
 
-
 function SearchBar({getBeer, getBrewery, beers, breweries}) {
+
+    /* The select option to the left of bar */
     const [option, setOption] = React.useState("Beer");
 
+    /* List of beers that match the text input */
     const [filteredBeers, setFilteredBeers] = React.useState([]);
+
+    /* List of breweries that match the text input */
     const [filteredBreweries, setFilteredBreweries] = React.useState([]);
 
+    /* The current text on the bar */
     const [currentTextOnBar, setCurrentTextOnBar] = React.useState("");
 
     const filterBeers = (event) => {
@@ -61,22 +66,18 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
                 
                 <div className="searchInputs">
                     <input type="text" placeholder={"Enter a beer or brewery"} value = {currentTextOnBar} onChange = {option === "Beer" ? filterBeers : filterBreweries} />
-
-
                     <div className="searchIcon">
                         { ((filteredBeers.length === 0 && option === "Beer") || (filteredBreweries.length === 0 && option === "Brewery")) 
                         ? <SearchIcon /> 
                         : <CloseIcon id="clearBtn" onClick={clearInput}/> }
                     </div>
-
-
                 </div>
             </div>
 
             {filteredBeers.length !== 0 && option === "Beer" && (
                 <div className="dataResult">
                     {
-                        /*We slice here to only show top 20 results so it doesn't lag*/
+                        /* We slice here to only show top 20 results so it doesn't lag */
                         filteredBeers.slice(0, 20).map((value, key) => {
                             return (
                                     <Link to={'/beer/'+value.id}>
@@ -91,7 +92,7 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
             {filteredBreweries.length !== 0 && option === "Brewery" && (
                 <div className="dataResult">
                     {
-                        /*We slice here to only show top 20 results so it doesn't lag*/
+                        /* We slice here to only show top 20 results so it doesn't lag */
                         filteredBreweries.slice(0, 20).map((value, key) => {
                   
                             return (
@@ -105,7 +106,6 @@ function SearchBar({getBeer, getBrewery, beers, breweries}) {
             )}
         </div>
     )
-
 }
 
 export default SearchBar;

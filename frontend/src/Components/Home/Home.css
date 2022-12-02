@@ -1,4 +1,6 @@
-.home--dailyFeatures{
+/* Home */
+
+.home--dailyFeatures {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -7,7 +9,8 @@
     margin-top: 20px;
     text-align: center;
 }
-.home--featuredBrewery{
+
+.home--featuredBrewery {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +19,7 @@
     background-color: #F7F5F1;
     gap: 10px;
 }
+
 .home--featuredBeer {
    display: flex;
    flex-direction: column;
@@ -25,14 +29,16 @@
    background-color: #F7F5F1;
    gap: 10px;
 }
-.selected--image{
+
+.selected--image {
     margin-left: 20px;
 }
+
 .featuredBeer {
     margin-bottom: 20px;
 }
+
 h2 {
     max-height: 115px;
     
 }
-

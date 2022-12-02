@@ -1,4 +1,6 @@
-.maps--user{
+/* Maps */
+
+.maps--user {
     max-width: 3rem;
     max-height: 3rem;
 }
@@ -6,15 +8,13 @@
 .mapboxgl-popup-content {
     display: flex;
     font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif;
-    /* padding: 20px; */
     width: fit-content;
     color: black;
     border: 2px solid black;
     border-radius: 2px;
-   
-  }
+}
 
-  .mapboxgl-popup-content h5{
+.mapboxgl-popup-content h5 {
     background-color: #5B4037;
     color: #ffffff;
     margin: 0;
@@ -23,22 +23,20 @@
     margin-top: -10px;
     margin-left: -10px;
     margin-right: -10px;
-  }
+}
 
-  .brewery--social--list, .maps--popup--social{
+.brewery--social--list, .maps--popup--social {
     text-align: center;
-
-  }
+}
   
-  .mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-content {
     margin-top: 15px;
+}
   
-  }
-  
-  .mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
+.mapboxgl-popup-anchor-top > .mapboxgl-popup-tip {
     border-bottom-color: black;
-  }
+}
 
-  .mapboxgl-control-container > .mapboxgl-ctrl-bottom-right, .mapboxgl-control-container > .mapboxgl-ctrl-top-right,  .mapboxgl-control-container >  .mapboxgl-ctrl-bottom-left {
+.mapboxgl-control-container > .mapboxgl-ctrl-bottom-right, .mapboxgl-control-container > .mapboxgl-ctrl-top-right,  .mapboxgl-control-container >  .mapboxgl-ctrl-bottom-left {
     z-index: 0;
-  }
+}

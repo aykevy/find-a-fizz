@@ -1,4 +1,6 @@
-.brew--navlinks{
+/* Brewery */
+
+.brew--navlinks {
   display: flex;
   justify-content: space-around;
   padding: 20px;
@@ -6,44 +8,46 @@
   margin-right: 60px;
   justify-items: center;
   align-items: center;
- }
-.brew--buttons{
+}
+
+.brew--buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
 }
-.brew--image{
+
+.brew--image {
   aspect-ratio: 1;
   max-width: 250px;
   max-height: 250px; 
 }
 
-.brew--results{
+.brew--results {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  
 }
-.brew--navlinks{
+
+.brew--navlinks {
   list-style-type: none;
   color: darkblue
 }
 
-.brew--link:hover{
+.brew--link:hover {
   font-size: 1.5rem;
   text-emphasis-style: initial;
-
 }
-.brew--link--active{
+
+.brew--link--active {
   font-size: 2rem;
   text-decoration: underline;
   color: blueviolet
 }
-.brew--navButton{
 
+.brew--navButton {
   background-color: #ECA200;
   border-style: solid;
   border-color: black;
@@ -56,7 +60,8 @@
   margin-bottom: 20px;
   flex-grow: 0;
 }
-.brew--navButton:hover{
+
+.brew--navButton:hover {
     background-position: 100% 100%;
     transform: scale(1.08,1.03);
     box-shadow: 3px 3px 1px black;
@@ -64,8 +69,9 @@
     border-color: black;
     border-radius: 7px;
     border-width: 2px;
-  }
-.brew--list{
+}
+
+.brew--list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -73,14 +79,16 @@
   gap: 20px;
   margin: 15px;
 }
-.brew--card{
+
+.brew--card {
   min-height: 300px;
   min-width: 300px;
   border: 2px solid black;
   border-radius: 7px;
   align-items: center;
 }
-.brew--card--daily{
+
+.brew--card--daily {
   min-height: 300px;
   min-width: 300px;
   border: 2px solid black;
@@ -88,7 +96,8 @@
   align-items: center;
   background-color: #FFBD6D;
 }
-.brew--card--set{
+
+.brew--card--set {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -100,7 +109,8 @@
   min-width: 400px;
   text-align: center;
 }
-.brew--card--set:hover{
+
+.brew--card--set:hover {
   background-position: 100% 100%;
   transform: scale(1.08,1.03);
   box-shadow: 10px 10px 5px black;
@@ -109,7 +119,8 @@
   border-radius: 7px;
   border-width: 1px;
 }
-.brew--card--daily:hover{
+
+.brew--card--daily:hover {
   background-position: 100% 100%;
   transform: scale(1.08,1.03);
   box-shadow: 10px 10px 5px black;
@@ -119,15 +130,18 @@
   border-width: 1px;
 
 }
-.brew--card--name{
+
+.brew--card--name {
   font-size: 1rem;
   font-weight: 800;
   text-decoration: underline;
 }
-.brew--card--home{
+
+.brew--card--home {
   border:1px solid #F7F5F1;
   background-color: #F7F5F1;
 }
+
 .selected--name--home {
   margin-top: 10px;
   font-size: larger;
@@ -135,6 +149,7 @@
   text-decoration: underline;
   background-color: #FFD371;
 }
+
 .selected--desc--home {
   padding: 2px;
   inline-size: auto;
@@ -142,40 +157,45 @@
   hyphens: auto;
 }
 
-.thumbs--up--divider:nth-child(even) .brew--card{
+.thumbs--up--divider:nth-child(even) .brew--card {
   background: #FFBD6D;
   background-color: #FFBD6D;
 }
-.thumbs--up--divider:nth-child(odd) .brew--card{
+
+.thumbs--up--divider:nth-child(odd) .brew--card {
   background: #FFD371;
   background-color: #FFD371;
 }
-.container a:hover{
+
+.container a:hover {
     background-color:  #F7F5F1;
 }
-.selected--image{
+.selected--image {
   margin-left: 0;
   margin-right: 0;
   border:1px solid #F7F5F1;
 }
-.brew--image--main{
+
+.brew--image--main {
   aspect-ratio: 1;
 }
-.selected--image:hover{
+
+.selected--image:hover {
   background-color:  white;
   background-position: 100% 100%;
   transform: scale(1.05,1.05);
   box-shadow: 10px 10px 5px #FFD371;
   border-style: solid;
   border-color: white;
- 
   border-width: 1px;
 }
+
 .selected--image--brew {
   width: 30vw;
   height: 30vw;
-  border:1px solid #F7F5F1;
+  border: 1px solid #F7F5F1;
 }
+
 .selected--image--brew:hover {
   background-color:  white;
   background-position: 100% 100%;
@@ -185,7 +205,8 @@
   border-color: white;
   border-width: 1px;
 }
-.selected--brewery{
+
+.selected--brewery {
   display: flex;
   flex-direction: row;
   margin: 15px;
@@ -193,6 +214,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .brewery--info {
   display: flex;
   flex-direction: column;
@@ -206,22 +228,24 @@
   margin-right: 10px;
   gap: 5px;
 }
-.selected--name--brew{
+
+.selected--name--brew {
   font-size: x-large;
   text-decoration: underline;
   text-align: center;
   background-color: #FFBD6D;
 }
-.selected--nameDesc--brew{
+
+.selected--nameDesc--brew {
   margin: 5px;
   padding: 2px;
-  
 }
-.selected--desc--brew{
+
+.selected--desc--brew {
   margin: 5px;
- 
 }
-.brewery--reviews{
+
+.brewery--reviews {
   display: flex;
   flex-direction: column;
   flex-grow: 33;
@@ -230,7 +254,8 @@
   justify-content: center;
   margin-top: 25px;
 }
-.selected--review--brew{
+
+.selected--review--brew {
   flex-direction: column;
   align-content: center;
   justify-content: center;
@@ -238,18 +263,20 @@
   padding: 5px;
 }
 
-.review--button{
+.review--button {
   position: relative;
   left: 35%;
 }
-.thumbs--up--divider{
-position: relative;
+
+.thumbs--up--divider {
+  position: relative;
 }
 
-.container{
+.container {
   display: inline-block;
 }
-.user--favorite--brewery{
+
+.user--favorite--brewery {
   z-index: 1;
   position: relative;
   max-height: 9vh;
@@ -257,7 +284,8 @@ position: relative;
   left: 8%;
   top: -11vw;
 }
-.user--favorite--breweries{
+
+.user--favorite--breweries {
   z-index: 1;
   position: absolute;
   max-height: 9vh;
@@ -265,6 +293,7 @@ position: relative;
   left: 2.5vw;
   top: 1vw;
 }
+
 .beer--list--brews {
   position: relative;
   text-align: center;
@@ -273,12 +302,14 @@ position: relative;
   margin: 10px;
   padding: 30px;
 }
+
 .map--unset {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 }
+
 .map--set {
   display: flex;
   flex-direction: column;

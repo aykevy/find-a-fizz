@@ -1,4 +1,4 @@
-package com.techelevator.jpa.entity.repository;
+package com.techelevator.jpa.repository;
 
 import com.techelevator.jpa.entity.Beer;
 import org.springframework.data.jpa.repository.JpaRepository;

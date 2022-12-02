@@ -1,29 +1,25 @@
-
 import React, { useState } from 'react';
 import './Accounts.css'
 import OwnershipTable from '../Owner/OwnershipTable'
 import UserData from './UserData';
 
-
-
-export default function Accounts(props){
+export default function Accounts(props) {
     const [showSelection,setShowSelection] = useState({show:false})
     const [type,setType] = useState({type:''})
-    // const [showFavoriteBeers,setShowFavBeers] = useState({show:false})
-    // const [showFavoriteBreweries,setShowFavBrewerys] = useState({show:false})
 
-    function toggleWindows(windowType){
+    function toggleWindows(windowType) {
 
-       if(type.type ==='' || (type.type != windowType)){
-        setShowSelection({show: true})
-        setType({type:windowType})
-       } else{
-        setShowSelection({show: false})
-        setType({type:''})
-       }
+        if (type.type === '' || (type.type !== windowType)) {
+            setShowSelection({show: true})
+            setType({type:windowType})
+        } 
+        else {
+            setShowSelection({show: false})
+            setType({type:''})
+        }
     }
 
-    if(props){
+if (props) {
     return(
         <>
         <h1>

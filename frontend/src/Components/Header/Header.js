@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler,Collapse,NavItem, Button} from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Button} from 'reactstrap';
 import {NavLink, Link } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
@@ -13,19 +13,20 @@ const mapStateToProps = state => {
 }
 
 class Header extends Component {
-    constructor(props){
+
+      constructor(props) {
       super(props)
-      this.state ={
+      this.state = {
         isNavOpen: false,
       }
-    
+
       this.toggleNav= this.toggleNav.bind(this);
     }
 
     /**
      * Toggle - handles mobile devices to expand or contract the navBar
      */
-    toggleNav(){
+    toggleNav() {
         this.setState({
           isNavOpen: !this.state.isNavOpen,
         })
@@ -87,7 +88,7 @@ class Header extends Component {
                      </Nav>
                 </Collapse>
           </Navbar>
-          </>
+        </>
         )
     }
 }

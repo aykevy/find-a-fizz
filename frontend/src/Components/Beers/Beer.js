@@ -7,18 +7,18 @@ import './Beer.css'
 import BrewerySlider from "../Carousels/BrewerySlider";
 
 
-export default function Beer({selectedBeer,postReview,userId,favorites,addFavorite,remFavorite}){
-    let isFavorite = favorites.filter(function (favorite){return selectedBeer.id === favorite.beerId});
+export default function Beer({selectedBeer, postReview, userId, favorites, addFavorite, remFavorite}) {
+    let isFavorite = favorites.filter(function (favorite) {return selectedBeer.id === favorite.beerId});
     
-    function toggleUserFavorite(item,type){
-       if(isFavorite[0]){
+    function toggleUserFavorite(item,type) {
+       if (isFavorite[0]) {
             remFavorite(isFavorite[0].id,type);
-       }else{
+       }
+       else {
             addFavorite(item.id,userId,type);
        }
     }
 
-    
     return(
         <>
         <div className="selected--beer">
