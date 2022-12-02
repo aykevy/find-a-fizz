@@ -7,7 +7,7 @@ import './Beer.css'
 import BrewerySlider from "../Carousels/BrewerySlider";
 
 
-export default function Beer({selectedBeer, postReview, userId, favorites, addFavorite, remFavorite}) {
+export default function Beer({selectedBeer, postReview, userId, favorites, addFavorite, remFavorite,getBrewery}) {
     let isFavorite = favorites.filter(function (favorite) {return selectedBeer.id === favorite.beerId});
     
     function toggleUserFavorite(item,type) {
@@ -48,7 +48,7 @@ export default function Beer({selectedBeer, postReview, userId, favorites, addFa
         <div className="breweries--found">
         <Card>
         <CardBody className="found--brews">
-                <BrewerySlider beerId={selectedBeer.id}/>
+                <BrewerySlider beerId={selectedBeer.id} getBrewery={getBrewery}/>
         </CardBody>
         </Card>
         </div>

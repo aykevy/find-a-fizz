@@ -3,6 +3,7 @@ import {useEffect} from 'react'
 import axios from 'axios'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link } from 'react-router-dom';
 import React from "react";
 import Slider from "react-slick";
 import './BeerSlider.css'
@@ -75,7 +76,10 @@ export default function BeerSlider(props)
                     beers.map((item, index) => {
                         return (
                             <div>
-                                <img src={item.imageUrl}  width="200px" height="200px"alt='beer-carousel' />
+                                <Link to= {'/beer/' + item.id}>
+                                <p>{item.name}</p>
+                                <img src={item.imageUrl}  width="200px" height="200px"alt='beer-carousel' onClick={() => props.getBeer(item.id)}/>
+                                </Link>
                             </div>
                         )
                     }

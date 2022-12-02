@@ -46,8 +46,9 @@ class Login extends Component {
                 <body className='login--page--boxes'>
                     <img className='login--logo' src='./assests/loginImage.png' alt='Welcome In'/>
                     <div className='login--inputs'>
+                    <img className='login--logo' src='./assests/FindAFizzLogo.png' alt='Welcome In'/>
                         <h1>Login Here</h1>
-
+                        
                         <label class="sr-only">Username</label>
                         <input
                             type="text"
@@ -76,6 +77,7 @@ class Login extends Component {
                         <Link to='/home'>
                             <button className='submit--button' type="submit" onClick={this.handleLogin}>Sign in</button>
                         </Link>
+          
                     </div>
                 </body>
             </div>

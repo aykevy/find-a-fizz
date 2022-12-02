@@ -86,7 +86,7 @@ class Main extends Component {
         navigator.geolocation.getCurrentPosition(position => {
             const long = position.coords.longitude;
             const lati = position.coords.latitude;
-            this.props.addLocation(lati,long);
+        
         })
     }
    
@@ -124,12 +124,12 @@ class Main extends Component {
                     <Route exact path='/beer/:id' component={ this.props.token.token !== undefined ? () => 
                         <Beer selectedBeer = {this.props.beers.selectedBeer} postReview={this.props.postReview} 
                               userId={this.props.user.id}  favorites={this.props.userFavorites.beerFavorites} 
-                              addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />
+                              addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} getBrewery={this.props.getBrewery}/> : null} />
 
                     <Route exact path='/brewery/:id' component={this.props.token.token !== undefined ? () => 
                         <Brewery selectedBrewery = {this.props.breweries.selectedBrewery} postReview= {this.props.postReview} 
                                  userId={this.props.user.id} userLocation={this.props.location} favorites={this.props.userFavorites.breweryFavorites} 
-                                 addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} /> : null} />                      
+                                 addFavorite={this.props.addUserFavorite} remFavorite={this.props.deleteUserFavorite} getBeer={this.props.getBeer}/> : null} />                      
                 </Switch>
                 {(this.props.token.token) &&
                 <>

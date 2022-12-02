@@ -1,6 +1,7 @@
 import { baseUrl } from '../../Shared/baseUrl'
 import {useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from "react";
@@ -96,9 +97,11 @@ export default function BrewerySlider(props)
                         return (
              
                             <div>
+                                {console.log(item.id)}
+                                <Link to={'/brewery/'+item.id}>
                                 <p>{item.name}</p>
-                                <img src={setBreweryImage(item.breweryType)} width="200px" height="200px" alt="brewery-carousel"/>
-                        
+                                <img src={setBreweryImage(item.breweryType)} width="200px" height="200px" alt="brewery-carousel" onClick={()=> props.getBrewery(item.id)}/>
+                                </Link>    
                             </div>
                         )
                     }

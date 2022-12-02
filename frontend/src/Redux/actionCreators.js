@@ -41,6 +41,7 @@ export const beersLoading = () => ({
 
 // calls the beers.js listener to send back the 'OK' action to intital call, then calls api, and sends that GET listener when it recieves it.
 export const getBeer = (id) =>{
+    console.log('Tried to run getBeer')
     return dispatch =>{
         dispatch(beersLoading());
      ActionTypes.axios.get('/beer/' + id)

@@ -9,7 +9,7 @@ import BeerSlider from "../Carousels/BeerSlider"
 import ContactTypes from "../Social/ContactTypes";
 
 
-export default function Brewery({selectedBrewery, postReview, userId, userLocation, favorites, addFavorite, remFavorite}) {
+export default function Brewery({selectedBrewery, postReview, userId, userLocation, favorites, addFavorite, remFavorite, getBeer}) {
     
     function toggleUserFavorite(item,type) {
         if (isFavorite[0]) {
@@ -88,7 +88,7 @@ export default function Brewery({selectedBrewery, postReview, userId, userLocati
         </div>
         <Card className="beer--list--brews">
         <CardBody>
-                <BeerSlider breweryId={selectedBrewery.id}/>
+                <BeerSlider breweryId={selectedBrewery.id} getBeer={getBeer}/>
         </CardBody>
         </Card>
         <div className="brewery--reviews">
