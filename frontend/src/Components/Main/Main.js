@@ -86,7 +86,7 @@ class Main extends Component {
         navigator.geolocation.getCurrentPosition(position => {
             const long = position.coords.longitude;
             const lati = position.coords.latitude;
-        
+            this.props.addLocation(lati, long);
         })
     }
    
