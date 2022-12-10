@@ -3,7 +3,7 @@
 Link To Be Announced
 
 ## Stack
-- [Spring Boot/Spring Data JPA](https://spring.io/projects/spring-data-jpa) - A Java specification for managing relational data in Java applications. It allows us to access and persist data between Java object / class and relational database.
+- [Spring Boot / Spring Data JPA](https://spring.io/projects/spring-data-jpa) - A Java specification for managing relational data in Java applications. It allows us to access and persist data between Java object / class and relational database.
 - [React.js](https://reactjs.org/) - A JavaScript library for building user interfaces
 - [Redux.js](https://redux.js.org/) - Open-source JavaScript library for managing and centralizing application state.
 - [Axios](https://axios-http.com/) - Axios is a promise-based HTTP Client for node.js and the browser.
