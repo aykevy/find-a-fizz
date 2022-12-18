@@ -101,7 +101,7 @@ function Maps(props) {
      mapStyle='mapbox://styles/mapbox/streets-v12'
      >
       <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
-              <img className='maps--user' src={'/assests/youMarker.png'} alt ={'user icon'}/>
+              <img className='maps--user' src={'/assets/youMarker.png'} alt ={'user icon'}/>
       </Marker>
       {allMarkers}
       {popUp && 
@@ -145,7 +145,7 @@ function Maps(props) {
       mapStyle='mapbox://styles/mapbox/streets-v12'
       >
       <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
-              <img className='maps--user' src={'/assests/youMarker.png'} alt ={'user icon'}/>
+              <img className='maps--user' src={'/assets/youMarker.png'} alt ={'user icon'}/>
       </Marker>
       <Marker longitude={lng} latitude={lat}/>
       <FullscreenControl/>

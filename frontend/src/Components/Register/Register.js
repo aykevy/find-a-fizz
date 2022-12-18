@@ -48,7 +48,7 @@ class Register extends Component{
         return (
             <div className='register--page--main'>
                 <body className='register--page--boxes'>
-                    <img className='register--logo' src= './assests/RegisterLogo.png' alt='Register Now'/>
+                    <img className='register--logo' src= './assets/RegisterLogo.png' alt='Register Now'/>
                     <div className='register--inputs'>
                         <h1>Create Account</h1>
                         <label class="sr-only">Username</label>

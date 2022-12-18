@@ -66,7 +66,7 @@ class Header extends Component {
                 <NavbarToggler onClick={this.toggleNav}/>
                      <NavbarBrand className='navbar--logo'>
                       <Link to='/home'>
-                        <img src= './assests/logo.png' height='100' width='100' alt='Brewery Finder'/>
+                        <img src= './assets/logo.png' height='100' width='100' alt='Brewery Finder'/>
                       </Link>
                      </NavbarBrand>
             

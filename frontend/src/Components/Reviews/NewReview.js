@@ -20,7 +20,7 @@ export default class NewReview extends Component {
     }
 
     handleSubmit(values) {
-        this.props.postReview(this.props.userId,this.props.id,values.review,values.rating,this.props.type);
+        this.props.postReview(this.props.userId, this.props.id, values.review, values.rating, this.props.type);
         this.toggleModal();
     }
 
@@ -37,7 +37,7 @@ render() {
                             <div className="review--rating">
                                 <Col className="review--rating--text">
                                     Rating
-                                    <Control.select model=".rating" name="rating"
+                                    <Control.select model=".rating" name="rating" defaultValue="1"
                                         className= 'form-checkinput'>
                                         <option>1</option>
                                         <option>2</option>

@@ -77,8 +77,8 @@ export default function BeerSlider(props)
                         return (
                             <div>
                                 <Link to= {'/beer/' + item.id}>
-                                <p>{item.name}</p>
-                                <img src={item.imageUrl}  width="200px" height="200px"alt='beer-carousel' onClick={() => props.getBeer(item.id)}/>
+                                    <p>{item.name}</p>
+                                    <img src={item.imageUrl}  width="200px" height="200px"alt='beer-carousel' onClick={() => props.getBeer(item.id)}/>
                                 </Link>
                             </div>
                         )
