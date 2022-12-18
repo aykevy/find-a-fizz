@@ -9,7 +9,6 @@ function Maps(props) {
   const lng = props.lng;
   const lat = props.lat;
   const zoomLevel = setZoomLevel()
-  console.log('Zoom: ' + zoomLevel)
   const [popUp,setPopup] = useState(null)
 
   function formatPhoneNumber(phoneNumberString) {
@@ -20,16 +19,12 @@ function Maps(props) {
       return [intlCode, '(', match[2], ') ', match[3], '-', match[4]].join('');
     }
     return '';
-}
+  }
 
   function setZoomLevel() {
     const difLat = Math.abs(Math.abs(lat) - Math.abs(props.userLocation.latitude));
     const difLong = Math.abs(Math.abs(lng) - Math.abs(props.userLocation.longitude)); 
-
-    console.log(difLat)
-    console.log(difLong)
     let zoom = 0;
-
     if ((difLat && difLong) < 40) {
       zoom = 2;
     }
@@ -54,8 +49,8 @@ function Maps(props) {
   }
 
   function closeToUser(brewery) {
-    const closeLat = Math.abs(Math.abs(brewery.latitude) - Math.abs(props.userLocation.latitude)) <1
-    const closeLong = Math.abs(Math.abs(brewery.longitude) - Math.abs(props.userLocation.longitude)) <1
+    const closeLat = Math.abs(Math.abs(brewery.latitude) - Math.abs(props.userLocation.latitude)) < 1
+    const closeLong = Math.abs(Math.abs(brewery.longitude) - Math.abs(props.userLocation.longitude)) < 1
     return (closeLat && closeLong)
   }
 
@@ -69,96 +64,101 @@ function Maps(props) {
 
   if (props.fromHome) {
 
-    const allMarkers = props.breweries.map( brewery =>{
+    const allMarkers = props.breweries.map( brewery => {
 
-      if( closeToUser(brewery) && validateLocationData(brewery)){
-       return (
-         <Marker key={brewery.id} longitude={brewery.longitude} latitude={brewery.latitude} 
-                 onClick= {(event) => handleClick(event,brewery)}/>
+      if (closeToUser(brewery) && validateLocationData(brewery)) {
+        return (
+          <Marker key={brewery.id} longitude={brewery.longitude} latitude={brewery.latitude} 
+            onClick= {(event) => handleClick(event,brewery)}/>
        )
-      }else{return <></>}
+      }
+      else {
+        return <></>
+      }
     })
 
+    return (
+      <div className="map--set">  
+        <Map 
+          mapboxAccessToken= {mapToken}
+          style={{
+            width: '90vw',
+            height: '280px',
+            borderRadius: '15px',
+            border: '2px solid black'
+          }}
 
-  return (
-   <div className="map--set">  
-     <Map
-     mapboxAccessToken= {mapToken}
-     style={{
-       width: '90vw',
-       height: '280px',
-       borderRadius: '15px',
-       border: '2px solid black'
-       
-     }}
+          initialViewState={{
+            longitude: props.userLocation.longitude,
+            latitude: props.userLocation.latitude,
+            zoom:7
+          }}
+          mapStyle='mapbox://styles/mapbox/streets-v12'
+        >
 
-     initialViewState={{
-       longitude: props.userLocation.longitude,
-       latitude: props.userLocation.latitude,
-       zoom:7
+          <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
+            <img className='maps--user' src={'/assets/youMarker.png'} alt ={'user icon'}/>
+          </Marker>
+
+          {allMarkers}
+
+          {popUp && 
+            <div className="maps--markers">
+              <Popup className = 'maps--marker' anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onClose={() => setPopup(null)}>
+                <Link to={'/brewery/'+popUp.id}>
+                  <h5 onClick={() => props.getBrewery(popUp.id)}>{popUp.name}</h5>
+                </Link>
+                {popUp.phone && <p>Phone: {formatPhoneNumber(popUp.phone)}</p>}
+                <p>Brewery type: {popUp.breweryType}</p>
+                <ContactTypes className ='maps--popup--social' phone={formatPhoneNumber(popUp.phone)} website={popUp.website} location={popUp.city +', ' + popUp.state} name={popUp.name}/>
+              </Popup>
+            </div>
+          }
+
+          <FullscreenControl/>
+          <NavigationControl position="bottom-left"/>
+          <GeolocateControl/>
+        </Map>
+      </div>
+    )
+  } 
   
-     }}
-     mapStyle='mapbox://styles/mapbox/streets-v12'
-     >
-      <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
-              <img className='maps--user' src={'/assets/youMarker.png'} alt ={'user icon'}/>
-      </Marker>
-      {allMarkers}
-      {popUp && 
-        <div className="maps--markers">
+  else if ( lat && lng !== undefined) {
+    return (
+      <div className="map--unset">
+        <Map 
+        mapboxAccessToken = {mapToken}
+        style={{
+          width: '30vw',
+          height: '60vh',
+          borderRadius: '15px',
+          border: '2px solid black' 
+        }}
 
-          <Popup className = 'maps--marker' anchor='top' longitude={popUp.longitude} latitude={popUp.latitude} closeButton={true} onClose={() => setPopup(null)}>
+        initialViewState={{
+          longitude: props.userLocation.longitude,
+          latitude: props.userLocation.latitude,
+          zoom:zoomLevel
+        }}
+        mapStyle='mapbox://styles/mapbox/streets-v12'
+        >
 
-            <Link to={'/brewery/'+popUp.id}>
-                 <h5 onClick={() => props.getBrewery(popUp.id)}>{popUp.name}</h5>
-            </Link>
-            {popUp.phone && <p>Phone: {formatPhoneNumber(popUp.phone)}</p>}
-            <p>Brewery type: {popUp.breweryType}</p>
-            <ContactTypes className ='maps--popup--social' phone={formatPhoneNumber(popUp.phone)} website={popUp.website} location={popUp.city +', ' + popUp.state} name={popUp.name}/>
-          </Popup>
-        </div>}
-     <FullscreenControl/>
-     <NavigationControl position="bottom-left"/>
-     <GeolocateControl/>
-     </Map>
-   </div>
+          <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
+            <img className='maps--user' src={'/assets/youMarker.png'} alt={'user icon'}/>
+          </Marker>
 
-  )} else if( lat && lng !== undefined)
-   return (
-    <div className="map--unset">
-      <Map 
-      mapboxAccessToken= {mapToken}
-
-      style={{
-        width: '30vw',
-        height: '60vh',
-        borderRadius: '15px',
-        border: '2px solid black'
-        
-      }}
-
-      initialViewState={{
-        longitude: props.userLocation.longitude,
-        latitude: props.userLocation.latitude,
-        zoom:zoomLevel
-      }}
-      mapStyle='mapbox://styles/mapbox/streets-v12'
-      >
-      <Marker longitude={props.userLocation.longitude} latitude={props.userLocation.latitude}>
-              <img className='maps--user' src={'/assets/youMarker.png'} alt ={'user icon'}/>
-      </Marker>
-      <Marker longitude={lng} latitude={lat}/>
-      <FullscreenControl/>
-      <NavigationControl position="bottom-left"/>
-      <GeolocateControl/>
-      </Map>
-    </div>
-  );
-
-   else {
-    return <></>
+          <Marker longitude={lng} latitude={lat}/>
+          <FullscreenControl/>
+          <NavigationControl position="bottom-left"/>
+          <GeolocateControl/>
+        </Map>
+      </div>
+    )
   }
 
+  else {
+    return <></>
+  }
 } 
 
 export default Maps;

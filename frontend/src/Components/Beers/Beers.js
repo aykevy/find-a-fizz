@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import { Card, CardImg, CardTitle,CardBody } from "reactstrap";
+import { Card, CardImg, CardTitle, CardBody } from "reactstrap";
 import './Beer.css'
 
 function Beers(props) {

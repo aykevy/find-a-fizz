@@ -5,16 +5,13 @@ export default function UserData(props) {
 
     function getItem(itemId,type) {
         let filter = [];
-        if (type === 'beer')
-        {
-            filter = props.beers.filter(function (beer){return beer.id === itemId});
+        if (type === 'beer') {
+            filter = props.beers.filter(function (beer) {return beer.id === itemId});
         }
-        if (type === 'brewery')
-        {
-            filter = props.breweries.filter(function (brewery){return brewery.id === itemId});
+        if (type === 'brewery') {
+            filter = props.breweries.filter(function (brewery) {return brewery.id === itemId});
         }
-        if (filter[0] !== undefined)
-        {
+        if (filter[0] !== undefined) {
             return filter[0]
         }
     }
@@ -41,7 +38,7 @@ export default function UserData(props) {
             case 'BEER_FAVORITES':
                 return (
                     props.favorites.beerFavorites.map(( favorite ) => {
-                        let currentBeer = getItem(favorite.beerId,'beer');
+                        let currentBeer = getItem(favorite.beerId, 'beer');
                         return ( 
                             <div className="accounts--selected--beerFav">
                                 <Card className='accounts--selected--image' onClick={() => props.getBeer(currentBeer.id)}>
@@ -49,7 +46,7 @@ export default function UserData(props) {
                                         {currentBeer.name}
                                     </CardTitle>
             
-                                    <Link to={'/beer/'+currentBeer.id}>
+                                    <Link to={'/beer/' + currentBeer.id}>
                                         <CardImg top src = {currentBeer.imageUrl} alt = {currentBeer.name} />
                                     </Link>
                                 </Card>
@@ -81,7 +78,7 @@ export default function UserData(props) {
                                     </Link>
                                 </Card>
             
-                                <Button className="accounts--selected--delete" onClick={()=>props.deleteUserReview(review,'brewery')}> Delete Post </Button>
+                                <Button className="accounts--selected--delete" onClick={()=>props.deleteUserReview(review, 'brewery')}> Delete Post </Button>
                             </Card>
                         )
                     })
@@ -90,7 +87,7 @@ export default function UserData(props) {
         case 'BEER_REVIEWS':
             return (
                 props.userReviews.beerReviews.map(( review ) => {
-                    let currentBeer = getItem(review.beerId,'beer');
+                    let currentBeer = getItem(review.beerId, 'beer');
                     return (
                         <Card key={review.id} className='account--user--reviews'>
                             <CardTitle>
@@ -110,7 +107,7 @@ export default function UserData(props) {
                                 </Link>
                             </Card>
                
-                            <Button className='accounts--selected--delete' onClick={() => props.deleteUserReview(review,'beer')}> Delete Post </Button>
+                            <Button className='accounts--selected--delete' onClick={() => props.deleteUserReview(review, 'beer')}> Delete Post </Button>
                         </Card>
                     )
                 })

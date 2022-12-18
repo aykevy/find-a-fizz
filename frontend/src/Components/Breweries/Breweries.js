@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom";
-import { Card, CardImg, CardText, CardTitle,CardBody } from "reactstrap";
+import { Card, CardImg, CardText, CardTitle, CardBody } from "reactstrap";
 import './Brewery.css'
 
 function Breweries(props) {
     //Setting the selected page number for brewery list
     const [pageNumber, setPageNumber] = React.useState(1);
 
-    //50 entries
+    //Make it only 50 entries per page
     const ENTRIES_PER_PAGE = 50;
 
     //Max pages available, rounded up, current entries at 50
@@ -36,7 +36,7 @@ function Breweries(props) {
      * @param {STRING} action - recieved on call, dictates switch case
      * @returns action to set the current page based on information recieved
      */
-    function navSearchResulst(action){
+    function navSearchResulst(action) {
         switch(action) {
             case 'next':
                 if (pageNumber < totalPages) {
@@ -45,23 +45,22 @@ function Breweries(props) {
                 break
             case 'back':
                 if (pageNumber - 1 > 0) {
-                    return  setPageNumber(pageNumber - 1);
+                    return setPageNumber(pageNumber - 1);
                 }
                 break
             case 'first': 
-                return  setPageNumber(1);
+                return setPageNumber(1);
                 
             case 'last':
-                return  setPageNumber(totalPages)
+                return setPageNumber(totalPages)
                 
             default:
-                return  setPageNumber(pageNumber)
+                return setPageNumber(pageNumber)
         }
-
     }
 
     function setBreweryImage(type) {
-        switch(type){
+        switch(type) {
             case 'closed': return '/assets/breweries/Closed.png'
             case 'taproom': return '/assets/breweries/Taproom.png'
             case 'regional': return '/assets/breweries/Regional.png'
@@ -85,12 +84,13 @@ function Breweries(props) {
      */
     function pageNumberLinks() {
         let linkNumbers = []
-        let active= ''
-       
-        for (let index = (pageNumber -5); index < (pageNumber+5) ; index++) {
+        let active = ''
+        for (let index = (pageNumber -5); index < (pageNumber+5); index++) {
             (index === pageNumber) ? active = "brew--link--active" : active = 'brew--link'
-            if( index > 0 && index <= totalPages)
-                linkNumbers.push(<li onClick={((e) => setPageNumber(index))} key={index} className ={active}>{index}</li>)        
+            if ( index > 0 && index <= totalPages)
+            {
+                linkNumbers.push(<li onClick={((e) => setPageNumber(index))} key={index} className={active}>{index}</li>) 
+            }
         }
         return(linkNumbers)
     }
@@ -100,78 +100,78 @@ function Breweries(props) {
      * @returns the PageBar UL which holds a map of pagelinks 
      */
     function PageBar() {
-        return(        
-        <>
-            <ul className="brew--navlinks">
-                {pageNumber !== 0 ? <li>...</li>: null}
-                {pageNumberLinks().map((link) =>{return link})}
-                {pageNumber !== totalPages ? <li>...</li>: null}
-            </ul>
-        </>)
+        return (        
+            <>
+                <ul className="brew--navlinks">
+                    {pageNumber !== 0 ? <li>...</li>: null}
+                    {pageNumberLinks().map((link) =>{return link})}
+                    {pageNumber !== totalPages ? <li>...</li>: null}
+                </ul>
+            </>
+        )
     }
 
     let url = '';
     // Slices the array into a section that just holds the selected entries per page based on what page we are on.
     let breweries = props.breweries.slice((pageNumber -1 ) * ENTRIES_PER_PAGE, ((pageNumber) * ENTRIES_PER_PAGE));
    
-        if (breweries) {
-        return(
-        <>
+    if (breweries) {
+        return (
+            <>
+                {/*Renders a list of breweries in card form and some conditional renderings based on if breweries have information available*/}
+                <div className="brew--list">
+                    {
+                        breweries.map( (brewery) => { 
+                            let isFavorite = props.favorites.filter(function (favorite) {return brewery.id === favorite.breweryId});
+                            url = '/brewery/' + brewery.id
+                            return (
+                                <div className="thumbs--up--divider" key = {brewery.id}>
+                                    <div className="container">
+                                        <img className= 'user--favorite--breweries' src = {isFavorite[0] ? './assets/favorites/Favorited.png' :'./assets/favorites/NoFavorite.png'} alt='favorite thumbs up'
+                                        onClick ={() => toggleUserFavorite(isFavorite[0],brewery,'brewery')}/>
+                                        {/*//{Setting Link to Route to single brewery page I.E. url.com/brewery/1 */} 
+                                        <Link to={url} style={{color:"black"}}> 
+                                            <div className = 'brew--card--set'>              
+                                                <Card className="brew--card" key = {brewery.id} onClick ={ (e) => onSelect(brewery.id)}>
+                                                    <CardImg top className='brew--image' src={setBreweryImage(brewery.breweryType)} alt={brewery.name} />
+                                                    <CardBody>
+                                                        <CardTitle className = 'brew--card--name'>{brewery.name}</CardTitle>
+                                                        {brewery.breweryType !== undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}
+                                                        <CardText className = 'brew--card--desc'>{brewery.city +", " + brewery.state}</CardText>
+                                                        {brewery.countyProvince !== null &&  <CardText className = 'brew--card--desc'>{brewery.countyProvince}</CardText>}
+                                                        {brewery.country !== null && <CardText className = 'brew--card--desc'> {brewery.country}</CardText>}
+                                                    </CardBody>
+                                                </Card>
+                                            </div>   
+                                        </Link>
+                                    </div>
+                                </div>
+                            )
+                        })    
+                    }
+                </div>
 
-        {/*Renders a list of brewereis in card form, some conditional renderings based on if breweriees have information avaiable*/}
-        <div className="brew--list">
-            {breweries.map( (brewery) => { 
-                let isFavorite = props.favorites.filter(function (favorite){return brewery.id === favorite.breweryId});
-                url = '/brewery/' + brewery.id
+                <div className="brew--results">
+                    <p>Showing Results {pageNumber * 50} through {(pageNumber + 1) * 50}</p>
+                </div>
 
-                return(
-                    <div className="thumbs--up--divider" key = {brewery.id}>
-                      <div className="container">
-                        <img className= 'user--favorite--breweries' src = {isFavorite[0] ? './assets/favorites/Favorited.png' :'./assets/favorites/NoFavorite.png'} alt='favorite thumbs up'
-                              onClick ={() => toggleUserFavorite(isFavorite[0],brewery,'brewery')}      />
-                
-                            {/*//{Setting Link to Route to single brewery page I.E. url.com/brewery/1 */} 
-                            <Link to={url} style={{color:"black"}}> 
-                                <div className = 'brew--card--set'>              
-                                    <Card className="brew--card" key = {brewery.id} onClick ={ (e) => onSelect(brewery.id)}>
-                                        <CardImg top className='brew--image'src={setBreweryImage(brewery.breweryType)} alt = {brewery.name} />
-                                        <CardBody>
-                                            <CardTitle className = 'brew--card--name'>{brewery.name}</CardTitle>
-                                            {brewery.breweryType !== undefined && <CardText className = 'brew--card--desc'>Type of brewery: {brewery.breweryType}</CardText>}
-                                            <CardText className = 'brew--card--desc'>{brewery.city +", " + brewery.state}</CardText>
-                                            {brewery.countyProvince !== null &&  <CardText className = 'brew--card--desc'>{brewery.countyProvince}</CardText>}
-                                            {brewery.country !== null && <CardText className = 'brew--card--desc'> {brewery.country}</CardText>}
-                                        </CardBody>
-                                    </Card>
-                                </div>   
-                            </Link>
-                        </div>
-                    </div>
-               
-                )})    
-            }
-        
-              
-        </div>
-        <div className="brew--results">
-        <p>Showing Results {pageNumber * 50} through {(pageNumber + 1) * 50}</p>
-        </div>
+                <div className="brew--buttons">
+                    <button onClick = {(e) => navSearchResulst('first')} className = 'brew--navButton'> <i class="fa fa-angle-double-left" aria-hidden="true"></i> First Page</button>
+                    <button onClick = {(e) => navSearchResulst('back')} className = 'brew--navButton'> <i class="fa fa-angle-left" aria-hidden="true"></i>  Back Page </button>
+                    <button onClick = {(e) => navSearchResulst('next')} className = 'brew--navButton'> Next Page <i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                    <button onClick = {(e) => navSearchResulst('last')} className = 'brew--navButton'> Last Page <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
+                </div>
 
-        <div className="brew--buttons">
-            <button onClick = {(e) => navSearchResulst('first')} className = 'brew--navButton'> <i class="fa fa-angle-double-left" aria-hidden="true"></i> First Page</button>
-            <button onClick = {(e) => navSearchResulst('back')} className = 'brew--navButton'> <i class="fa fa-angle-left" aria-hidden="true"></i>  Back Page </button>
-            <button onClick = {(e) => navSearchResulst('next')} className = 'brew--navButton'> Next Page <i class="fa fa-angle-right" aria-hidden="true"></i></button>
-            <button onClick = {(e) => navSearchResulst('last')} className = 'brew--navButton'> Last Page <i class="fa fa-angle-double-right" aria-hidden="true"></i></button>
-        </div>
-        <PageBar/>
-        </>
+                <PageBar/>
+            </>
         )
     }
+
     else {
-        return(
+        return (
             <></>
         )
     }
 }
 
- export default Breweries;
+export default Breweries;

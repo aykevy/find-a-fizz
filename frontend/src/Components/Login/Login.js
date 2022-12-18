@@ -41,7 +41,7 @@ class Login extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className='login--page--main'>
                 <body className='login--page--boxes'>
                     <img className='login--logo' src='./assets/loginImage.png' alt='Welcome In'/>

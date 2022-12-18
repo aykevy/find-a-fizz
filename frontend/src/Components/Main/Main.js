@@ -136,7 +136,7 @@ class Main extends Component {
                 <div className='footer--spaced'></div>
                 <footer className='footer'>
                    <h5 className='footer--brand'>Find-A-Fizz</h5>
-                   <p className='footer--company'>&copy; 2022 - A Brewery Company</p>
+                   <p className='footer--company'>| &copy; 2022 - A Brewery Company</p>
                    <ContactTypes className='footer--brand--links'
                         instagram={'www.instagram.com/findafizz/'} 
                         twitter={'www.twitter.com/findafizz'} 

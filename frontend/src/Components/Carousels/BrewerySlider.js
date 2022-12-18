@@ -97,7 +97,7 @@ export default function BrewerySlider(props)
                         return (
                             <div>
                                 {console.log(item.id)}
-                                <Link to={'/brewery/'+item.id}>
+                                <Link to={'/brewery/' + item.id}>
                                     <p>{item.name}</p>
                                     <img src={setBreweryImage(item.breweryType)} width="200px" height="200px" alt="brewery-carousel" onClick={()=> props.getBrewery(item.id)}/>
                                 </Link>    
