@@ -1,3 +1,4 @@
+/* General CSS */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,13 +11,11 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-
- /* set up for implimentation later to keep Hexcodes and colors in place. Feel free to rename as needed for components*/
- .navbar--collection{
+ /* Set up for implementation later to keep hexcodes and colors in place. */
+.navbar--collection {
   padding: 5px;
   background-color: #5B4037;
   display: flex;
@@ -24,41 +23,44 @@ code {
   justify-content: space-between;
   max-height: 120px;
   margin-top: 0px;
- }
+}
  
- .navbar--collaspe{
-    flex-grow: 0;
-    padding: 5px;
-    background-color: #5B4037;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
- }
+.navbar--collaspe {
+  flex-grow: 0;
+  padding: 5px;
+  background-color: #5B4037;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
  
- .navbar--links{
+.navbar--links {
   display: flex;
   flex-grow:1;
   padding: 5px;
   background-color: #5B4037;
   flex-direction: row;
   align-content: space-around;
- }
- .nav-link:hover{
+}
+
+.nav-link:hover {
   display: flex;
   flex-grow:1;
   padding: 5px;
   background-color: #3c1704;
   flex-direction: row;
   align-content: space-around;
- }
- .navbar--logo:hover {
-  background-color: #3c1704;
- }
- .navbar--logo > a:hover {
-  background-color: #3c1704;
- }
+}
 
- .navbar--logout {
+.navbar--logo:hover {
+  background-color: #3c1704;
+}
+
+.navbar--logo > a:hover {
+  background-color: #3c1704;
+}
+
+.navbar--logout {
   background-color: #ECA200;
   border: 5px solid #eca200;
   border-radius: 5px;
@@ -71,13 +73,13 @@ code {
   font-kerning: auto;
   align-content: flex-end;
   flex-grow: 0;
+}
 
- }
- .selectAndSearchBarLinedUp, .selectAndSearchBarLinedUp:focus{
+.selectAndSearchBarLinedUp, .selectAndSearchBarLinedUp:focus {
   align-self: center;
- }
+}
 
- .user--favorite--beer{
+.user--favorite--beer {
   z-index: 1;
   position: absolute;
   max-height: 6vh;
@@ -86,8 +88,8 @@ code {
   left: 0;
 }
 
- .home--map{
+.home--map {
   margin-left:5vw;
   margin-right:5vw;
   padding-bottom:15vh;
- }
+}

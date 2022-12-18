@@ -8,7 +8,7 @@ import BeerModal from "./BeerModal"
 import ExistingBreweryEmailRequest from "./ExistingBreweryEmailRequest"
 import BreweryModal from "./BreweryModal"
 import "./OwnershipTable.css"
-import '../Accounts/Accounts.css'
+import '../ccounts/Accounts.css'
 
 export default function OwnershipTable(props) 
 {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import '../Accounts/Accounts.css'
+import '../ccounts/Accounts.css'
 
 function ExistingBreweryEmailRequest(props) {
     return (

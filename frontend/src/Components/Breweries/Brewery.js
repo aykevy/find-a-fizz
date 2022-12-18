@@ -51,9 +51,10 @@ export default function Brewery({selectedBrewery, postReview, userId, userLocati
         }
         return '';
     }
-      let isFavorite = favorites.filter(function (favorite){return selectedBrewery.id === favorite.breweryId});
+    
+    let isFavorite = favorites.filter(function (favorite){return selectedBrewery.id === favorite.breweryId});
       
-    return(
+    return (
         <>
         <div className="selected--brewery">
         <img className= 'user--favorite--brewery' src = {isFavorite[0] ? '/assests/favorites/Favorited.png' :'/assests/favorites/NoFavorite.png'} alt='favorite thumbs up'
