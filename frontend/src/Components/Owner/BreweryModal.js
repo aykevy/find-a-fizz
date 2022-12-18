@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, Label, Row , Col } from 'reactst
 import { Control, LocalForm,Errors } from 'react-redux-form';
 import { baseUrl } from '../../Shared/baseUrl'
 import axios from 'axios';
-import '../ccounts/Accounts.css'
+import '../Accounts/Accounts.css'
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
