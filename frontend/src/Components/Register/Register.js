@@ -4,13 +4,9 @@ import {Link} from 'react-router-dom'
 import {baseUrl} from '../../Shared/baseUrl'
 import './Register.css'
 
-//short Regex to validate password - non functional -cause it would be annoying normally during testing
-// const validateRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/.gm();
+class Register extends Component {
 
-class Register extends Component{
-
-
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             username: '',
@@ -86,7 +82,7 @@ class Register extends Component{
                             required
                         />
 
-                        <label for='isBrewer' className='form-control'> I am a Brewery owner</label>
+                        <label for='isBrewer' className='form-control'> Brewery Owner? </label>
                         <input
                             type="checkbox"
                             id="isBrewer"
