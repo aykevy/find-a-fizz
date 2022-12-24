@@ -7,6 +7,8 @@ import {baseUrl} from '../../Shared/baseUrl'
 import axios from 'axios'
 import './Login.css'
 
+import Model from '../Spline/Model'
+
 const mapDispatchToProps = (dispatch) => ({
     addToken: () =>  dispatch(addToken()),
     addUser: () => dispatch(addUser()) 
@@ -43,44 +45,57 @@ class Login extends Component {
     render() {
         return (
             <div className='login--page--main'>
+
+                <div className='combine'>
+
+                
+                <Model className='spline'/>
+                
+                
                 <body className='login--page--boxes'>
-                    <img className='login--logo' src='./assets/loginImage.png' alt='Welcome In'/>
+                    
+            
                     <div className='login--inputs'>
-                    <img className='login--logo' src='./assets/FindAFizzLogo.png' alt='Welcome In'/>
-                        <h1>Login Here</h1>
+                            <img className='login--logo' src='./assets/FindAFizzLogo.png' alt='Welcome In'/>
+                            <h2>Login</h2>
                         
-                        <label class="sr-only">Username</label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            class="form-control"
-                            placeholder="Username"
-                            v-model="user.username"
-                            onChange={this.handleInputChange}
-                            required
-                        />
+                            <label class="sr-only">Username</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                class="form-control"
+                                placeholder="Username"
+                                v-model="user.username"
+                                onChange={this.handleInputChange}
+                                required
+                            />
 
-                        <label class="sr-only">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            name="password"
-                            class="form-control"
-                            placeholder="Password"
-                            v-model="user.password"
-                            onChange={this.handleInputChange}
-                            required
-                        />
+                            <label class="sr-only">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                class="form-control"
+                                placeholder="Password"
+                                v-model="user.password"
+                                onChange={this.handleInputChange}
+                                required
+                            />
 
-                        <Link to="/register">Need an account?</Link>
-                        <Link to='/home'>
-                            <button className='submit--button' type="submit" onClick={this.handleLogin}>Sign in</button>
-                        </Link>
+                            <Link to="/register">Need an account?</Link>
+                            <Link to='/home'>
+                                <button className='submit--button' type="submit" onClick={this.handleLogin}>Sign in</button>
+                            </Link>
           
                     </div>
                 </body>
+
+                </div>
+                
             </div>
+      
+    
         )
     }
 }
