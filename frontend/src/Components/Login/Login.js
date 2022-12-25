@@ -45,20 +45,12 @@ class Login extends Component {
     render() {
         return (
             <div className='login--page--main'>
-
                 <div className='combine'>
-
-                
-                <Model className='spline'/>
-                
-                
-                <body className='login--page--boxes'>
-                    
-            
-                    <div className='login--inputs'>
+                    <Model className='spline'/>
+                    <body className='login--page--boxes'>
+                        <div className='login--inputs'>
                             <img className='login--logo' src='./assets/FindAFizzLogo.png' alt='Welcome In'/>
                             <h2>Login</h2>
-                        
                             <label class="sr-only">Username</label>
                             <input
                                 type="text"
@@ -87,15 +79,10 @@ class Login extends Component {
                             <Link to='/home'>
                                 <button className='submit--button' type="submit" onClick={this.handleLogin}>Sign in</button>
                             </Link>
-          
-                    </div>
-                </body>
-
+                        </div>
+                    </body>
                 </div>
-                
             </div>
-      
-    
         )
     }
 }

@@ -23,16 +23,16 @@ const mapStateToProps = state => {
         beers: state.beers,
         breweries: state.breweries,
         location: state.location,
-        userReviews:state.userReviews,
-        userFavorites:state.userFavorites
+        userReviews: state.userReviews,
+        userFavorites: state.userFavorites
     }
 }
 
 /* Actions available from the store to be passed to comp and their props */
 const mapDispatchToProps = (dispatch) => ({
     //User dispatches
-    addToken: () => { dispatch(addToken()) },
-    deleteUser: () => { dispatch(deleteUser())},
+    addToken: () => {dispatch(addToken())},
+    deleteUser: () => {dispatch(deleteUser())},
 
     //Beer dispatches
     fetchBeers: () => {dispatch(fetchBeers())},
@@ -43,18 +43,18 @@ const mapDispatchToProps = (dispatch) => ({
     getBrewery: (id) => {dispatch(getBrewery(id))},
 
     //Review dispatches
-    postReview: (userId,beerId,review,rating,type) => {dispatch(postReview(userId,beerId,review,rating,type))},
+    postReview: (userId, beerId, review, rating, type) => {dispatch(postReview(userId, beerId, review, rating, type))},
     fetchReviews: (id) => {dispatch(fetchReviews(id))},
-    deleteUserReview: (review,type) =>{dispatch(deleteUserReview(review,type))},
+    deleteUserReview: (review, type) =>{dispatch(deleteUserReview(review, type))},
 
     //Location dispatches
-    addLocation: (latitude,longitude) => {dispatch(addLocation(latitude,longitude))},
+    addLocation: (latitude, longitude) => {dispatch(addLocation(latitude, longitude))},
     getLocation: () => {dispatch(getLocation())},
 
     //Favorite dispatches
     fetchFavorites: (id) => {dispatch(fetchFavorites(id))},
-    addUserFavorite: (itemId,userId,type) =>{dispatch(addUserFavorite(itemId,userId,type))},
-    deleteUserFavorite: (id,type) =>{dispatch(deleteUserFavorite(id,type))}
+    addUserFavorite: (itemId, userId, type) =>{dispatch(addUserFavorite(itemId, userId, type))},
+    deleteUserFavorite: (id, type) =>{dispatch(deleteUserFavorite(id, type))}
 });
 
 /* Setting up variables to determine daily beer/brewery for home */
@@ -68,8 +68,8 @@ class Main extends Component {
     }
 
     getTodaysItems = () => {
-        todaysBrewery =  this.props.breweries.breweries[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.breweries.breweries[0].length)+55];
-        todaysBeer =  this.props.beers.beers[0][(((1000 * today.getMonth()) + (1000 * today.getDay()))%this.props.beers.beers[0].length)+1];
+        todaysBrewery = this.props.breweries.breweries[0][(((1000 * today.getMonth()) + (1000 * today.getDay())) % this.props.breweries.breweries[0].length) + 55];
+        todaysBeer = this.props.beers.beers[0][(((1000 * today.getMonth()) + (1000 * today.getDay())) % this.props.beers.beers[0].length) + 1];
     }
 
     handleLogout = () => {
@@ -142,7 +142,7 @@ class Main extends Component {
                         twitter={'www.twitter.com/findafizz'} 
                         facebook={'www.facebook.com/people/Find-a-Fizz/100088184448015/'}
                         youtube={'www.youtube.com/watch?v=5CiKsJ31E4Y?autoplay=1'}
-                        linkedIn={['www.linkedin.com/in/jacob-lay-d','www.linkedin.com/in/kevin-lam916/','www.linkedin.com/in/b-cameron-hunt/']}
+                        linkedIn={['www.linkedin.com/in/jacob-lay-d','www.linkedin.com/in/kevin-lam916/']}
                         name='findafizz'
                         />
                 </footer></>
