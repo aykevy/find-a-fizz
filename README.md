@@ -26,5 +26,5 @@ Check us out at [findafizz.com](https://www.findafizz.com)!
 - [Open Brewery DB](https://www.openbrewerydb.org/) - A free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops.
 - [Wine Vybe](https://winevybe.com/) - A database for wine, beer, and liquor.
 
-##Contributers
+## Contributers
 Kevin Lam & Jacob Lay
