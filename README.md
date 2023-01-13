@@ -1,9 +1,9 @@
 # Find a Fizz
 
 Check us out at [findafizz.com](https://www.findafizz.com)
-![Login](https://photos.app.goo.gl/VTDTd1Bc5FWSMY1v8)
-![Home](https://photos.app.goo.gl/GpLESyb82HhzfmXx6)
-![Beers](https://photos.app.goo.gl/buYcTkrthreJgUGf9)
+![Login](https://i.imgur.com/IvV3EOq.jpg)
+![Home](https://i.imgur.com/1BMCcSO.jpg)
+![Beers](https://i.imgur.com/3XbrQaH.jpg)
 
 ## Stack
 - [Spring Boot / Spring Data JPA](https://spring.io/projects/spring-data-jpa) - A Java specification for managing relational data in Java applications. It allows us to access and persist data between Java object / class and relational database.
