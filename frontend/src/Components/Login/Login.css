@@ -2,17 +2,18 @@
 
  .combine {
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
    grid-template-areas:
-      ". . . . . . ."
-      ". . login--page--boxes login--page--boxes login--page--boxes . ."
-      "spline . login--page--boxes login--page--boxes login--page--boxes . ."
-      "spline . login--page--boxes login--page--boxes login--page--boxes . ."
-      "spline . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". . . . . . . "
+      ". . . . . . . ."
+      ". . . login--page--boxes login--page--boxes login--page--boxes . ."
+      ". spline . login--page--boxes login--page--boxes login--page--boxes . ."
+      ". spline . login--page--boxes login--page--boxes login--page--boxes . ."
+      ". spline . login--page--boxes login--page--boxes login--page--boxes . ."
+      ". . . login--page--boxes login--page--boxes login--page--boxes . ."
+      ". . . . . . . . "
 
  }
+
 
  .spline {
    margin-left: 100px;
