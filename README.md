@@ -2,7 +2,7 @@
 This full stack web application allows users to find breweries near them! Users can create a normal account to enjoy simple features such as searching a beer, searching a brewery, leaving comment reviews on beers/breweries, and adding beer/breweries to a favorites list! Creating a brewer account not only gives previous mentioned features but also gives them permission to list their own brewery and the drinks offered.
 Check us out at [findafizz.com](https://www.findafizz.com)
 
-![Login](https://i.imgur.com/IvV3EOq.jpg)
+![Login](https://i.imgur.com/4KIRk2o.jpg)
 
 ![Home](https://i.imgur.com/1BMCcSO.jpg)
 
