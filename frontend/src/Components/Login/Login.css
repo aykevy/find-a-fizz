@@ -1,17 +1,57 @@
  /* Login */
 
- .combine {
-   display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-   grid-template-areas:
-      ". . . . . . . ."
-      ". . . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". spline . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". spline . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". spline . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". . . login--page--boxes login--page--boxes login--page--boxes . ."
-      ". . . . . . . . "
 
+/* Mobile */
+ @media screen and (min-width: 320px) and (max-width:479px) {
+   section:not(.login--page--boxes) { display: none; }
+   .combine {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+         " . . . ."
+         " . . . ."
+         " . login--page--boxes login--page--boxes ."
+         " . login--page--boxes login--page--boxes ."
+         " . login--page--boxes login--page--boxes ."
+         " . login--page--boxes login--page--boxes ."
+         " . . . ."
+   
+    }
+ }
+
+/*Tablet*/
+ @media screen and (min-width: 480px) and (max-width:768px) {
+   section:not(.login--page--boxes) { display: none; }
+   .combine {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+         " . . . ."
+         " . login--page--boxes login--page--boxes ."
+         " . login--page--boxes login--page--boxes ."
+         " . login--page--boxes login--page--boxes ."
+         " . login--page--boxes login--page--boxes ."
+         " . . . ."
+   
+    }
+ }
+
+ /*Desktop*/
+ @media screen and (min-width: 768px){
+   .combine {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-areas:
+         ". . . . . . ."
+         ". login--page--boxes login--page--boxes login--page--boxes login--page--boxes . ."
+         "spline login--page--boxes login--page--boxes login--page--boxes login--page--boxes . ."
+         "spline login--page--boxes login--page--boxes login--page--boxes login--page--boxes . ."
+         "spline login--page--boxes login--page--boxes login--page--boxes login--page--boxes . ."
+         ". login--page--boxes login--page--boxes login--page--boxes login--page--boxes . ."
+         ". . . . . . . "
+
+   
+    }
  }
 
 
@@ -49,6 +89,7 @@
    max-width: 500px;
    width: 550px;
    margin-top: 100px;
+   margin-left: 100px;
    padding-bottom: 100px;
    box-sizing: border-box;
    border:2px solid white;
