@@ -1,6 +1,13 @@
 # Find a Fizz
+This full stack web application allows users to find breweries near them! Users can create a normal account to enjoy simple features such as searching a beer, searching a brewery, leaving comment reviews on beers/breweries, and adding beer/breweries to a favorites list! Creating a brewer account not only gives previous mentioned features but also gives them permission to list their own brewery and the drinks offered.
 
-Check us out at [findafizz.com](https://www.findafizz.com)
+Check us out at [findafizz.com](https://www.findafizz.com)!
+
+![Login](https://i.imgur.com/4KIRk2o.jpg)
+
+![Home](https://i.imgur.com/1BMCcSO.jpg)
+
+![Beers](https://i.imgur.com/3XbrQaH.jpg)
 
 ## Stack
 - [Spring Boot / Spring Data JPA](https://spring.io/projects/spring-data-jpa) - A Java specification for managing relational data in Java applications. It allows us to access and persist data between Java object / class and relational database.
@@ -18,3 +25,6 @@ Check us out at [findafizz.com](https://www.findafizz.com)
 - [Mapbox](https://www.mapbox.com/) - An advanced and flexible map service that provides developers access to comprehensive location information to create and customize dynamic and static maps.
 - [Open Brewery DB](https://www.openbrewerydb.org/) - A free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops.
 - [Wine Vybe](https://winevybe.com/) - A database for wine, beer, and liquor.
+
+## Contributers
+Kevin Lam & Jacob Lay
