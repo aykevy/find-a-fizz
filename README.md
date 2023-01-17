@@ -26,5 +26,11 @@ Check us out at [findafizz.com](https://www.findafizz.com)!
 - [Open Brewery DB](https://www.openbrewerydb.org/) - A free dataset and API with public information on breweries, cideries, brewpubs, and bottleshops.
 - [Wine Vybe](https://winevybe.com/) - A database for wine, beer, and liquor.
 
+## Front End Deployment
+- [Netlify](https://www.netlify.com/) - A platform for building highly-performant and dynamic websites, e-commerce stores, and web applications.
+
+## Back End Deployment
+- [Heroku](https://www.heroku.com/) - A platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+
 ## Contributers
 Kevin Lam & Jacob Lay
