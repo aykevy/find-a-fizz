@@ -34,3 +34,6 @@ Check us out at [findafizz.com](https://www.findafizz.com)!
 
 ## Contributers
 Kevin Lam & Jacob Lay
+
+## Copyright and Licensing
+You cannot modify or redistribute this code without explicit permission.
